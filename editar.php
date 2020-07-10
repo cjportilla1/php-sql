@@ -180,7 +180,6 @@ if (isset($_POST['actualizar'])){
             echo "<script> alert('datos actualizados')</script>";
             echo "<script> window.open('formulario.php','_self')</script>";
 
-            # code...
         }
 
  

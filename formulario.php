@@ -7,7 +7,7 @@ if ($_SESSION["logged"] = false) {
     header('location:cerrarsesion.php');
 }
 
-if ($_POST['insert'] = 'Registrar') {
+if ($_POST['insert'] = 'Registrar')  {
 
     $documento = $_POST['documento'];
     $usuario = $_POST['nombre'];
