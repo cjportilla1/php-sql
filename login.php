@@ -9,7 +9,7 @@ include("conexion.php");
             $user=$_POST['user'];
             $contra=$_POST['passuser'];
 
-            $sql="exec usp_Login ?,?";
+           $sql ="exec usp_Login ?,?";
                 $datos=array(
                 array($user,SQLSRV_PARAM_IN),
                 array($contra,SQLSRV_PARAM_IN)
