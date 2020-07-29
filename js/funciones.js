@@ -5,7 +5,7 @@ function loginUser(){
 	// adicionamos el boton concatenando el resultado de serialize con el botón, "&btnlogin=true"
 	var datalogin = dataForm+'&btnlogin=true';
 	 // Comprobar: 	
-	//  alert (datalogin);
+	 alert (datalogin);
 	//Con ajax controlamos el paso de datos al servicio desde el controlador:
 	$.ajax({
 		type: "POST",
@@ -22,22 +22,23 @@ function loginUser(){
 			// alert("hasta aca vamos ok");
 			// console.log();
 			// Método para cambiar de vista en la url:
-			window.location = "vista/configuracion.php";
+			window.location = "vista/formulario.php";
 		}else {
+			
 
-			if (this.res === 2) {
+			// if (this.res === 2) {
 				
-				window.location = "vista/vinstructor.php";
-			} else {
+			// 	window.location = "vista/vinstructor.php";
+			// } else {
 
-				if (this.res === 3) {
-					window.location = "vista/vaprendiz.php";
-				} else {
+			// 	if (this.res === 3) {
+			// 		window.location = "vista/vaprendiz.php";
+			// 	} else {
 					
-					$("#resultado").html(res);
-				}
+			// 		$("#resultado").html(res);
+			// 	}
 				
-			}
+			// }
 			// Si no es posible convertirlo en numero, entonces me muestra lo que trae res (respuesta):
 			
 		}	
@@ -54,7 +55,7 @@ function confirmDelete(id){
 // funcion de buscar y mostrar tabla
 
 
-$(listaruser());
+// $(listaruser());
 
 
 function listaruser(req){
