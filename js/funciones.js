@@ -35,7 +35,7 @@ function loginUser(){
 			// 		window.location = "vista/vaprendiz.php";
 			// 	} else {
 					
-			// 		$("#resultado").html(res);
+					$("#resultado").html(res);
 			// 	}
 				
 			// }

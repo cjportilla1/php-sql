@@ -1,13 +1,16 @@
 <?php
 error_reporting(0);
 
+session_start();
 
-if ($_SESSION["logged"] = null) {
+
+
+if ($_SESSION["perf"] !='admin' ) {
 
     header('location:cerrarsesion.php');
 }
 
-if ($_POST['insert'] = 'Registrar')  {
+if ($_POST['insert'] = 'Registrar') {
 
     $documento = $_POST['documento'];
     $usuario = $_POST['nombre'];
@@ -24,8 +27,7 @@ if ($_POST['insert'] = 'Registrar')  {
     $ejecutar = sqlsrv_query($con, $query, $params);
 
 
-        print_r($ejecutar);
-  
+   
 }
 
 
@@ -41,144 +43,167 @@ if ($_POST['insert'] = 'Registrar')  {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible">
-    
+
     <title>php-sql</title>
     <link rel="stylesheet" href=" ../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/formulario.css">
-    <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css">
+    <link rel="stylesheet" href="../css/fuente.css">
 
 
-     
-   
+
+
     <script type="text/javascript" src="../js/jquery.js"></script>
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script type="text/javascript" src="../js/popper.js"></script>
-    
+
     <script type="text/javascript" src="../DataTables/datatables.min.js"></script>
     <script type="text/javascript" src="../DataTables/datatables.js"></script>
-   
-   
-    
 
-   
-  
-    
-   
 
-   
 
-<script>
-     $(document).ready(function() {
+
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function() {
             $('#tusuarios').DataTable();
-        }); 
+        });
     </script>
 </head>
 
 <body>
 
-    <div class="container col-4 text-center imgs mt-5 p-5">
-        <h1>CRUD PHP SQL SERVER</h1>
-       
-        <section class="row justify-content-center">
 
 
+    <div class="container col-8 text-center imgs mt-2  formulario1">
 
-
-
-    <form class="" action="" method="POST" id="formRegistroUser">
-        <p class="h4 mb-4 naranja"><strong>Registro de usuario</strong></p>
-        <div class="form-row">
-
-
-
-
-
-            <div class="form-group col-md-3">
-                <label for="inputAddress"><span class="naranja">Documento o contraseña</span></label>
-                <input type="text" class="form-control " id="inputAddress" name="documento" placeholder="#documento" minlength="6">
-            </div>
-
-            <div class="form-group col-md-3 ">
-                <label for="inputState"><span class="naranja">Tipo documento</span></label>
-                <select name="idTipoDoc" id="inputState" class="form-control">
-                    <option value="" disabled>Seleccione una opcion</option>
-                  
-                </select>
-
-            </div>
-            <div class="form-group col-md-3">
-                <label for="inputAddress2"><span class="naranja">Nombres</span></label>
-                <input name="nombre" type="text" class="form-control" id="inputAddress2" placeholder="Primer y/o segundo nombre">
-            </div>
-
-            <div class="form-group col-md-3">
-                <label for="inputAddress2"><span class="naranja">Apellidos</span></label>
-                <input name="apellido" type="text" class="form-control" id="inputA" placeholder="Primer y segundo apellido">
-            </div>
-
+    <div class="row "> 
+        <div class="col-sm-4">  </div>
+        <div class="col-sm-4">
+        <img src="../assets/img/Logo.png" alt="" class="w-100 h-100">
         </div>
-        <div class="form-row">
+        <div class="col-sm-4">  </div>
+    </div>
 
-            
+        <h1 class="verde titulos mt-1">Registro datos personales de empleados</h1>
 
-            <div class="form-group col-md-3">
-                <label for="inputCity"><span class="naranja">Tel</span></label>
-                <input name="telefono" type="text" class="form-control" id="inputCity" placeholder="#telefono">
-            </div>
+       
 
-            <div class="form-group col-md-3">
-                <label for="inputState"><span class="naranja">Genero</span></label>
-                <select name="genero" id="input" class="form-control">
-                    <option selected>escoja</option>
-                    <option value="m">Masculino</option>
-                    <option value="f">Femenino</option>
-                    <option value="o">Otro</option>
-                </select>
-            </div>
+        <section class="row justify-content-center p-4">
 
-            <div class="form-group col-md-3">
-                <label for="inputAddress2"><span class="naranja">Correo</span></label>
-                <input name="correo" type="text" class="form-control" id="inputAddress2" placeholder="ejemplo@mail.com">
-            </div>
-            <div class="form-group col-sm-3">
-                <label for="inputState"><span class="naranja">Rol</span></label>
-                <select name="idTipoUsuario" id="inputState" class="form-control">
-                    <option disabled>seleccione una opcion---></option>
+
+
+
+
+            <form class="" action="" method="POST" id="formRegistroUser">
+             
+                <div class="form-row">
+
+
+
+
+
+                    <div class="form-group col-md-3">
+                        <label for="inputAddress"><span class="naranja">Documento</span></label>
+                        <input type="number" class="form-control " id="inputDoc" name="documento" placeholder="#documento" minlength="10000000" maxlength="5555555555">
+                    </div>
+
+                    <div class="form-group col-md-3 ">
+                        <label for="inputState"><span class="naranja">Tipo documento</span></label>
+                        <select name="idTipoDoc" id="inputDoctype" class="form-control">
+                            <option value="" disabled>Seleccione una opcion</option>
+
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputName"><span class="naranja">Nombres</span></label>
+                        <input name="nombre" type="text" class="form-control" id="inputAddress2" placeholder="Primer y/o segundo nombre">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="inputLastName"><span class="naranja">Apellidos</span></label>
+                        <input name="apellido" type="text" class="form-control" id="inputA" placeholder="Primer y segundo apellido">
+                    </div>
+
+                </div>
+                <div class="form-row">
+
+
+
+                    <div class="form-group col-md-3">
+                        <label for="inputCity"><span class="naranja">Tel</span></label>
+                        <input name="telefono" type="number" class="form-control" id="inputTel" placeholder="#telefono" minlength="1111111" maxlength="9999999999">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="inputState"><span class="naranja">Genero</span></label>
+                        <select name="genero" id="inputGender" class="form-control">
+                            <option selected>escoja</option>
+                            <option value="m">Masculino</option>
+                            <option value="f">Femenino</option>
+                            <option value="o">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="inputAddress2"><span class="naranja">Fnacimiento</span></label>
+                        <input name="Fnacimiento" type="date" class="form-control" id="inputBd" placeholder="use calendario">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="inputState"><span class="naranja">Rol</span></label>
+                        <select name="idTipoUsuario" id="inputState" class="form-control">
+                            <option disabled>seleccione una opcion---></option>
+
+                        </select>
+                    </div>
+
+
+                </div>
+
+
+                    <div class="form-row">
+
+                    <div class="col-4"></div>
+                    <div class="col-4">
+
+                <button type="button" onclick="cruduser('guardar')" class="btn btn-verde ">
+                    REGISTRAR </button> <br>
+                    <a href="cerrarsesion.php">Cerrar sesion</a>
+                    </div>
+                    
+                    <div class="col-4">
+
+
                  
-                </select>
-            </div>
-           
+                    </div>
 
-        </div>
-
-       
-
-           
-           
-
-        
-        <button type="button" onclick="cruduser('guardar')" class="btn btn-primary btn-verde">
-            REGISTRAR </button>
-        <button type="button" onclick="cruduser('actualizar')" class="btn btn-primary btn-verde">ACTUALIZAR</button>
-        <div class="text-right text-danger">¡para modificar un usuario debe poner el mismo # de documento !</div>
-        <article id="alerta" class="alert-warning text-danger"></article>
-    </form>
+                    </div>
+                
+                <article id="alerta" class="alert-warning text-danger"></article>
+            </form>
 
 
 
-</section>
+        </section>
+
+
       
-
-        <a href="cerrarsesion.php">Cerrar sesion</a>
 
     </div>
 
 
-    <div class="container mt-5">
-        <div class="jumbotron">
-            <table id="tusuarios" class=" table-striped " width="100%" height="auto">
+    <div class="container mt-5 col-10">
+        <div class="jumbotron formulario1">
+            <table id="tusuarios" class=" table table-striped " width="100%" height="auto">
                 <thead class=" ">
-                    <tr class=" text-center bg-primary table">
+                    <tr class=" text-center btn-verde table titulos">
                         <th>Id</th>
                         <th>Cedula</th>
                         <th>Nombre</th>
@@ -186,38 +211,38 @@ if ($_POST['insert'] = 'Registrar')  {
                         <th>Edad</th>
                         <th>Tel</th>
                         <th>F nacimiento</th>
-                       
+
                     </tr>
                 </thead>
                 <tbody>
 
-                <?php
-                include("conexion.php");
+                    <?php
+                    include("conexion.php");
 
-                $sql = "select * from usuarios";
+                    $sql = "select * from usuarios";
 
 
-                $res = sqlsrv_query($con, $sql);
+                    $res = sqlsrv_query($con, $sql);
 
-                while( $row = sqlsrv_fetch_array( $res, SQLSRV_FETCH_BOTH) ) {
-                       echo "<tr>
-                            <td>".$row["id"]."<td>
-                            <td>".$row["cedula"]."</td>
-                            <td>".$row["nombre"]."</td>
-                            <td>".$row["direccion"]."</td>
-                            <td>".$row["age"]."</td>
-                            <td>".$row["tel"]."</td>
-                            <td>".$row["fnacimiento"]->format('Y-m-d')."</td>
+                    while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
+                        echo "<tr>
+                            <td class='text-center font-boulder'>" . $row["id"] . "</td>
+                            <td class='text-center'>" . $row["cedula"] . "</td>
+                            <td class='text-center'>" . $row["nombre"] . "</td>
+                            <td class='text-center'>" . $row["direccion"] . "</td>
+                            <td class='text-center'>" . $row["age"] . "</td>
+                            <td class='text-center'>" . $row["tel"] . "</td>
+                            <td class='text-center'>" . $row["fnacimiento"]->format('Y-m-d') . "</td>
 
                             </tr>";
-                   
-                    // echo $row["nombre"];
-              }
 
-            
-                
+                        // echo $row["nombre"];
+                    }
 
-                ?>
+
+
+
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -225,8 +250,8 @@ if ($_POST['insert'] = 'Registrar')  {
     </div>
 
 
-  
-  
+
+
 
 </body>
 

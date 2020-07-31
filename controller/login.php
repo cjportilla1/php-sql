@@ -25,7 +25,7 @@ if (isset($_POST['btnlogin'])){
 
         if ($row[0]) {
 
-            $_SESSION["logged"] = true;
+            $_SESSION["perf"] ='admin';
            echo "1";
         } else {
             echo "error de inicio de sesion";

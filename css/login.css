@@ -15,7 +15,12 @@ body{
 
 
 .imgs{
-    background-image: url("../assets/img/Logo.jpg");
+    background-image: url("../assets/img/Logo.PNG");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100% 80%;
+}
+
+.verde{
+
+    color: rgb(113, 180, 83);
 }
