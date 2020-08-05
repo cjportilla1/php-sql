@@ -13,7 +13,7 @@
 
  body{
     background-image: url("../assets/img/cicty.jpg");
-    background-repeat: no-repeat;
+   
     background-size: 100% auto;
     
 }
@@ -34,6 +34,19 @@
 .btn-verde{
 
     background-color: rgb(113, 180, 83);
+    border-bottom-right-radius:30px ;
+    border-top-left-radius: 30px;
+    box-shadow: 5px 0px 0px 0px rgb(97, 105, 96);
+  
+}
+
+
+.btn-gris{
+
+    background-color: rgb(89, 89, 91)
+    border-bottom-right-radius:30px ;
+    border-top-left-radius: 30px;
+    box-shadow: 5px 0px 0px 0px rgb(113, 180, 83)
   
 }
 
@@ -47,4 +60,16 @@
 
 .titulos{
     font-family: energym;
+}
+
+.fverde{
+    background-color: rgb(113, 180, 83);
+}
+
+
+.texto{
+
+    font-family: arial;
+   font-size: 10px;
+   font-weight: bolder;
 }

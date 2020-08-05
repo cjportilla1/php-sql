@@ -35,7 +35,7 @@ function loginUser(){
 			// 		window.location = "vista/vaprendiz.php";
 			// 	} else {
 					
-					$("#resultado").html(res);
+					$("#alerta").html(res);
 			// 	}
 				
 			// }
@@ -48,7 +48,8 @@ function loginUser(){
 function confirmDelete(id){
     var r=confirm("¿Estas seguro de eliminar este registro?");
     if (r==true){
-      window.location.href = "asignar.php?eliminar&id="+id;
+	  window.location.href = "formulario.php?eliminar&id="+id;
+	  setTimeout(recargar,3000);
     }
   }
 
@@ -78,16 +79,16 @@ function listaruser(req){
 }
 
 
-$(document).on('keyup','#buscador',function(){
-	var valorbuscar=$(this).val();
+// $(document).on('keyup','#buscador',function(){
+// 	var valorbuscar=$(this).val();
 
-	if (valorbuscar!=null) {
-		listaruser(valorbuscar);
-	}else{
-		listaruser()
-	}
+// 	if (valorbuscar!=null) {
+// 		listaruser(valorbuscar);
+// 	}else{
+// 		listaruser()
+// 	}
 
-})
+// })
 
 
 // funcion para asignar
@@ -117,19 +118,19 @@ function asignarHorario(){
 function cruduser(btnSaveUser){
 	var datoForm = $("#formRegistroUser").serialize();
 	var datoReg = datoForm+'&btnopcion='+btnSaveUser;
-	// alert (datoReg);
+	alert (datoReg);
 	console.log();
 	// Control asicronico:
 	$.ajax({
 		type: "POST",
-		url: "../controller/cruduser.php",
+		url: "../controller/registrar.php",
 		data: datoReg
 	})
 	.done(function(res){
 		console.log(res);
 		
 		$("#alerta").html(res);
-		setTimeout(regarcar,3000);
+		// setTimeout(regarcar,3000);
 	})
 }
 
@@ -195,4 +196,8 @@ function regarcar(){
 	location.reload();
 
 
+}
+
+function recargarform(){
+	Header("location:formulario.php");
 }

@@ -23,12 +23,12 @@ if (isset($_POST['btnlogin'])){
 
 
 
-        if ($row[0]) {
+        if ($row[0]!='error') {
 
             $_SESSION["perf"] ='admin';
            echo "1";
         } else {
-            echo "error de inicio de sesion";
+            echo "error de inicio de sesion,compruebe datos";
         }
     }
  
