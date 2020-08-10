@@ -71,7 +71,7 @@
 					echo "datos registrados correctamente";
 			 
 			} else {
-				echo "error , campos vacios ó errores de datos";
+				echo "error , campos vacios,registro duplicado ó errores de datos";
 			}
 		}
 	}

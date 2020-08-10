@@ -5,7 +5,7 @@ function loginUser(){
 	// adicionamos el boton concatenando el resultado de serialize con el botón, "&btnlogin=true"
 	var datalogin = dataForm+'&btnlogin=true';
 	 // Comprobar: 	
-	 alert (datalogin);
+	//  alert (datalogin);
 	//Con ajax controlamos el paso de datos al servicio desde el controlador:
 	$.ajax({
 		type: "POST",
@@ -79,6 +79,7 @@ function listaruser(req){
 }
 
 
+
 // $(document).on('keyup','#buscador',function(){
 // 	var valorbuscar=$(this).val();
 
@@ -118,7 +119,7 @@ function asignarHorario(){
 function cruduser(btnSaveUser){
 	var datoForm = $("#formRegistroUser").serialize();
 	var datoReg = datoForm+'&btnopcion='+btnSaveUser;
-	alert (datoReg);
+	// alert (datoReg);
 	console.log();
 	// Control asicronico:
 	$.ajax({
@@ -130,7 +131,7 @@ function cruduser(btnSaveUser){
 		console.log(res);
 		
 		$("#alerta").html(res);
-		// setTimeout(regarcar,3000);
+		setTimeout(regarcar,3000);
 	})
 }
 
