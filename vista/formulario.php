@@ -69,12 +69,12 @@ include("conexion.php");
         <div class="row ">
             <div class="col-sm-4"> </div>
             <div class="col-sm-4">
-                <img src="../assets/img/Logo.png" alt="" class="w-75 h-75">
+                <img src="../assets/img/Logo.png" alt="" class="w-100 h-100">
             </div>
             <div class="col-sm-4"> </div>
         </div>
 
-        <h1 class="verde titulos mt-1">Registro datos personales de empleados</h1>
+        <h1 class="verde titulos ">Registro datos personales de empleados</h1>
 
 
 
@@ -89,23 +89,36 @@ include("conexion.php");
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for=""><span class="naranja">Nombre</span></label>
-                        <input name="nombre" type="text" class="form-control" id="nombreid" placeholder="Nombre" minlength="3" maxlength="30" value="<?php echo $_POST["nombre"]; ?>">
+                        <label for=""><span class="font-weight-bold">Nombre completo</span></label>
+                        <input name="nombre" type="text" class="form-control" id="nombreid" placeholder="Nombre" minlength="3" maxlength="40" value="<?php echo $_POST["nombre"]; ?>">
                     </div>
 
                     <div class="form-group col-md-4">
-                        <label for="inputd"><span class="naranja">Documento</span></label>
+                        <label for="inputd"><span class="font-weight-bold">Documento</span></label>
                         <input name="cedula" type="number" class="form-control" id="inputdoc" placeholder="#Cedula" min="1000000" max="999999999999" minlength="7" maxlength="12" value="<?php echo $_POST["cedula"]; ?>">
                     </div>
 
                     <div class="form-group col-md-4">
-                        <label for="inputca"><span class="naranja">Rol</span></label>
+                        <label for="inputca"><span class="font-weight-bold">Rol</span></label>
                         <select name="cargo" id="inputcargo" class="form-control">
-                            <option disabled value="">seleccione---></option>
+                        <?php   
+                                if (empty($_POST["cargo"])) {
+
+                                    echo "<option value=''> seleccione--> ";
+                                    # code...
+                                }else {
+                                    echo "<option value='".$_POST["cargo"]."'>".$_POST["cargo"]." ";
+                                }
+                     ?>
                             <option value="Desarrollador">Desarrollador</option>
-                            <option value="Jefe de operaciones">Jefe de operaciones</option>
-                            <option value="Comercial">Comercial</option>
-                            <option value="Auxiliar">Auxiliar</option>
+                            <option value="Chief operating officer">Chief operating officer</option>
+                            <option value="Sales manager colombia">Sales manager colombia</option>
+                            <option value="Abogada">Abogada</option>
+                            <option value="Analista de centralización">Analista de centralización</option>
+                            <option value="Líder de gestión">Líder de gestión</option>
+                            <option value="Líder de gestión">Coordinador de ingeniería</option>
+                            <option value="International sales director">International sales director</option>
+                            <option value="Analista financiera">Analista financiera</option>
 
 
 
@@ -122,12 +135,12 @@ include("conexion.php");
 
 
                     <div class="form-group col-md-2">
-                        <label for="inpu"><span class="naranja">F.nacimiento</span></label>
-                        <input type="date" value="<?php echo $_POST["fnacimiento"]; ?>" class="form-control " id="inputbplace" name="fnacimiento" placeholder="fnacimi" <?php echo 'max=' . date('Y-m-d') ?> min="1960-01-01">
+                        <label for="inpu"><span class="font-weight-bold">Fec nacimiento</span></label>
+                        <input type="date" value="<?php echo $_POST["fnacimiento"]; ?>" class="form-control " id="inputbplace" name="fnacimiento" placeholder="fnacimi" <?php echo 'max=' . date('Y-m-d') ?> <?php echo 'min=' . date('(Y-18)-m-d') ?>  >
                     </div>
 
                     <div class="form-group col-md-2 ">
-                        <label for="inputca"><span class="naranja">C.residencia</span></label>
+                        <label for="inputca"><span class="font-weight-bold">Ciudad actual</span></label>
                         <select name="cresidencia" id="inputcresi" class="form-control">
                           <?php 
                                   if (empty($_POST["cresidencia"])) {
@@ -152,7 +165,7 @@ include("conexion.php");
                     </div>
 
                     <div class="form-group col-md-2">
-                        <label for="inputca"><span class="naranja">C.nacimiento</span></label>
+                        <label for="inputca"><span class="font-weight-bold">Ciu nacimiento</span></label>
                         <select name="cnacimiento" id="inputcnaci" class="form-control" placeholder="seleccione">
                 
                         <?php 
@@ -176,17 +189,17 @@ include("conexion.php");
                     </div>
 
                     <div class="form-group col-md-2">
-                        <label for="inpu"><span class="naranja">F.ingreso</span></label>
+                        <label for="inpu"><span class="font-weight-bold">Fec ingreso</span></label>
                         <input type="date" value="<?php echo $_POST["fingreso"]; ?>" class="form-control " id="inputfingreso" name="fingreso" placeholder="fingreso" <?php echo 'max=' . date('Y-m-d') ?>>
                     </div>
 
                     <div class="form-group col-md-2 ">
-                        <label for="inputtel"><span class="naranja">Tel</span></label>
+                        <label for="inputtel"><span class="font-weight-bold">Telefono</span></label>
                         <input name="telefono" type="number" value="<?php echo $_POST["telefono"]; ?>" class="form-control" id="inputTel" placeholder="#telefono" min="1000000" max="999999999999" minlength="7" maxlength="12">
                     </div>
 
                     <div class="form-group col-md-2">
-                        <label for="inputcontact"><span class="naranja">Nom contacto</span></label>
+                        <label for="inputcontact"><span class="font-weight-bold">Nom contacto</span></label>
                         <input name="contacto" type="text" value="<?php echo $_POST["contacto"]; ?>" class="form-control" id="inputA" placeholder="Primer y segundo apellido" minlength="3" maxlength="30">
                     </div>
 
@@ -198,12 +211,12 @@ include("conexion.php");
 
 
                     <div class="form-group col-md-2">
-                        <label for="inputcontactphone"><span class="naranja">Tel contacto</span></label>
+                        <label for="inputcontactphone"><span class="font-weight-bold">Tel contacto</span></label>
                         <input name="telefonoc" type="number" value="<?php echo $_POST["telefonoc"]; ?>" class="form-control" id="inputTelc" placeholder="#tel contacto" minlength="7" maxlength="12">
                     </div>
 
                     <div class="form-group col-md-2">
-                        <label for="inputRh"><span class="naranja">Rh sanguineo</span></label>
+                        <label for="inputRh"><span class="font-weight-bold">RH</span></label>
                         <select name="rhsanguineo" value="" id="inputrole" class="form-control">
                             
                         <?php    
@@ -211,7 +224,7 @@ include("conexion.php");
                                  echo "<option value=''> seleccione->";
                                  # code...
                              }else{
-                                 echo " value='".$_POST["rhsanguineo"]."'> ".$_POST["rhsanguineo"]."";
+                                 echo " <option value='".$_POST["rhsanguineo"]."'> ".$_POST["rhsanguineo"]."";
                              }
                         
                         ?>
@@ -226,7 +239,7 @@ include("conexion.php");
                     </div>
 
                     <div class="form-group col-md-2">
-                        <label for="inputState"><span class="naranja">Tipo documento</span></label>
+                        <label for="inputState"><span class="font-weight-bold">Tipo documento</span></label>
                         <select name="idTipoDoc" id="inputDoctype" class="form-control">
                         <?php   
                                 if (empty($_POST["idTipoDoc"])) {
@@ -239,13 +252,13 @@ include("conexion.php");
                      ?>       
                     </option>
                             <option value="1">cedula de ciudadania</option>
-                            <option value="2">tarjeta identidad</option>
+                            <option value="2">tarjeta de identidad</option>
                             <option value="3">cedula extranjero</option>
 
                         </select>
                     </div>
                     <div class="form-group col-sm-2">
-                        <label for="inputmtransport"><span class="naranja">M.transporte</span></label>
+                        <label for="inputmtransport"><span class="font-weight-bold">Transporte</span></label>
                         <select name="medtransporte" id="inputmtrans" class="form-control">
                      <?php   
                                 if (empty($_POST["medtransporte"])) {
@@ -257,8 +270,9 @@ include("conexion.php");
                                 }
                      ?>
                     </option>
-                            <option value="transporte publico">trans publico</option>
-                            <option value="transporte privado">trans privado</option>
+                            <option value="Publico automotor">Publico automotor</option>
+                            <option value="Privado automotor">Privado automotor</option>
+                            <option value="Publico metro">Publico metro</option>
 
 
                         </select>
@@ -266,14 +280,23 @@ include("conexion.php");
                     </div>
 
                     <div class="form-group col-md-2">
-                        <label for="inputAddress"><span class="naranja">Direccion</span></label>
+                        <label for="inputAddress"><span class="font-weight-bold">Direccion</span></label>
                         <input name="direccion" value="<?php echo $_POST["direccion"]; ?>" type="text" class="form-control" id="inputdireccion" placeholder="calle falsa 123" minlength="5" maxlength="30">
                     </div>
 
                     <div class="form-group col-md-2">
-                        <label for="inputgender"><span class="naranja">Genero</span></label>
+                        <label for="inputgender"><span class="font-weight-bold">Genero</span></label>
                         <select name="genero" id="inputgender" class="form-control">
-                            <option value="" disabled>Seleccione una opcion</option>
+                        <?php   
+                                if (empty($_POST["genero"])) {
+
+                                    echo "<option value=''> seleccione--> ";
+                                    # code...
+                                }else {
+                                    echo "<option value='".$_POST["genero"]."'>".$_POST["genero"]." ";
+                                }
+                     ?>
+                    </option>
                             <option value="masculino">masculino</option>
                             <option value="femenino">femenino</option>
                             <option value="otro">otro</option>
@@ -292,10 +315,10 @@ include("conexion.php");
 
                 <div class="form-row">
 
-                    <div class="col-3"></div>
+                    <div class="col-4"></div>
                     <div class="col">
 
-                        <button type="button" onclick="cruduser('guardar')" class="btn btn-verde ">
+                        <button type="button" onclick="cruduser('guardar')" class="btn btn-verde text-light">
                             REGISTRAR </button> <br>
                         <br>
                        
@@ -304,29 +327,27 @@ include("conexion.php");
                     </div>
                     <div class="col">
 
-                        <button type="button" onclick="cruduser('actualizar')" class="btn btn-verde ">
+                        <button type="button" onclick="cruduser('actualizar')" class="btn btn-verde text-light">
                             ACTUALIZAR </button> <br>
-                        <br>
-                        <a href="cerrarsesion.php">Cerrar sesion</a>
-                        <br>
+                     
                         <article id="alerta" class="alert-warning text-danger"></article>
 
                     </div>
-                    <div class="col">
+                  
 
-                    <input class="btn btn-verde" type="button" onclick="" value="Limpiar formulario">
-                   
-                        <br>
-                   
-                   
-                    </div>
-
-                    <div class="col-3">
+                    <div class="col-4">
 
 
 
                     </div>
-                    <?php print_r($_POST); ?>
+                              
+                </div>
+
+                <div class="form-row-12">
+               <mark> <a href="cerrarsesion.php" class="text-danger font-size:1rem" >Cerrar sesion</a> </mark>
+               <!-- <?php 
+        
+               var_dump($_POST["rhsanguineo"]);?> -->
                 </div>
 
 
@@ -343,20 +364,20 @@ include("conexion.php");
 
 
     <div class="container mt-5 col-10">
-        <div class="jumbotron formulario1">
+        <div class="container formulario1 imgs p-4">
             <table id="tusuarios" class="responsive  table-striped " width="100%" height="100%">
                 <thead class=" ">
-                    <tr class="  text-center fverde  titulos">
-                        <th>Accion</th>
-                        <th>accion</th>
-                        <th>Nom</th>
-                        <th>Doc</th>
+                    <tr class=" text-center fverde   text-light">
+                        <th>Eliminar</th>
+                        <th>Editar</th>
+                        <th>Nombre</th>
+                        <th>Documento</th>
                         <th>Cargo</th>
-                        <th>tel</th>
-                        <th>Cont pers</th>
+                        <th>Telefono</th>
+                        <th>Contacto</th>
                         <th>tel cont</th>
                         <th>Rh</th>
-                        <th>Dir</th>
+                        <th>Direccion</th>
                        
 
 
@@ -378,11 +399,25 @@ include("conexion.php");
 
                     if (isset($_GET['eliminar'])) {
 
-                        $sqlDelete = "delete from usuarios where id =?";
+                        $sqlDelete = "exec borrar ?";
                         $datos = array(
                             array($_GET['id'], SQLSRV_PARAM_IN),
                         );
                         $resu = sqlsrv_query($con, $sqlDelete, $datos);
+
+
+                    while ($row= sqlsrv_fetch_array($resu)) {
+                       
+                
+                        if ($row[0]!='error') {
+                            echo "<label class='text-danger' >usuario eliminado correctamente</label>";
+                     
+                        }else {
+                            echo "<label class='text-danger' >usuario admin,no se puede eliminar</label>";
+                       
+                        }
+                    }
+                       
                     }
 
 
@@ -422,7 +457,7 @@ include("conexion.php");
                        <input type='hidden' name='cresidencia1' value='" . $row["lresidencia"] . "'>
                        <input type='hidden' name='descdoc' value='" . $row["descripcion"] . "'>
 
-                       <input class='btn btn-success' type='submit'  value='editar' name='accion'>
+                       <input class='btn btn-success' type='submit'  value='Editar' name='accion'>
                        </form>
                     
                        </td>

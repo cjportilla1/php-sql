@@ -4,9 +4,13 @@
 if (isset($_POST['btnlogin'])){
 		# Incluyo la conexion a la base de datos:
 	     // print_r($_POST);
-	require('../vista/conexion.php');
-    $user = $_POST['user'];
-    $contra = $_POST['passuser'];
+    require('../vista/conexion.php');
+    
+  
+        $user = trim($_POST['user']);
+        $contra = trim($_POST['passuser']);
+    
+   
 
     $sql = "exec sp_Login ?,?";
     $datos = array(
