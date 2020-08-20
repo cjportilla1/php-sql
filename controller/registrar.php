@@ -145,3 +145,64 @@
 			}
 		}
 	}
+
+
+	if ($_POST['btnopcion']=='guardaruint') {
+
+		 
+
+
+		$razons =trim($_POST['razon']);
+		$usuarioint =trim($_POST['usuario']);
+		$razons =trim($_POST['contrasena']);
+		$usuarioint =trim($_POST['idrol']);
+	
+		
+	
+
+		$sql = "exec sp_actualizar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($nombre, SQLSRV_PARAM_IN),
+			array($documento, SQLSRV_PARAM_IN),
+			array($fnacimiento, SQLSRV_PARAM_IN),
+			array($ciudadn, SQLSRV_PARAM_IN),
+			array($rol, SQLSRV_PARAM_IN),
+			array($tel, SQLSRV_PARAM_IN),
+			array($contacto, SQLSRV_PARAM_IN),
+			array($telconta, SQLSRV_PARAM_IN),
+			array($idtipodoc, SQLSRV_PARAM_IN),
+			array($ciudadr, SQLSRV_PARAM_IN),
+			array($direccion, SQLSRV_PARAM_IN),
+			array($rh, SQLSRV_PARAM_IN),
+			array($mtransporte, SQLSRV_PARAM_IN),
+			array($genero, SQLSRV_PARAM_IN),
+			array($fingreso, SQLSRV_PARAM_IN),
+			array($pass, SQLSRV_PARAM_IN)
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "datos actualizados correctamente";
+
+					unset($nombre,$documento,$rol,$tel,$contacto,$telconta,$rh,$direccion,$idtipodoc,$fnacimiento,$ciudadn,$ciudadr,$mtransporte,$genero,$fingreso);
+			 
+			} else {
+				echo "error ,al actualizar,usuario no permitido ó error en algun campo";
+			}
+		}
+	}
+
+

@@ -49,6 +49,16 @@ function confirmDelete(id) {
 	}
 }
 
+function confirmDeleteUint(id) {
+	// preguntamos cn un confirm si desea completar la accion
+	var r = confirm("¿Estas seguro de eliminar este registro?");
+
+	if (r == true) {
+		// si es cierta la confirmacion  manda sumada en la url por metodo get el id seleccionado para eliminar del registro
+		window.location.href = "intuser.php?eliminar&id=" + id;
+		setTimeout(recargar, 2000);
+	}
+}
 
 
 

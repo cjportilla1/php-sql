@@ -26,14 +26,28 @@ if (isset($_POST['btnlogin'])){
     while ($row = sqlsrv_fetch_array($res)) {
 
 
+        switch ($row["nombreadt"]) {
+            case "admin":
 
-        if ($row[0]!='error') {
+                $_SESSION["perf"]='admin';
+                echo "1";
+                # code...
+                break;
 
-            $_SESSION["perf"] ='admin';
-           echo "1";
-        } else {
-            echo "error de inicio de sesion,compruebe datos";
+         case "visual":
+
+            $_SESSION["perf"]='visual';
+            echo "1";
+                    # code...
+                    break;
+            
+            case "error":
+
+                echo " error , datos incorrectos";
+                # code...
+                break;
         }
+      
     }
  
 

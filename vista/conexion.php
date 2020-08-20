@@ -7,7 +7,8 @@ $con = sqlsrv_connect($serverName,$connectionInfo);
 // if($con){
 // echo "db ok";
 
-// } else {
+// } 
+// else {
 //     print_r(sqlsrv_errors());
 // }
 
