@@ -1,5 +1,5 @@
 <?php  
-  session_start();
+ session_start();
 	# Si oprimimos el boton de loginuser, vamos a validar el ingreso:
 if (isset($_POST['btnlogin'])){
 		# Incluyo la conexion a la base de datos:
@@ -26,23 +26,28 @@ if (isset($_POST['btnlogin'])){
     while ($row = sqlsrv_fetch_array($res)) {
 
 
+        // print_r($row["nombreadt"]);
+        
         switch ($row["nombreadt"]) {
-            case "admin":
+            case 'admin':
 
                 $_SESSION["perf"]='admin';
+                $_SESSION["logged"]=1;
                 echo "1";
                 # code...
                 break;
 
-         case "visual":
+         case 'visual':
 
-            $_SESSION["perf"]='visual';
+            $_SESSION["perf"]='visualizacion';
+            $_SESSION["logged"]=1;
             echo "1";
                     # code...
                     break;
             
-            case "error":
-
+            case 'error':
+                $_SESSION["perf"]='null';
+                $_SESSION["logged"]='null';
                 echo " error , datos incorrectos";
                 # code...
                 break;

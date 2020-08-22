@@ -1,6 +1,7 @@
 <?php
 # Aseguramos desactivar todas las sesiones:
-session_unset();
+unset($_SESSION["logged"]);
+unset($_SESSION["perf"]);
 # Destruimos todos los archivos y variables de la sesion:
 session_destroy();
 # Destruimos los cookies del navegador para que al dar atrás no 

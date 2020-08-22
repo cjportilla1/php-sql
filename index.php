@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include("vista/conexion.php");
+session_start();
 
 ?>
 <meta charset="UTF-8">
@@ -10,9 +11,10 @@ include("vista/conexion.php");
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width device.width, initial-scale=1">
-    <title>php-sql</title>
+    <title>Modulo interno Energy Master</title>
     <link rel="stylesheet" href="css\bootstrap.min.css">
     <link rel="stylesheet" href="css\login.css">
+    <link rel="shortcut icon" href="../assets/img/titleem.ico">
     <script src="js/funciones.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
 
@@ -73,8 +75,9 @@ include("vista/conexion.php");
 							<path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
 						</svg> Ingresar</button>
             <article id="alerta" class="alert-warning text-danger"></article>
-                
-
+        
+         
+      
                 
               </form>
              
