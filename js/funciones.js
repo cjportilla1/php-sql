@@ -20,8 +20,6 @@ function loginUser() {
 
 			// Si al volver entero el resultado es 1, entonces se va a mi página de main:
 
-
-
 			window.location = "vista/formulario.php";
 		} else {
 

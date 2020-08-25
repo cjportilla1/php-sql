@@ -11,11 +11,13 @@
 
 </nav>
 
-<div class="container-fluid mt-5 col-10 formulario1 imgs  py-5 ">
+<div class="container-fluid mt-5 col-10 formulario1 imgs  p-4 ">
+
+  <h1 class="verde titulos ">Datos personales de empleados</h1>
     
         <table id="tusuarios" class=" responsive  table-striped " width="100%" height="100%">
             <thead class=" ">
-                <tr class="  text-center fverde text-light">
+                <tr class="  text-center  fverde text-light">
 
                     <th>Nombre</th>
                     <th>Documento</th>
