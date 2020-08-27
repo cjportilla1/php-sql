@@ -244,3 +244,59 @@
 
 
 
+
+	if ($_POST['btnopcion']=='guardartrbot') {
+
+		 
+
+
+		$ftranbot =trim($_POST['ftranbot']);
+		$idperstr =trim($_POST['idperstr']);
+		$idcliente =trim($_POST['idcliente']);
+		$idcat =trim($_POST['idcat']);
+		$transl =trim($_POST['transl']);
+		$transexi =trim($_POST['transexi']);
+		$tiahorrado =trim($_POST['tiahorrado']);
+	
+	
+		
+	
+
+		$sql = "exec usp_insBotTr ?,?,?,?,?,?,?";
+		$datos = array(
+			array($ftranbot, SQLSRV_PARAM_IN),
+			array($idperstr, SQLSRV_PARAM_IN),
+			array($idcliente, SQLSRV_PARAM_IN),
+			array($idcat, SQLSRV_PARAM_IN),
+			array($transl, SQLSRV_PARAM_IN),
+			array($transexi, SQLSRV_PARAM_IN),
+			array($tiahorrado, SQLSRV_PARAM_IN),
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
+			}
+		}
+	}
+
+
