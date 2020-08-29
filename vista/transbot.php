@@ -97,6 +97,10 @@ if (empty($_SESSION["logged"])) {
                         <li>
                             <a href="historicos.php">Registro consumos historicos</a>
                         </li>
+                        <li>
+                            <a href="anulaciones.php">Registros Anulaciones</a>
+                            
+                        </li>
                     </ul>
                 </li>
                 <li>

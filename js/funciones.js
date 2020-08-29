@@ -5,7 +5,7 @@ function loginUser() {
 	// adicionamos el boton concatenando el resultado de serialize con el botón, "&btnlogin=true"
 	var datalogin = dataForm + '&btnlogin=true';
 	// Comprobar: 	
-	 alert (datalogin);
+	//  alert (datalogin);
 	//Con ajax controlamos el paso de datos al servicio desde el controlador:
 	$.ajax({
 		type: "POST",
@@ -111,7 +111,7 @@ function cruduser(btnSaveUser) {
 	var datoReg = datoForm + '&btnopcion=' + btnSaveUser;
 	// se puede usar un alert para imprimir en pantalla una ventana con los datos que se estan enviando
 	//  por post para comprobar que van la cantidad y llenos con los datos correspondientes
-	alert (datoReg);
+	// alert (datoReg);
 	console.log();
 	// Control asicronico:
 	$.ajax({
