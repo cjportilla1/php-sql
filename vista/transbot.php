@@ -23,11 +23,12 @@ if (empty($_SESSION["logged"])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible">
 
-    <title>php-sql</title>
+    <title>Transacciones robot</title>
     <link rel="stylesheet" href=" ../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/formulario.css">
     <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css">
     <link rel="stylesheet" href="../css/fuente.css">
+    <link rel="shortcut icon" href="../assets/img/titleem.ico">
 
 
 
@@ -92,6 +93,9 @@ if (empty($_SESSION["logged"])) {
                         </li>
                         <li>
                             <a href="transbot.php">Transacciones bot</a>
+                        </li>
+                        <li>
+                            <a href="historicos.php">Registro consumos historicos</a>
                         </li>
                     </ul>
                 </li>

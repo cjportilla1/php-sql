@@ -2,13 +2,14 @@
 error_reporting(0);
 
 session_start();
-
 include("conexion.php");
 
 
 if (empty($_SESSION["logged"])) {
     header("location:cerrarsesion.php");
 }
+
+
 
 ?>
 
@@ -23,12 +24,12 @@ if (empty($_SESSION["logged"])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible">
 
-    <title>Uusarios internos empresas</title>
+    <title>Formulario Anulaciones</title>
     <link rel="stylesheet" href=" ../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/formulario.css">
     <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css">
     <link rel="stylesheet" href="../css/fuente.css">
-     <link rel="shortcut icon" href="../assets/img/titleem.ico">
+    <link rel="shortcut icon" href="../assets/img/titleem.ico">
 
 
 
@@ -81,7 +82,7 @@ if (empty($_SESSION["logged"])) {
                         <li>
                             <a href="formulario.php">Datos personales empleados</a>
                         </li>
-                     
+                      
                     </ul>
                 </li>
 
@@ -96,6 +97,7 @@ if (empty($_SESSION["logged"])) {
                         </li>
                         <li>
                             <a href="historicos.php">Registro consumos historicos</a>
+                            
                         </li>
                         <li>
                             <a href="anulaciones.php">Registros Anulaciones</a>
@@ -113,31 +115,23 @@ if (empty($_SESSION["logged"])) {
         </nav>
 
 
-        <div id="content" class="cuerpo mx-auto">
-            <nav class="navbar navbar-expand-lg navbar-light ">
+        <div id="content" class=" mx-auto">
 
-                <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Menú</span>
-                    </button>
+            <?php
 
-                </div>
+            if ($_SESSION["perf"] == 'admin') {
+                include("anuladm.inc");
 
-            </nav>
-           
-            <?php     
-                if ($_SESSION["perf"]=='admin') {
-                    include("userintadm.inc");
-
-                    # code...
-                }elseif ($_SESSION["perf"]=='visualizacion') {
-                    include("intuservisual.inc");
-                    # code...
-                }
+                # code...
+            }elseif ($_SESSION["perf"]=='visualizacion') {
+                include("anulvisual.inc");
+            }
+            
 
             ?>
+
+
 
         </div>
 

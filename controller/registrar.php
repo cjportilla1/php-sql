@@ -249,7 +249,7 @@
 
 		 
 
-
+		
 		$ftranbot =trim($_POST['ftranbot']);
 		$idperstr =trim($_POST['idperstr']);
 		$idcliente =trim($_POST['idcliente']);
@@ -300,3 +300,289 @@
 	}
 
 
+
+	if ($_POST['btnopcion']=='actualizartrbot') {
+
+		 
+
+        $idtranbot=trim($_POST["idtranbot"]);
+		$ftranbot =trim($_POST['ftranbot']);
+		$idperstr =trim($_POST['idperstr']);
+		$idcliente =trim($_POST['idcliente']);
+		$idcat =trim($_POST['idcat']);
+		$transl =trim($_POST['transl']);
+		$transexi =trim($_POST['transexi']);
+		$tiahorrado =trim($_POST['tiahorrado']);
+	
+	
+		
+	
+
+		$sql = "exec usp_updtranbot ?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idtranbot, SQLSRV_PARAM_IN),
+			array($ftranbot, SQLSRV_PARAM_IN),
+			array($idperstr, SQLSRV_PARAM_IN),
+			array($idcliente, SQLSRV_PARAM_IN),
+			array($idcat, SQLSRV_PARAM_IN),
+			array($transl, SQLSRV_PARAM_IN),
+			array($transexi, SQLSRV_PARAM_IN),
+			array($tiahorrado, SQLSRV_PARAM_IN),
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
+			}
+		}
+	}
+
+
+
+
+
+	if ($_POST['btnopcion']=='guardarch') {
+
+		 
+
+      
+		$idperso =trim($_POST['idperso']);
+		$fechachist =trim($_POST['fechachist']);
+		$idcliente =trim($_POST['idcliente']);
+		$cantsusch =trim($_POST['cantsusch']);
+	
+	
+	
+		
+	
+
+		$sql = "exec regchist ?,?,?,?";
+		$datos = array(
+			array($idperso, SQLSRV_PARAM_IN),
+			array($fechachist, SQLSRV_PARAM_IN),
+			array($idcliente, SQLSRV_PARAM_IN),
+			array($cantsusch, SQLSRV_PARAM_IN),
+		
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "campos vacios ó registro repetido ";
+			}
+		}
+	}
+
+
+
+
+	
+	if ($_POST['btnopcion']=='actualizarch') {
+
+		 
+
+		$idconsumo =trim($_POST['idconsumo']);
+		$idperso =trim($_POST['idperso']);
+		$fechachist =trim($_POST['fechachist']);
+		$idcliente =trim($_POST['idcliente']);
+		$cantsusch =trim($_POST['cantsusch']);
+	
+	
+	
+		
+	
+
+		$sql = "exec upchist ?,?,?,?,?";
+		$datos = array(
+			array($idconsumo, SQLSRV_PARAM_IN),
+			array($idperso, SQLSRV_PARAM_IN),
+			array($fechachist, SQLSRV_PARAM_IN),
+			array($idcliente, SQLSRV_PARAM_IN),
+			array($cantsusch, SQLSRV_PARAM_IN),
+		
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "campos vacios, fuera de rango o registro repetido ";
+			}
+		}
+	}
+
+
+
+
+
+
+	if ($_POST['btnopcion']=='guardarAnul') {
+
+		 
+
+		$idpersanul =trim($_POST['idpersanul']);
+		$fechaanul =trim($_POST['fechaanul']);
+		$idclienteanul =trim($_POST['idclienteanul']);
+		$cantfanul =trim($_POST['cantfanul']);
+		$idmotanul =trim($_POST['idmotanul']);
+		$autanul =trim($_POST['autanul']);
+		$notaanul =trim($_POST['notaanul']);
+	
+	
+	
+		
+	
+
+		$sql = "exec insAnul ?,?,?,?,?,?,?";
+		$datos = array(
+			array($idpersanul, SQLSRV_PARAM_IN),
+			array($fechaanul, SQLSRV_PARAM_IN),
+			array($idclienteanul, SQLSRV_PARAM_IN),
+			array($cantfanul, SQLSRV_PARAM_IN),
+			array($idmotanul, SQLSRV_PARAM_IN),
+			array($autanul, SQLSRV_PARAM_IN),
+			array($notaanul, SQLSRV_PARAM_IN),
+		
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "campos vacios, fuera de rango o registro repetido ";
+			}
+		}
+	}
+
+
+
+
+
+
+
+	if ($_POST['btnopcion']=='actualizarAnul') {
+
+		 
+
+		$idanulacion =trim($_POST['idanulacion']);
+		$idpersanul =trim($_POST['idpersanul']);
+		$fechaanul =trim($_POST['fechaanul']);
+		$idclienteanul =trim($_POST['idclienteanul']);
+		$cantfanul =trim($_POST['cantfanul']);
+		$idmotanul =trim($_POST['idmotanul']);
+		$autanul =trim($_POST['autanul']);
+		$notaanul =trim($_POST['notaanul']);
+	
+	
+		
+	
+
+		$sql = "exec upAnul ?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idanulacion, SQLSRV_PARAM_IN),
+			array($idpersanul, SQLSRV_PARAM_IN),
+			array($fechaanul, SQLSRV_PARAM_IN),
+			array($idclienteanul, SQLSRV_PARAM_IN),
+			array($cantfanul, SQLSRV_PARAM_IN),
+			array($idmotanul, SQLSRV_PARAM_IN),
+			array($autanul, SQLSRV_PARAM_IN),
+			array($notaanul, SQLSRV_PARAM_IN),
+		
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "campos vacios, fuera de rango o registro repetido ";
+			}
+		}
+	}

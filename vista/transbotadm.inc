@@ -22,16 +22,16 @@
 
                  <div class="form-group col-md-4">
                      <label for="inputca"><span class="font-weight-bold">Gestionado por</span></label>
-                     <select name="idperstr" id="inputcargo" class="form-control">
-                         <?php
+                          <select name="idperstr" id="inputcargo" class="form-control">
+                                 <?php
                             if (empty($_POST["idperstr"])) {
 
                                 echo "<option value=''> seleccione--> ";
                                 # code...
                             } else {
                                 echo "<option value='" . $_POST["idperstr"] . "'>" . $_POST["name"] . " ";
-                            }
-                            ?>
+                           }
+                               ?>
                          <?php
                             $sql = "SELECT * from usuarios";
                             $res = sqlsrv_query($con, $sql);
@@ -178,6 +178,17 @@
 
              <div class="form-row-12">
                  <mark> <a href="cerrarsesion.php" class="text-danger btn btn-warning">Cerrar sesion</a> </mark>
+               <?php 
+
+                    if (empty($_POST["idtranbot"])) {
+                        echo'<input type="hidden" name="idtranbot" value="0">';
+
+                        # code...
+                    }elseif (!empty($_POST["idtranbot"])) {
+                        echo '<input type="hidden" name="idtranbot" value="'. $_POST["idtranbot"].'">';
+                        # code...
+                    }
+               ?>
 
                  <!-- <?php print_r($_SESSION); ?> -->
              </div>
@@ -224,7 +235,7 @@
 
                     if (isset($_GET['eliminar'])) {
 
-                        $sqlDelete = "e ?";
+                        $sqlDelete = "delete from Transaccion_Robot where idtransaccion=?";
                         $datos = array(
                             array($_GET['id'], SQLSRV_PARAM_IN),
                         );
@@ -257,11 +268,11 @@
 
                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
                         echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-danger' onclick='confirmDelete(" . $row["idtransaccion"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-danger' onclick='confirmDeleteTrBot(" . $row["idtransaccion"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
 
-                   
+                    <input type='hidden' name='idtranbot' value='" . $row["idtransaccion"]."'>
                        <input type='hidden' name='ftranbot' value='" . $row["fechatr"]->format('Y-m-d') . "'>
                        <input type='hidden' name='idperstr' value='" . $row["idPerstr"] . "'>
                        <input type='hidden' name='name' value='" . $row["nombre"] . "'>
@@ -272,7 +283,7 @@
                        <input type='hidden' name='transl' value='" . $row["botCantrl"] . "'>
                        <input type='hidden' name='transexi' value='" . $row["botCantrs"] . "'>
                        <input type='hidden' name='tiahorrado' value='" . $row["tiAhorrado"] . "'>
-                       <input class='btn btn-success' type='submit'  value='Editar' name='accion'>
+                       <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>

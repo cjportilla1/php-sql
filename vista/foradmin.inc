@@ -169,11 +169,14 @@
                                     ?>
 
                                     </option>
-                                    <option value="O+">o+</option>
-                                    <option value="O-">o-</option>
-                                    <option value="a+">a+</option>
-                                    <option value="a-">a-</option>
-                                    <option value="ab-">ab-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
                                 </select>
                             </div>
 
@@ -301,7 +304,7 @@
             </div>
 
 
-            <div class="container mt-5 col-10 ">
+            <div class="container mt-5 col-12 ">
                 <div class="container formulario1 imgs p-4">
                     <table id="tusuarios" class="responsive  table-striped " width="100%" height="100%">
                         <thead class=" ">
@@ -392,7 +395,7 @@
                        <input type='hidden' name='cresidencia1' value='" . $row["lresidencia"] . "'>
                        <input type='hidden' name='descdoc' value='" . $row["descripcion"] . "'>
 
-                       <input class='btn btn-success' type='submit'  value='Editar' name='accion'>
+                       <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>

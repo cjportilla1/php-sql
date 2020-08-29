@@ -14,7 +14,7 @@ session_start();
     <title>Modulo interno Energy Master</title>
     <link rel="stylesheet" href="css\bootstrap.min.css">
     <link rel="stylesheet" href="css\login.css">
-    <link rel="shortcut icon" href="../assets/img/titleem.ico">
+    <link rel="shortcut icon" href="assets/img/titleem.ico">
     <link rel="stylesheet" href="css/fuente.css">
     <script src="js/funciones.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
