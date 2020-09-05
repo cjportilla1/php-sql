@@ -28,7 +28,7 @@
 
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="inpu"><span class="font-weight-bold">Fech anulacion</span></label>
+                    <label for="inpu"><span class="font-weight-bold">Fecha anulación</span></label>
                     <input type="date" value="<?php echo $_POST["fechaanul"]; ?>" class="form-control " id="inputfingreso" name="fechaanul" placeholder="fingreso" <?php echo 'max="' . date('Y-m-d') . '"' ?>>
                 </div>
 
@@ -38,7 +38,7 @@
                         <?php
                         if (empty($_POST["idpersanul"])) {
 
-                            echo "<option value=''> seleccione--> ";
+                            echo "<option value=''> Seleccione--> ";
                             # code...
                         } else {
                             echo "<option value='" . $_POST["idpersanul"] . "'>" . $_POST["nameanul"] . " ";
@@ -65,7 +65,7 @@
                         <?php
                         if (empty($_POST["idclienteanul"])) {
 
-                            echo "<option value=''> seleccione--> ";
+                            echo "<option value=''> Seleccione--> ";
                             # code...
                         } else {
                             echo "<option value='" . $_POST["idclienteanul"] . "'>" . $_POST["clienteanul"] . " ";
@@ -93,12 +93,12 @@
             <div class="form-row">
 
                 <div class="form-group col-md-4">
-                    <label for="inputca"><span class="font-weight-bold">Motivo anulacion</span></label>
+                    <label for="inputca"><span class="font-weight-bold">Motivo anulación</span></label>
                     <select name="idmotanul" id="inputcargo" class="form-control">
                         <?php
                         if (empty($_POST["idmotanul"])) {
 
-                            echo "<option value=''> seleccione--> ";
+                            echo "<option value=''> Seleccione--> ";
                             # code...
                         } else {
                             echo "<option value='" . $_POST["idmotanul"] . "'>" . $_POST["descrmotanul"] . " ";
@@ -131,7 +131,7 @@
                     <?php
                         if (empty($_POST["autanul"])) {
 
-                            echo "<option value=''> seleccione--> ";
+                            echo "<option value=''> Seleccione--> ";
                             # code...
                         } else {
                             echo "<option value='" . $_POST["autanul"] . "'>" . $_POST["autanul"] . " ";
@@ -231,13 +231,13 @@
                 <tr class=" text-center fverde   text-light">
                     <th>Eliminar</th>
                     <th>Editar</th>
-                    <th>Fech anulacion</th>
+                    <th>Fecha anulación</th>
                     <th>Realizado por</th>
-                    <th>cliente</th>
+                    <th>Cliente</th>
                     <th>Cant fac anuladas</th>
-                    <th>Motivo anulacion</th>
-                    <th>Anulacion autorizada</th>
-                    <th>Observacion</th>
+                    <th>Motivo anulación</th>
+                    <th>Autorizada?</th>
+                    <th>Observación</th>
 
 
 

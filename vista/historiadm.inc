@@ -22,7 +22,7 @@
 
                  <div class="form-group col-md-6">
                      <label for="inputca"><span class="font-weight-bold">Historico gestionado por</span></label>
-                     <select name="idperso" id="inputcargo" class="form-control">
+                     <select name="idperso" id="inputwho" class="form-control">
                          <?php
                             if (empty($_POST["idperso"])) {
 
@@ -55,15 +55,15 @@
 
 
                  <div class="form-group col-md-6">
-                     <label for="inputtel"><span class="font-weight-bold">Cantidad suscripciones a las que se le hicieron historicos</span></label>
+                     <label for="inputtel"><span class="font-weight-bold">Cantidad suscripciones Cons Hist</span></label>
                      <input name="cantsusch" type="number" value="<?php echo $_POST["cantsusch"]; ?>" class="form-control" id="inputTel" placeholder="#cantidad de suscripciones" min="1" max="100">
                  </div>
 
 
 
                  <div class="form-group col-md-6">
-                     <label for="inputca"><span class="font-weight-bold">Cliente al que se le hicieron regristros de Consumos historicos </span></label>
-                     <select name="idcliente" id="inputcargo" class="form-control">
+                     <label for="inputca"><span class="font-weight-bold">Cliente </span></label>
+                     <select name="idcliente" id="inputclient" class="form-control">
                          <?php
                             if (empty($_POST["idcliente"])) {
 
@@ -107,17 +107,15 @@
 
              <div class="form-row">
 
-
-                 <div class="col-6">
+                 <div class="col-2"> </div>
+                 <div class="col">
 
                      <button type="button" onclick="cruduser('guardarch')" class="btn btn-verde text-light titulos">
                          REGISTRAR </button> <br>
                      <br>
 
-
-
                  </div>
-                 <div class="col-6">
+                 <div class="col">
 
                      <button type="button" onclick="cruduser('actualizarch')" class="btn btn-verde text-light titulos">
                          ACTUALIZAR </button> <br>
@@ -127,7 +125,7 @@
                  </div>
 
 
-
+                 <div class="col-2"> </div>
 
              </div>
 
@@ -168,9 +166,9 @@
                      <th>Eliminar</th>
                      <th>Editar</th>
                      <th>Gestionado por</th>
-                     <th>fecha ingreso consumos his</th>
-                     <th>cliente al cual se le ingresaron</th>
-                     <th>cant consumos historicos</th>
+                     <th>Fecha ingreso consumos his</th>
+                     <th>Cliente</th>
+                     <th>Cantidad suscripciones Cons Hist</th>
 
 
 

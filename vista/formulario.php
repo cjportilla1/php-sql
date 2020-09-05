@@ -30,19 +30,22 @@ if (empty($_SESSION["logged"])) {
     <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css">
     <link rel="stylesheet" href="../css/fuente.css">
     <link rel="shortcut icon" href="../assets/img/titleem.ico">
-
-
+  
 
 
     <script type="text/javascript" src="../js/jquery.js"></script>
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script type="text/javascript" src="../js/popper.js"></script>
 
+
+
     <script type="text/javascript" src="../DataTables/datatables.min.js"></script>
     <script type="text/javascript" src="../DataTables/datatables.js"></script>
     <script type="text/javascript" src="../js/funciones.js"></script>
     <script type="text/javascript" src="../js/solid.js"></script>
     <script type="text/javascript" src="../js/fontawesome.js"></script>
+
+   
 
 
 
@@ -75,28 +78,23 @@ if (empty($_SESSION["logged"])) {
             </div>
 
             <ul class="list-unstyled components">
-                <p> Menú principal</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Empleados</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="formulario.php">Datos personales empleados</a>
-                        </li>
-                      
-                    </ul>
-                </li>
+                <p> Módulo interno</p>
+            
 
-                <li>
+                <li class="">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Empresas</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="intuser.php">Usuarios internos</a>
+                            <a href="intuser.php">Usuarios internos EM</a>
                         </li>
                         <li>
-                            <a href="transbot.php">Transacciones bot</a>
+                            <a href="comerc.php">Comercializadores</a>
                         </li>
                         <li>
-                            <a href="historicos.php">Registro consumos historicos</a>
+                            <a href="transbot.php">Transacciones Bot</a>
+                        </li>
+                        <li>
+                            <a href="historicos.php">Registro Consumos Históricos</a>
                         </li>
                         <li>
                             <a href="anulaciones.php">Registros Anulaciones</a>
@@ -108,10 +106,15 @@ if (empty($_SESSION["logged"])) {
                 <li>
                     <a href="https://energymaster.app/index.php/index">Energyapp</a>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
+               
+                <li class="">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Colaboradores</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="formulario.php">Datos personales colaboradores</a>
+                        </li>
+                      
+                    </ul>
         </nav>
 
 

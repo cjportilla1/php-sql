@@ -20,7 +20,7 @@ function loginUser() {
 
 			// Si al volver entero el resultado es 1, entonces se va a mi página de main:
 
-			window.location = "vista/formulario.php";
+			window.location = "vista/intuser.php";
 		} else {
 
 			// Si no es posible convertirlo en numero, entonces me muestra lo que trae res (respuesta):
@@ -102,6 +102,7 @@ function confirmDeleteAnul(id) {
 
 
 
+
 // Función de guardar ó actualizar datos:
 
 function cruduser(btnSaveUser) {
@@ -111,7 +112,7 @@ function cruduser(btnSaveUser) {
 	var datoReg = datoForm + '&btnopcion=' + btnSaveUser;
 	// se puede usar un alert para imprimir en pantalla una ventana con los datos que se estan enviando
 	//  por post para comprobar que van la cantidad y llenos con los datos correspondientes
-	// alert (datoReg);
+	alert (datoReg);
 	console.log();
 	// Control asicronico:
 	$.ajax({

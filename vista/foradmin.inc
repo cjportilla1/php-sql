@@ -13,7 +13,7 @@
             <div class="container col-10 text-center imgs mt-2  formulario1">
 
 
-                <h1 class="verde titulos ">Registro datos personales de empleados</h1>
+                <h1 class="verde titulos ">Registro datos personales de colaboradores</h1>
 
 
 
@@ -27,17 +27,17 @@
 
 
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-3">
                                 <label for=""><span class="font-weight-bold">Nombre completo</span></label>
                                 <input name="nombre" type="text" class="form-control" id="nombreid" placeholder="Nombre" minlength="3" maxlength="40" value="<?php echo $_POST["nombre"]; ?>">
                             </div>
 
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-3">
                                 <label for="inputd"><span class="font-weight-bold">Documento</span></label>
                                 <input name="cedula" type="number" class="form-control" id="inputdoc" placeholder="#Cedula" min="1000000" max="999999999999" minlength="7" maxlength="12" value="<?php echo $_POST["cedula"]; ?>">
                             </div>
 
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-3">
                                 <label for="inputca"><span class="font-weight-bold">Rol</span></label>
                                 <select name="cargo" id="inputcargo" class="form-control">
                                     <?php
@@ -52,16 +52,22 @@
                                     <option value="Desarrollador">Desarrollador</option>
                                     <option value="Chief operating officer">Chief operating officer</option>
                                     <option value="Sales manager colombia">Sales manager colombia</option>
+                                    <option value="Auxiliar administrativo">Auxiliar administrativo</option>
                                     <option value="Abogada">Abogada</option>
                                     <option value="Analista de centralización">Analista de centralización</option>
                                     <option value="Líder de gestión">Líder de gestión</option>
-                                    <option value="Líder de gestión">Coordinador de ingeniería</option>
+                                    <option value="Analista de auditoría">Analista de auditoría</option>
                                     <option value="International sales director">International sales director</option>
                                     <option value="Analista financiera">Analista financiera</option>
 
 
 
                                 </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                            <label for=""><span class="font-weight-bold">Nombre equipo(pc)</span></label>
+                                <input name="computador" type="text" class="form-control" id="nombreid" placeholder="nombre equipo asignado " minlength="3" maxlength="40" value="<?php echo $_POST["computador"]; ?>">
+
                             </div>
 
 
@@ -74,7 +80,7 @@
 
 
                             <div class="form-group col-md-2">
-                                <label for="inpu"><span class="font-weight-bold">Fec nacimiento</span></label>
+                                <label for="inpu"><span class="font-weight-bold">Fecha nacimiento</span></label>
                                 <input type="date" value="<?php echo $_POST["fnacimiento"]; ?>" class="form-control " id="inputbplace" name="fnacimiento" placeholder="fnacimi" <?php echo 'max=' . date('Y-m-d') ?> <?php echo 'min=' . date('(Y-18)-m-d') ?>>
                             </div>
 
@@ -128,12 +134,12 @@
                             </div>
 
                             <div class="form-group col-md-2">
-                                <label for="inpu"><span class="font-weight-bold">Fec ingreso</span></label>
+                                <label for="inpu"><span class="font-weight-bold">Fecha ingreso EM</span></label>
                                 <input type="date" value="<?php echo $_POST["fingreso"]; ?>" class="form-control " id="inputfingreso" name="fingreso" placeholder="fingreso" <?php echo 'max=' . date('Y-m-d') ?>>
                             </div>
 
                             <div class="form-group col-md-2 ">
-                                <label for="inputtel"><span class="font-weight-bold">Telefono</span></label>
+                                <label for="inputtel"><span class="font-weight-bold">Teléfono</span></label>
                                 <input name="telefono" type="number" value="<?php echo $_POST["telefono"]; ?>" class="form-control" id="inputTel" placeholder="#telefono" min="1000000" max="999999999999" minlength="7" maxlength="12">
                             </div>
 
@@ -151,7 +157,7 @@
 
                             <div class="form-group col-md-2">
                                 <label for="inputcontactphone"><span class="font-weight-bold">Tel contacto</span></label>
-                                <input name="telefonoc" type="number" value="<?php echo $_POST["telefonoc"]; ?>" class="form-control" id="inputTelc" placeholder="#tel contacto" minlength="7" maxlength="12">
+                                <input name="telefonoc" type="number" value="<?php echo $_POST["telefonoc"]; ?>" class="form-control" id="inputTelc" placeholder="#tel contacto" minlength="7" maxlength="12" max="9999999999" min="1111111">
                             </div>
 
                             <div class="form-group col-md-2">
@@ -193,9 +199,9 @@
                                     }
                                     ?>
                                     </option>
-                                    <option value="1">cedula de ciudadania</option>
-                                    <option value="2">tarjeta de identidad</option>
-                                    <option value="3">cedula extranjero</option>
+                                    <option value="1">Cédula de ciudadanía</option>
+                                    <option value="2">Tarjeta de identidad</option>
+                                    <option value="3">Cédula extranjero</option>
 
                                 </select>
                             </div>
@@ -212,9 +218,12 @@
                                     }
                                     ?>
                                     </option>
-                                    <option value="Publico automotor">Publico automotor</option>
+                                    <option value="Moto">Moto</option>
+                                    <option value="Público automotor">Público automotor</option>
                                     <option value="Privado automotor">Privado automotor</option>
-                                    <option value="Publico metro">Publico metro</option>
+                                    <option value="Público metro">Público metro</option>
+                                  
+                                 
 
 
                                 </select>
@@ -222,25 +231,25 @@
                             </div>
 
                             <div class="form-group col-md-2">
-                                <label for="inputAddress"><span class="font-weight-bold">Direccion</span></label>
-                                <input name="direccion" value="<?php echo $_POST["direccion"]; ?>" type="text" class="form-control" id="inputdireccion" placeholder="calle falsa 123" minlength="5" maxlength="30">
+                                <label for="inputAddress"><span class="font-weight-bold">Dirección</span></label>
+                                <input name="direccion" value="<?php echo $_POST["direccion"]; ?>" type="text" class="form-control" id="inputdireccion" placeholder="Cra ejemplo 123 #321 B" minlength="5" maxlength="30">
                             </div>
 
                             <div class="form-group col-md-2">
-                                <label for="inputgender"><span class="font-weight-bold">Genero</span></label>
+                                <label for="inputgender"><span class="font-weight-bold">Género</span></label>
                                 <select name="genero" id="inputgender" class="form-control">
                                     <?php
                                     if (empty($_POST["genero"])) {
 
-                                        echo "<option value=''> seleccione--> ";
+                                        echo "<option value=''> Seleccione--> ";
                                         # code...
                                     } else {
                                         echo "<option value='" . $_POST["genero"] . "'>" . $_POST["genero"] . " ";
                                     }
                                     ?>
                                     </option>
-                                    <option value="masculino">masculino</option>
-                                    <option value="femenino">femenino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
                                     <option value="otro">otro</option>
 
 
@@ -286,7 +295,7 @@
                         </div>
 
                         <div class="form-row-12">
-                            <mark> <a href="cerrarsesion.php" class="text-danger btn btn-warning">Cerrar sesion</a> </mark>
+                        <mark> <a href="cerrarsesion.php" class="text-danger btn btn-warning">Cerrar sesión</a> </mark>
                           
                            <!-- <?php print_r($_SESSION); ?> -->
                         </div>
@@ -314,21 +323,23 @@
                                 <th>Nombre</th>
                                 <th>Documento</th>
                                 <th>Cargo</th>
-                                <th>Telefono</th>
-                                <th>Contacto</th>
-                                <th>tel cont</th>
+                                <th>Equipo</th>
+                                <th>Teléfono</th>
                                 <th>Rh</th>
-                                <th>Direccion</th>
+                                <th>Contacto</th>
+                                <th>Tel contac</th>
+                             
+                                <th>Dirección</th>
 
 
 
-                                <th>T.doc</th>
-                                <th>Fnaci</th>
-                                <th>C.natal</th>
-                                <th>reside</th>
-                                <th>Med.trans</th>
-                                <th>Genero</th>
-                                <th>Fecha.ing</th>
+                                <th>Tipo de doc</th>
+                                <th>Fecha nacimiento</th>
+                                <th>Ciudad natal</th>
+                                <th>ciudad residencia</th>
+                                <th>Medio de transporte</th>
+                                <th>Género</th>
+                                <th>Fecha de ingreso</th>
 
 
                             </tr>
@@ -360,7 +371,7 @@
 
 
                             $sql = "	
-                    select id,nombre,cedula as documento,descripcion,idtipodoc,fnacimiento,nomCiudad as lnacimineto,idciudad,cargo,tel,contactp,telconta,nomCiudad as lresidencia,direccion,rh,mtransporte,genero,fechaing from usuarios u 
+                    select id,nombre,cedula as documento,descripcion,idtipodoc,fnacimiento,nomCiudad as lnacimineto,idciudad,cargo,tel,contactp,telconta,nomCiudad as lresidencia,direccion,rh,mtransporte,genero,fechaing,comp from usuarios u 
                     inner join TipoDocumento on tipodoc= idtipodoc
                     inner join Ciudad on ciudadn = idciudad";
 
@@ -394,6 +405,7 @@
                        <input type='hidden' name='cnacimiento1' value='" . $row["lnacimineto"] . "'>
                        <input type='hidden' name='cresidencia1' value='" . $row["lresidencia"] . "'>
                        <input type='hidden' name='descdoc' value='" . $row["descripcion"] . "'>
+                       <input type='hidden' name='computador' value='" . $row["comp"] . "'>
 
                        <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
                        </form>
@@ -403,10 +415,12 @@
                             <td>" . $row["nombre"] . "</td>
                             <td>" . $row["documento"] . "</td>
                             <td>" . $row["cargo"] . "</td>
+                            <td>" . $row["comp"] . "</td>
                             <td>" . $row["tel"] . "</td>
+                            <td>" . $row["rh"] . "</td>
                             <td>" . $row["contactp"] . "</td>
                             <td>" . $row["telconta"] . "</td>
-                            <td>" . $row["rh"] . "</td>
+                           
                             <td>" . $row["direccion"] . "</td>
 
                            

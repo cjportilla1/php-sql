@@ -16,22 +16,22 @@
 
              <div class="form-row">
                  <div class="form-group col-md-4">
-                     <label for="inpu"><span class="font-weight-bold">Fec automatizacion</span></label>
+                     <label for="inpu"><span class="font-weight-bold">Fecha automatización</span></label>
                      <input type="date" value="<?php echo $_POST["ftranbot"]; ?>" class="form-control " id="inputfingreso" name="ftranbot" placeholder="fingreso" <?php echo 'max="' . date('Y-m-d') . '"' ?>>
                  </div>
 
                  <div class="form-group col-md-4">
                      <label for="inputca"><span class="font-weight-bold">Gestionado por</span></label>
-                          <select name="idperstr" id="inputcargo" class="form-control">
-                                 <?php
+                     <select name="idperstr" id="inputcargo" class="form-control">
+                         <?php
                             if (empty($_POST["idperstr"])) {
 
-                                echo "<option value=''> seleccione--> ";
+                                echo "<option value=''> Seleccione--> ";
                                 # code...
                             } else {
                                 echo "<option value='" . $_POST["idperstr"] . "'>" . $_POST["name"] . " ";
-                           }
-                               ?>
+                            }
+                            ?>
                          <?php
                             $sql = "SELECT * from usuarios";
                             $res = sqlsrv_query($con, $sql);
@@ -53,7 +53,7 @@
                          <?php
                             if (empty($_POST["idcliente"])) {
 
-                                echo "<option value=''> seleccione--> ";
+                                echo "<option value=''> Seleccione--> ";
                                 # code...
                             } else {
                                 echo "<option value='" . $_POST["idcliente"] . "'>" . $_POST["nomcliente"] . " ";
@@ -81,12 +81,12 @@
              <div class="form-row">
 
                  <div class="form-group col-md-4">
-                     <label for="inputca"><span class="font-weight-bold">Cate transaccion</span></label>
+                     <label for="inputca"><span class="font-weight-bold">Categoría transacción</span></label>
                      <select name="idcat" id="inputcargo" class="form-control">
                          <?php
                             if (empty($_POST["idcat"])) {
 
-                                echo "<option value=''> seleccione--> ";
+                                echo "<option value=''> Seleccione--> ";
                                 # code...
                             } else {
                                 echo "<option value='" . $_POST["idcat"] . "'>" . $_POST["descat"] . " ";
@@ -108,12 +108,12 @@
                  </div>
 
                  <div class="form-group col-md-4">
-                     <label for="inputtel"><span class="font-weight-bold">tr lanzadas</span></label>
+                     <label for="inputtel"><span class="font-weight-bold">Transacciones lanzadas</span></label>
                      <input name="transl" type="number" value="<?php echo $_POST["transl"]; ?>" class="form-control" id="inputTel" placeholder="#transacciones lanzadas" min="1" max="100">
                  </div>
 
                  <div class="form-group col-md-4">
-                     <label for="inputtel"><span class="font-weight-bold">tr exitosas</span></label>
+                     <label for="inputtel"><span class="font-weight-bold">Transacciones exitosas</span></label>
                      <input name="transexi" type="number" value="<?php echo $_POST["transexi"]; ?>" class="form-control" id="inputTel" placeholder="#transacciones exitosas" min="1" <?php if (empty($_POST["transl"])) {
                                                                                                                                                                                             echo ' max="20"';
                                                                                                                                                                                             # code...
@@ -126,15 +126,7 @@
                  </div>
 
 
-                 <div class="form-group col">
-                     <label for="inputtel"><span class="font-weight-bold">tiempo ahorrado</span></label>
-                     <input name="tiahorrado" type="number" value="<?php echo $_POST["tiahorrado"]; ?>" class="form-control" id="inputTel" placeholder="#tiempo ahorrado en horas" min="1" max="8">
 
-
-
-                     </select>
-
-                 </div>
 
 
 
@@ -145,15 +137,29 @@
 
              </div>
 
+          
+             <div class="form-row">
 
+             <div class="col-4"></div>
+                 <div class="form-group col-4">
+                     <label for="inputtel"><span class="font-weight-bold">Tiempo ahorrado</span></label>
+                     <input name="tiahorrado" type="number" value="<?php echo $_POST["tiahorrado"]; ?>" class="form-control" id="inputTel" placeholder="#tiempo ahorrado en horas" min="1" max="8">
+
+
+
+                     </select>
+
+                 </div>
+                 <div class="col-4"></div>
+             </div>
 
 
 
 
              <div class="form-row">
 
-
-                 <div class="col-6">
+             <div class="col-2"></div>
+                 <div class="col">
 
                      <button type="button" onclick="cruduser('guardartrbot')" class="btn btn-verde text-light titulos">
                          REGISTRAR </button> <br>
@@ -162,7 +168,7 @@
 
 
                  </div>
-                 <div class="col-6">
+                 <div class="col">
 
                      <button type="button" onclick="cruduser('actualizartrbot')" class="btn btn-verde text-light titulos">
                          ACTUALIZAR </button> <br>
@@ -171,24 +177,24 @@
 
                  </div>
 
-
+                 <div class="col-2"></div>
 
 
              </div>
 
              <div class="form-row-12">
-                 <mark> <a href="cerrarsesion.php" class="text-danger btn btn-warning">Cerrar sesion</a> </mark>
-               <?php 
+                 <mark> <a href="cerrarsesion.php" class="text-danger btn btn-warning">Cerrar sesión</a> </mark>
+                 <?php
 
                     if (empty($_POST["idtranbot"])) {
-                        echo'<input type="hidden" name="idtranbot" value="0">';
+                        echo '<input type="hidden" name="idtranbot" value="0">';
 
                         # code...
-                    }elseif (!empty($_POST["idtranbot"])) {
-                        echo '<input type="hidden" name="idtranbot" value="'. $_POST["idtranbot"].'">';
+                    } elseif (!empty($_POST["idtranbot"])) {
+                        echo '<input type="hidden" name="idtranbot" value="' . $_POST["idtranbot"] . '">';
                         # code...
                     }
-               ?>
+                    ?>
 
                  <!-- <?php print_r($_SESSION); ?> -->
              </div>
@@ -212,12 +218,12 @@
                  <tr class=" text-center fverde   text-light">
                      <th>Eliminar</th>
                      <th>Editar</th>
-                     <th>fec transaccion</th>
-                     <th>realizado por</th>
-                     <th>cliente</th>
-                     <th>categoria</th>
-                     <th>Tr lanzadas</th>
-                     <th>Tr completadas</th>
+                     <th>Fecha transacción</th>
+                     <th>Realizado por</th>
+                     <th>Cliente</th>
+                     <th>Categoría</th>
+                     <th>Trans lanzadas</th>
+                     <th>Trans completadas</th>
                      <th>Tiempo ahorrado</th>
 
 
@@ -272,7 +278,7 @@
                         <td>
                         <form action='' method='POST'>
 
-                    <input type='hidden' name='idtranbot' value='" . $row["idtransaccion"]."'>
+                    <input type='hidden' name='idtranbot' value='" . $row["idtransaccion"] . "'>
                        <input type='hidden' name='ftranbot' value='" . $row["fechatr"]->format('Y-m-d') . "'>
                        <input type='hidden' name='idperstr' value='" . $row["idPerstr"] . "'>
                        <input type='hidden' name='name' value='" . $row["nombre"] . "'>

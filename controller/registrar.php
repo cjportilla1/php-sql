@@ -29,7 +29,7 @@
 		$direccion =trim($_POST['direccion']);
 		$genero =$_POST['genero'];
 		$fingreso =$_POST['fingreso'];
-		$pass='null';
+		$computador=trim($_POST['computador']);
 		
 	
 
@@ -50,7 +50,8 @@
 			array($mtransporte, SQLSRV_PARAM_IN),
 			array($genero, SQLSRV_PARAM_IN),
 			array($fingreso, SQLSRV_PARAM_IN),
-			array($pass, SQLSRV_PARAM_IN)
+			array($computador, SQLSRV_PARAM_IN)
+			
 		);
 
  	
@@ -97,7 +98,7 @@
 		$direccion =trim($_POST['direccion']);
 		$genero =$_POST['genero'];
 		$fingreso =$_POST['fingreso'];
-		$pass='null';
+		$computador=trim($_POST['computador']);
 		
 	
 
@@ -118,9 +119,9 @@
 			array($mtransporte, SQLSRV_PARAM_IN),
 			array($genero, SQLSRV_PARAM_IN),
 			array($fingreso, SQLSRV_PARAM_IN),
-			array($pass, SQLSRV_PARAM_IN)
+			array($computador, SQLSRV_PARAM_IN)
+			
 		);
-
  	
 		
 
@@ -138,7 +139,7 @@
 	
 					echo "datos actualizados correctamente";
 
-					unset($nombre,$documento,$rol,$tel,$contacto,$telconta,$rh,$direccion,$idtipodoc,$fnacimiento,$ciudadn,$ciudadr,$mtransporte,$genero,$fingreso);
+				
 			 
 			} else {
 				echo "error ,al actualizar,usuario no permitido ó error en algun campo";
