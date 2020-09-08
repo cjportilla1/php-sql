@@ -197,6 +197,9 @@ $(document).ready (function () {
                 }elseif ($_SESSION["perf"]=='visualizacion') {
                     include("intuservisual.inc");
                     # code...
+                }elseif ($_SESSION["perf"]=='camilo') {
+                    include("userintadm.inc");
+                    # code...
                 }
 
             ?>

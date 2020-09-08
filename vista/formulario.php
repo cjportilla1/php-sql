@@ -124,11 +124,14 @@ if (empty($_SESSION["logged"])) {
             <?php
 
             if ($_SESSION["perf"] == 'admin') {
-                include("foradmin.inc");
+                include("forvisual.inc");
 
                 # code...
             }elseif ($_SESSION["perf"]=='visualizacion') {
                 include("forvisual.inc");
+            }elseif ($_SESSION["perf"]=='camilo') {
+                include("foradmin.inc");
+                # code...
             }
             
 

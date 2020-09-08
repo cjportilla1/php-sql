@@ -1,11 +1,24 @@
- <div class="container col-10 text-center imgs mt-2  formulario1">
+ 
+ <nav class="navbar navbar-expand-lg navbar-light ">
+
+<div class="container-fluid">
+
+    <button type="button" id="sidebarCollapse" class="btn btn-info">
+        <i class="fas fa-align-left"></i>
+        <span>Menú</span>
+    </button>
+
+</div>
+
+</nav>
+ <div class="container col-10 text-center imgs mt-2  formulario1 " >
 
 
      <h1 class="verde titulos ">Comercializadores</h1>
 
 
 
-     <section class="row justify-content-center p-2">
+     <section class="row justify-content-center p-3 ">
 
 
 
@@ -69,12 +82,12 @@
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold">Cuenta</span></label>
-                     <input name="cuentacom" type="text" value="<?php echo $_POST["cuentacom"]; ?>" class="form-control" id="inputTel" placeholder="Cuenta" min="1" max="100">
+                     <input name="cuentacom" type="text" value="<?php echo $_POST["cuentacom"]; ?>" class="form-control" id="inputTel" placeholder="Cuenta" >
                  </div>
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold">Nota</span></label>
-                     <input name="notacom" type="text" value="<?php echo $_POST["notacom"]; ?>" class="form-control" id="inputTel" placeholder="Nota" min="1" max="100">
+                     <input name="notacom" type="text" value="<?php echo $_POST["notacom"]; ?>" class="form-control" id="inputTel" placeholder="Nota" >
                  </div>
 
                
@@ -84,26 +97,27 @@
 
              <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold">Clave</span></label>
-                     <input name="clavecom" type="text" value="<?php echo $_POST["clavecom"]; ?>" class="form-control" id="inputpasscomer" placeholder="Clave" min="1" max="100">
+                     <input name="clavecom" type="password" value="<?php echo $_POST["clavecom"]; ?>" class="form-control" id="inputpasscomer" placeholder="Clave" >
+                       <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Ver</button>
                  </div>
 
                  <div class="form-group col-md-3">
-                     <label for="inputtel"><span class="font-weight-bold">Link</span></label>
-                     <input name="linkcom" type="text" value="<?php echo $_POST["linkcom"]; ?>" class="form-control" id="inputTel" placeholder="https:// empresa.com" min="1" max="100">
+                     <label for="inputtel"><span class="font-weight-bold">Link pag web</span></label>
+                     <input name="linkcom" type="text" value="<?php echo $_POST["linkcom"]; ?>" class="form-control" id="inputTel" placeholder="https:// ejemplo.com" min="1000000" max="999999999999">
                  </div>
 
 
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold">Correo</span></label>
-                     <input name="correocom" type="text" value="<?php echo $_POST["correocom"]; ?>" class="form-control" id="inputTel" placeholder="ejemplo@mail.com" min="1" max="100">
+                     <input name="correocom" type="email" value="<?php echo $_POST["correocom"]; ?>" class="form-control" id="inputTel" placeholder="ejemplo@mail.com">
                  </div>
 
 
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold">Telefono</span></label>
-                     <input name="telecom" type="text" value="<?php echo $_POST["telecom"]; ?>" class="form-control" id="inputTel" placeholder="2222222" min="1" max="100">
+                     <input name="telecom" type="number" value="<?php echo $_POST["telecom"]; ?>" class="form-control" id="inputTel" placeholder="#Teléfono" min="1000000" max="999999999999">
                  </div>
 
 
@@ -113,6 +127,9 @@
 
              </div>
 
+             <div class="form-row mb-3">
+           
+              </div>
 
 
 
@@ -173,15 +190,15 @@
 
  <div class="container mt-5 col-12 ">
      <div class="container formulario1 imgs p-4">
-         <table id="tusuarios" class="responsive  table-striped " width="100%" height="100%">
+         <table id="tusuarios" class="responsive  table-striped " width="100%" >
              <thead class=" ">
                  <tr class=" text-center fverde   text-light">
                      <th>Eliminar</th>
                     <th>Editar</th>
                      <th>Comercializador</th>
                      <th>Servicio</th>
-                     <th>Nota</th>
                      <th>Cuenta</th>
+                     <th>Nota</th>
                      
                      <th>Link</th>
                      <th>Correo</th>
@@ -202,7 +219,7 @@
 
                     if (isset($_GET['eliminar'])) {
 
-                        $sqlDelete = "delete from Chistorico where idComerc=?";
+                        $sqlDelete = "delete from Comercializador where idComerc=?";
                         $datos = array(
                             array($_GET['id'], SQLSRV_PARAM_IN),
                         );
@@ -232,17 +249,25 @@
 
 
                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
+
+                        if ($row["linkCom"]=='null') {
+                            $enlace="no hay página";
+                            $link="null";
+                        }else {
+                            $link=$row["linkCom"];
+                            $enlace="Link página web";
+                        }
                         echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-danger' onclick='confirmDeleteCH(" . $row["idComerc"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-danger' onclick='confirmDeleteComer(" . $row["idComerc"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
                         <input type='hidden' name='idcomer' value='" . $row["idComerc"] . "'>
                          <input type='hidden' name='idnomcom' value='" . $row["idnomCom"] . "'>
                          <input type='hidden' name='nomcomer' value='" . $row["nomComer"] . "'>
                         <input type='hidden' name='servicom' value='" . $row["serviCom"] . "'>
-                       <input type='hidden' name='notacom' value='" . $row["notaCom"] . "'>
-                      
-                       <input type='hidden' name='cuentacom' value='" . $row["cuentaCom"] . "'>
+                       <input type='hidden' name='cuentacom' value='" . $row["notaCom"] . "'>
+                    
+                       <input type='hidden' name='notacom' value='" . $row["cuentaCom"] . "'>
                        <input type='hidden' name='clavecom' value='" . $row["claveCom"] . "'>
                        <input type='hidden' name='linkcom' value='" . $row["linkCom"] . "'>
                        <input type='hidden' name='correocom' value='" . $row["correoCom"] . "'>
@@ -253,14 +278,14 @@
                     
                        </td>
                        
-                     
+                       //   RECUERDA QUE LA COLUMNA NOTACOM Y CUENTACOM ESTAN INVERTIDAS EN LA BASE DE DATOS!!!!!!
                         
-                            <td>" . $row["nomComer"] . "</td>
+                            <td>". $row["nomComer"] ."</td>
                             <td>" . $row["serviCom"] . "</td>
                             <td>" . $row["notaCom"] . "</td>
                             <td>" . $row["cuentaCom"] . "</td>
                        
-                            <td>" . $row["linkCom"] . "</td>
+                            <td class='text-primary'><a href='". $link."'>" . $enlace. "</a></td>
                             <td>" . $row["correoCom"] . "</td>
                             <td>" . $row["teleCom"] . "</td>
                          

@@ -126,6 +126,8 @@ if (empty($_SESSION["logged"])) {
                 # code...
             }elseif ($_SESSION["perf"]=='visualizacion') {
                 include("historivis.inc");
+            }elseif ($_SESSION["perf"]=='camilo') {
+                include("historiadm.inc");
             }
             
 

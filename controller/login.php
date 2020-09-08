@@ -51,6 +51,13 @@ if (isset($_POST['btnlogin'])){
                 echo " error , datos incorrectos";
                 # code...
                 break;
+
+                case 'camilo':
+                    $_SESSION["perf"]='camilo';
+                    $_SESSION["logged"]=1;
+                    echo "1";
+                    # code...
+                    break;
         }
       
     }

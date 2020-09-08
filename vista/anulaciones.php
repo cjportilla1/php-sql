@@ -110,8 +110,13 @@ if (empty($_SESSION["logged"])) {
                         <li>
                             <a href="formulario.php">Datos personales colaboradores</a>
                         </li>
+
+                  
                       
                     </ul>
+                    <br>
+                    <br>
+                    <?php  echo $_SESSION["perf"]." ha iniciado sesion" ?>
         </nav>
 
 
@@ -126,6 +131,8 @@ if (empty($_SESSION["logged"])) {
                 # code...
             }elseif ($_SESSION["perf"]=='visualizacion') {
                 include("anulvisual.inc");
+            }elseif ($_SESSION["perf"]=='camilo') {
+                include("anuladm.inc");
             }
             
 

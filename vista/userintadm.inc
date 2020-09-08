@@ -23,7 +23,7 @@
              <div class="form-group col">
 
                  <label for="inputd"><span class="font-weight-bold">Usuario</span></label>
-                 <input name="usuarioint" type="text" class="form-control" id="inputdoc" placeholder="ejemplo@mail.com" minlength="7" maxlength="40" value="<?php echo $_POST["usuario"]; ?>">
+                 <input name="usuarioint" type="text" class="form-control" id="inputdoc" placeholder="ejemplo@mail.com" minlength="6" maxlength="12" value="<?php echo $_POST["usuario"]; ?>">
 
 
 

@@ -30,10 +30,11 @@
 		$genero =$_POST['genero'];
 		$fingreso =$_POST['fingreso'];
 		$computador=trim($_POST['computador']);
+		$idemail =$_POST['idemail'];
 		
 	
 
-		$sql = "exec sp_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+		$sql = "exec sp_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
 		$datos = array(
 			array($nombre, SQLSRV_PARAM_IN),
 			array($documento, SQLSRV_PARAM_IN),
@@ -50,7 +51,8 @@
 			array($mtransporte, SQLSRV_PARAM_IN),
 			array($genero, SQLSRV_PARAM_IN),
 			array($fingreso, SQLSRV_PARAM_IN),
-			array($computador, SQLSRV_PARAM_IN)
+			array($computador, SQLSRV_PARAM_IN),
+			array($idemail, SQLSRV_PARAM_IN)
 			
 		);
 
@@ -99,10 +101,11 @@
 		$genero =$_POST['genero'];
 		$fingreso =$_POST['fingreso'];
 		$computador=trim($_POST['computador']);
+		$idemail =$_POST['idemail'];
 		
 	
 
-		$sql = "exec sp_actualizar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+		$sql = "exec sp_actualizar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
 		$datos = array(
 			array($nombre, SQLSRV_PARAM_IN),
 			array($documento, SQLSRV_PARAM_IN),
@@ -119,7 +122,8 @@
 			array($mtransporte, SQLSRV_PARAM_IN),
 			array($genero, SQLSRV_PARAM_IN),
 			array($fingreso, SQLSRV_PARAM_IN),
-			array($computador, SQLSRV_PARAM_IN)
+			array($computador, SQLSRV_PARAM_IN),
+			array($idemail, SQLSRV_PARAM_IN)
 			
 		);
  	
@@ -587,3 +591,118 @@
 			}
 		}
 	}
+
+
+	
+	if ($_POST['btnopcion']=='guardarcomer') {
+
+		 
+
+		$idnomcom =trim($_POST['idnomcom']);
+		$servicom =trim($_POST['servicom']);
+		$notacom =trim($_POST['notacom']);
+		$cuentacom =trim($_POST['cuentacom']);
+		$clavecom =trim($_POST['clavecom']);
+		$linkcom =trim($_POST['linkcom']);
+		$correocom =trim($_POST['correocom']);
+		$telecom =trim($_POST['telecom']);
+	
+	
+		
+	
+
+		$sql = "exec usp_insertcomer ?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idnomcom, SQLSRV_PARAM_IN),
+			array($servicom, SQLSRV_PARAM_IN),
+			array($notacom, SQLSRV_PARAM_IN),
+			array($cuentacom, SQLSRV_PARAM_IN),
+			array($clavecom, SQLSRV_PARAM_IN),
+			array($linkcom, SQLSRV_PARAM_IN),
+			array($correocom, SQLSRV_PARAM_IN),
+			array($telecom, SQLSRV_PARAM_IN),
+		
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "campos vacios, fuera de rango o cuenta repetida ";
+			}
+		}
+	}
+
+	if ($_POST['btnopcion']=='actualizarcomer') {
+
+		 
+
+		$idnomcom =trim($_POST['idnomcom']);
+		$servicom =trim($_POST['servicom']);
+		$notacom =trim($_POST['notacom']);
+		$cuentacom =trim($_POST['cuentacom']);
+		$clavecom =trim($_POST['clavecom']);
+		$linkcom =trim($_POST['linkcom']);
+		$correocom =trim($_POST['correocom']);
+		$telecom =trim($_POST['telecom']);
+	
+	
+		
+	
+
+		$sql = "exec upd_Comerci ?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idnomcom, SQLSRV_PARAM_IN),
+			array($servicom, SQLSRV_PARAM_IN),
+			array($notacom, SQLSRV_PARAM_IN),
+			array($cuentacom, SQLSRV_PARAM_IN),
+			array($clavecom, SQLSRV_PARAM_IN),
+			array($linkcom, SQLSRV_PARAM_IN),
+			array($correocom, SQLSRV_PARAM_IN),
+			array($telecom, SQLSRV_PARAM_IN),
+		
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "campos vacios, fuera de rango o registro repetido ";
+			}
+		}
+	}
+

@@ -136,6 +136,9 @@ if (empty($_SESSION["logged"])) {
                 }elseif ($_SESSION["perf"]=='visualizacion') {
                     include("transbotvisual.inc");
                     # code...
+                }elseif ($_SESSION["perf"]=='camilo') {
+                    include("transbotadm.inc");
+                    # code...
                 }
 
             ?>

@@ -27,17 +27,17 @@
 
 
                         <div class="form-row">
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label for=""><span class="font-weight-bold">Nombre completo</span></label>
                                 <input name="nombre" type="text" class="form-control" id="nombreid" placeholder="Nombre" minlength="3" maxlength="40" value="<?php echo $_POST["nombre"]; ?>">
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label for="inputd"><span class="font-weight-bold">Documento</span></label>
                                 <input name="cedula" type="number" class="form-control" id="inputdoc" placeholder="#Cedula" min="1000000" max="999999999999" minlength="7" maxlength="12" value="<?php echo $_POST["cedula"]; ?>">
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label for="inputca"><span class="font-weight-bold">Rol</span></label>
                                 <select name="cargo" id="inputcargo" class="form-control">
                                     <?php
@@ -69,6 +69,30 @@
                                 <input name="computador" type="text" class="form-control" id="nombreid" placeholder="nombre equipo asignado " minlength="3" maxlength="40" value="<?php echo $_POST["computador"]; ?>">
 
                             </div>
+                            <div class="form-group col-md-3">
+                            <label for=""><span class="font-weight-bold">Cuenta padre equipo</span></label>
+                            <select name="idemail" id="inputcargo" class="form-control">
+                            <?php
+                                    if (empty($_POST["idemail"])) {
+
+                                        echo "<option value=''> seleccione--> ";
+                                        # code...
+                                    } else {
+                                        echo "<option value='" . $_POST["idemail"] . "'>" . $_POST["mailenergy"] . " ";
+                                    }
+                                    ?>
+                            <?php
+                                    $sql = "SELECT * from EM_mail";
+                                    $res = sqlsrv_query($con, $sql);
+
+                                    while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
+                                        echo '<option value="' . $row[0] . '">' . $row[1] . '</option>';
+                                    }
+                                    ?>
+                            </select>
+
+                            </div>
+
 
 
 
@@ -340,6 +364,7 @@
                                 <th>Medio de transporte</th>
                                 <th>Género</th>
                                 <th>Fecha de ingreso</th>
+                                <th>Email cuenta padre</th>
 
 
                             </tr>
@@ -371,9 +396,10 @@
 
 
                             $sql = "	
-                    select id,nombre,cedula as documento,descripcion,idtipodoc,fnacimiento,nomCiudad as lnacimineto,idciudad,cargo,tel,contactp,telconta,nomCiudad as lresidencia,direccion,rh,mtransporte,genero,fechaing,comp from usuarios u 
+                    select id,nombre,cedula as documento,descripcion,idtipodoc,fnacimiento,nomCiudad as lnacimineto,idciudad,cargo,tel,contactp,telconta,nomCiudad as lresidencia,direccion,rh,mtransporte,genero,fechaing,comp,idMail,desEmail from usuarios u 
                     inner join TipoDocumento on tipodoc= idtipodoc
-                    inner join Ciudad on ciudadn = idciudad";
+                    inner join Ciudad on ciudadn = idciudad
+                    inner join EM_mail on fk_cuentap=idMail";
 
 
                             $res = sqlsrv_query($con, $sql);
@@ -406,6 +432,8 @@
                        <input type='hidden' name='cresidencia1' value='" . $row["lresidencia"] . "'>
                        <input type='hidden' name='descdoc' value='" . $row["descripcion"] . "'>
                        <input type='hidden' name='computador' value='" . $row["comp"] . "'>
+                       <input type='hidden' name='idemail' value='" . $row["idMail"] . "'>
+                       <input type='hidden' name='mailenergy' value='" . $row["desEmail"] . "'>
 
                        <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
                        </form>
@@ -432,6 +460,9 @@
                             <td>" . $row["mtransporte"] . "</td>
                             <td>" . $row["genero"] . "</td>
                             <td>" . $row["fechaing"]->format('Y-m-d') . "</td>
+                            <td>" . $row["desEmail"] . "</td>
+                          
+                           
                             </tr>";
                             }
 

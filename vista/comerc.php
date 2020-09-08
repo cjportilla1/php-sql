@@ -141,7 +141,11 @@ if (empty($_SESSION["logged"])) {
                 # code...
             }elseif ($_SESSION["perf"]=='visualizacion') {
                 include("forvisual.inc");
+            }elseif ($_SESSION["perf"]=='camilo') {
+                include("comercadmin.inc");
+                # code...
             }
+
             
 
             ?>
