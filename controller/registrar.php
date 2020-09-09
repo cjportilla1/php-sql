@@ -653,7 +653,7 @@
 	if ($_POST['btnopcion']=='actualizarcomer') {
 
 		 
-
+        $idcomer=trim($_POST['idcomer']);
 		$idnomcom =trim($_POST['idnomcom']);
 		$servicom =trim($_POST['servicom']);
 		$notacom =trim($_POST['notacom']);
@@ -667,8 +667,9 @@
 		
 	
 
-		$sql = "exec upd_Comerci ?,?,?,?,?,?,?,?";
+		$sql = "exec upd_Comerci ?,?,?,?,?,?,?,?,?";
 		$datos = array(
+			array($idcomer, SQLSRV_PARAM_IN),
 			array($idnomcom, SQLSRV_PARAM_IN),
 			array($servicom, SQLSRV_PARAM_IN),
 			array($notacom, SQLSRV_PARAM_IN),

@@ -86,8 +86,8 @@
                  </div>
 
                  <div class="form-group col-md-3">
-                     <label for="inputtel"><span class="font-weight-bold">Nota</span></label>
-                     <input name="notacom" type="text" value="<?php echo $_POST["notacom"]; ?>" class="form-control" id="inputTel" placeholder="Nota" >
+                 <label for="inputtel"><span class="font-weight-bold">Nota</span></label>
+                    <textarea name="notacom" type="text"  class="form-control" id="inputTel" placeholder="observaciones" ><?php echo $_POST["notacom"]; ?></textarea>
                  </div>
 
                
@@ -192,13 +192,14 @@
      <div class="container formulario1 imgs p-4">
          <table id="tusuarios" class="responsive  table-striped " width="100%" >
              <thead class=" ">
-                 <tr class=" text-center fverde   text-light">
+                 <tr class=" text-center fverde fenergy  text-light">
                      <th>Eliminar</th>
                     <th>Editar</th>
                      <th>Comercializador</th>
                      <th>Servicio</th>
-                     <th>Cuenta</th>
                      <th>Nota</th>
+                     <th>Cuenta</th>
+                    
                      
                      <th>Link</th>
                      <th>Correo</th>
@@ -253,12 +254,14 @@
                         if ($row["linkCom"]=='null') {
                             $enlace="no hay página";
                             $link="null";
+                            $color="text-danger";
                         }else {
                             $link=$row["linkCom"];
                             $enlace="Link página web";
+                            $color="text-primary";
                         }
                         echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-danger' onclick='confirmDeleteComer(" . $row["idComerc"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-rojo fenergy btn-sm' onclick='confirmDeleteComer(" . $row["idComerc"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
                         <input type='hidden' name='idcomer' value='" . $row["idComerc"] . "'>
@@ -273,19 +276,19 @@
                        <input type='hidden' name='correocom' value='" . $row["correoCom"] . "'>
                        <input type='hidden' name='telecom' value='" . $row["teleCom"] . "'>
                       
-                       <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
+                       <input class='btn btn-verde fenergy btn-sm' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>
                        
-                       //   RECUERDA QUE LA COLUMNA NOTACOM Y CUENTACOM ESTAN INVERTIDAS EN LA BASE DE DATOS!!!!!!
+                
                         
                             <td>". $row["nomComer"] ."</td>
                             <td>" . $row["serviCom"] . "</td>
                             <td>" . $row["notaCom"] . "</td>
                             <td>" . $row["cuentaCom"] . "</td>
                        
-                            <td class='text-primary'><a href='". $link."'>" . $enlace. "</a></td>
+                            <td class='".$color."'><a href='". $link."'>" . $enlace. "</a></td>
                             <td>" . $row["correoCom"] . "</td>
                             <td>" . $row["teleCom"] . "</td>
                          
@@ -296,6 +299,8 @@
 
 
                     ?>
+
+                    <!-- RECORDAR QUE EL CAMPO NOTACOM Y CUENTACOM DE LA TABLA COMERCIALIZADORES ESTÁN INVERTIDOS!!!! -->
 
      </div>
 

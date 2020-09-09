@@ -17,13 +17,13 @@
          <div class="form-row">
              <div class="form-group col">
                  <label for=""><span class="font-weight-bold">Razón social</span></label>
-                 <input name="razon" type="text" class="form-control" id="nombreid" placeholder="Nombre" minlength="3" maxlength="40" value="<?php echo $_POST["razon"]; ?>">
+                 <input name="razon" type="text" class="form-control" id="nombreid" placeholder="Nombre" minlength="3" maxlength="60" value="<?php echo $_POST["razon"]; ?>">
              </div>
 
              <div class="form-group col">
 
                  <label for="inputd"><span class="font-weight-bold">Usuario</span></label>
-                 <input name="usuarioint" type="text" class="form-control" id="inputdoc" placeholder="ejemplo@mail.com" minlength="6" maxlength="12" value="<?php echo $_POST["usuario"]; ?>">
+                 <input name="usuarioint" type="text" class="form-control" id="inputdoc" placeholder="ejemplo@mail.com" minlength="6" pattern="[@]" maxlength="30" value="<?php echo $_POST["usuario"]; ?>">
 
 
 
@@ -40,7 +40,7 @@
              <div class="form-group col">
 
                  <label for="inputd"><span class="font-weight-bold">Contraseña</span></label>
-                 <input name="contrasena" type="password" class="form-control" id="inputpass" placeholder="contraseña" pattern="[@]" minlength="8" maxlength="16" value="<?php echo $_POST["contrasena"]; ?>">
+                 <input name="contrasena" type="password" class="form-control" id="inputpass" placeholder="contraseña"  minlength="8" maxlength="16" value="<?php echo $_POST["contrasena"]; ?>">
 
 
 

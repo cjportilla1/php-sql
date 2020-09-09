@@ -1,8 +1,8 @@
 <?php
-// $serverName="localhost";
+$serverName="localhost";
 
-// $connectionInfo = array("Database"=>"modulos","UID"=>"cris2","PWD"=>"asdf","CharacterSet"=>"UTF-8");
-// $con = sqlsrv_connect($serverName,$connectionInfo);
+$connectionInfo = array("Database"=>"modulos","UID"=>"cris2","PWD"=>"asdf","CharacterSet"=>"UTF-8");
+$con = sqlsrv_connect($serverName,$connectionInfo);
 
 // if($con){
 // echo "db ok";
@@ -17,10 +17,10 @@
 
 
  <?php
-$connectionInfo = array("UID" => "cris2", "pwd" => "EnergyMaster2020*", "Database" => "modulos1", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0,"CharacterSet"=>"UTF-8");
+// $connectionInfo = array("UID" => "cris2", "pwd" => "EnergyMaster2020*", "Database" => "modulos09092020", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0,"CharacterSet"=>"UTF-8");
 
-$serverName = "tcp:modserver.database.windows.net,1433";
+// $serverName = "tcp:modserver.database.windows.net,1433";
 
-$con = sqlsrv_connect($serverName, $connectionInfo);
+// $con = sqlsrv_connect($serverName, $connectionInfo);
 
 ?> 

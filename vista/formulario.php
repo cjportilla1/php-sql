@@ -111,7 +111,8 @@ if (empty($_SESSION["logged"])) {
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Colaboradores</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="formulario.php">Datos personales colaboradores</a>
+                            <a href='formulario.php' disabled>Datos personales colaboradores</a>
+                           
                         </li>
                       
                     </ul>
@@ -123,10 +124,9 @@ if (empty($_SESSION["logged"])) {
 
             <?php
 
-            if ($_SESSION["perf"] == 'admin') {
-                include("forvisual.inc");
-
-                # code...
+           if ($_SESSION["perf"] == 'admin') {
+               include("pag404.inc");
+             
             }elseif ($_SESSION["perf"]=='visualizacion') {
                 include("forvisual.inc");
             }elseif ($_SESSION["perf"]=='camilo') {
