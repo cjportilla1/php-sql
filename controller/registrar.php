@@ -204,7 +204,7 @@
 
 		 
 
-
+        $iduint =trim($_POST['iduint']);
 		$razons =trim($_POST['razon']);
 		$usuarioint =trim($_POST['usuarioint']);
 		$contra =trim($_POST['contrasena']);
@@ -213,8 +213,9 @@
 		
 	
 
-		$sql = "exec sp_actusint ?,?,?,?";
+		$sql = "exec sp_actusint ?,?,?,?,?";
 		$datos = array(
+			array($iduint, SQLSRV_PARAM_IN),
 			array($razons, SQLSRV_PARAM_IN),
 			array($usuarioint, SQLSRV_PARAM_IN),
 			array($contra, SQLSRV_PARAM_IN),

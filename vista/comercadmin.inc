@@ -29,7 +29,7 @@
 
              <div class="form-row">
                  <div class="form-group col-md-3">
-                 <label for="inputgender"><span class="font-weight-bold">Comercializador</span></label>
+                 <label for="inputgender"><span class="font-weight-bold fenergy">Comercializador</span></label>
                                 <select name="idnomcom" id="inputServcomer" class="form-control">
                                     <?php
                                     if (empty($_POST["idnomcom"])) {
@@ -54,7 +54,7 @@
                                 </select>
                  </div>
                  <div class="form-group col-md-3">
-                 <label for="inputgender"><span class="font-weight-bold">Servicio</span></label>
+                 <label for="inputgender"><span class="font-weight-bold fenergy">Servicio</span></label>
                                 <select name="servicom" id="inputServcomer" class="form-control">
                                     <?php
                                     if (empty($_POST["servicom"])) {
@@ -86,7 +86,7 @@
                  </div>
 
                  <div class="form-group col-md-3">
-                 <label for="inputtel"><span class="font-weight-bold">Nota</span></label>
+                 <label for="inputtel"><span class="font-weight-bold fenergy">Nota</span></label>
                     <textarea name="notacom" type="text"  class="form-control" id="inputTel" placeholder="observaciones" ><?php echo $_POST["notacom"]; ?></textarea>
                  </div>
 
@@ -96,27 +96,27 @@
              <div class="form-row">
 
              <div class="form-group col-md-3">
-                     <label for="inputtel"><span class="font-weight-bold">Clave</span></label>
+                     <label for="inputtel"><span class="font-weight-bold fenergy">Clave</span></label>
                      <input name="clavecom" type="password" value="<?php echo $_POST["clavecom"]; ?>" class="form-control" id="inputpasscomer" placeholder="Clave" >
                        <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Ver</button>
                  </div>
 
                  <div class="form-group col-md-3">
-                     <label for="inputtel"><span class="font-weight-bold">Link pag web</span></label>
+                     <label for="inputtel"><span class="font-weight-bold fenergy">Link pag web</span></label>
                      <input name="linkcom" type="text" value="<?php echo $_POST["linkcom"]; ?>" class="form-control" id="inputTel" placeholder="https:// ejemplo.com" min="1000000" max="999999999999">
                  </div>
 
 
 
                  <div class="form-group col-md-3">
-                     <label for="inputtel"><span class="font-weight-bold">Correo</span></label>
+                     <label for="inputtel"><span class="font-weight-bold fenergy">Correo</span></label>
                      <input name="correocom" type="email" value="<?php echo $_POST["correocom"]; ?>" class="form-control" id="inputTel" placeholder="ejemplo@mail.com">
                  </div>
 
 
 
                  <div class="form-group col-md-3">
-                     <label for="inputtel"><span class="font-weight-bold">Telefono</span></label>
+                     <label for="inputtel"><span class="font-weight-bold fenergy">Telefono</span></label>
                      <input name="telecom" type="number" value="<?php echo $_POST["telecom"]; ?>" class="form-control" id="inputTel" placeholder="#Teléfono" min="1000000" max="999999999999">
                  </div>
 

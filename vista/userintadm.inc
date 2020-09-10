@@ -109,7 +109,17 @@
 
          <div class="form-row-12">
              <mark> <a href="cerrarsesion.php" class="text-danger btn btn-warning">Cerrar sesión</a> </mark>
+             <?php
 
+if (empty($_POST["iduint"])) {
+    echo '<input type="hidden" name="iduint" value="0">';
+
+    # code...
+} elseif (!empty($_POST["iduint"])) {
+    echo '<input type="hidden" name="iduint" value="' . $_POST["iduint"] . '">';
+    # code...
+}
+?>
          </div>
 
 
@@ -129,7 +139,7 @@
      <div class="container formulario1 imgs p-5">
          <table id="tusuarios" class="responsive  table-striped " width="100%" height="100%">
              <thead class=" ">
-                 <tr class=" text-center fverde   text-light">
+                 <tr class=" text-center fverde  fenergy text-light">
                      <th>Eliminar</th>
                      <th>Editar</th>
                      <th>Razon social</th>
@@ -180,10 +190,10 @@
 
                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
                         echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-danger' onclick='confirmDeleteUint(" . $row["iduint"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-rojo btn-sm' onclick='confirmDeleteUint(" . $row["iduint"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
-
+                        <input type='hidden' name='iduint' value='" . $row["iduint"] . "'>
                        <input type='hidden' name='razon' value='" . $row["razons"] . "'>
                        <input type='hidden' name='usuario' value='" . $row["usuarioint"] . "'>
                        <input type='hidden' name='contrasena' value='" . $row["passuint"] . "'>
@@ -191,7 +201,7 @@
                        <input type='hidden' name='rol' value='" . $row["descrol"] . "'>
                    
 
-                       <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
+                       <input class='btn btn-verde btn-sm' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>
