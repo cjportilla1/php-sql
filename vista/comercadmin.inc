@@ -97,7 +97,7 @@
 
              <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold fenergy">Clave</span></label>
-                     <input name="clavecom" type="password" value="<?php echo $_POST["clavecom"]; ?>" class="form-control" id="inputpasscomer" placeholder="Clave" >
+                     <input name="clavecom" type="password" value="<?php echo $_POST["clavecom"]; ?>" class="form-control" id="inputpasscomer" minlength="8" maxlength="30" placeholder="Clave" >
                        <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Ver</button>
                  </div>
 

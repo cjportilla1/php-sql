@@ -169,6 +169,8 @@
                      <th>Fecha ingreso consumos his</th>
                      <th>Cliente</th>
                      <th>Cantidad suscripciones Cons Hist</th>
+                     <th>Nota</th>
+                    
 
 
 
@@ -205,7 +207,7 @@
 
 
                     $sql = "	
-                    select ch.idConsumo,ch.idPerso,nombre,ch.fechaChist,ch.idCliente,c.nomCliente,ch.canSusch from Chistorico ch
+                    select ch.idConsumo,ch.idPerso,nombre,ch.fechaChist,ch.idCliente,c.nomCliente,ch.canSusch,ch.obsCh from Chistorico ch
 inner join usuarios  on ch.idPerso=id
 inner join  Cliente c on ch.idCliente=c.idCliente";
 
@@ -228,6 +230,7 @@ inner join  Cliente c on ch.idCliente=c.idCliente";
                        <input type='hidden' name='idcliente' value='" . $row["idCliente"] . "'>
                        <input type='hidden' name='nomcliente' value='" . $row["nomCliente"] . "'>
                        <input type='hidden' name='cantsusch' value='" . $row["canSusch"] . "'>
+                       <input type='hidden' name='notach' value='" . $row["obsCh"] . "'>
                       
                        <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
                        </form>
@@ -239,9 +242,12 @@ inner join  Cliente c on ch.idCliente=c.idCliente";
                             <td>" . $row["nombre"] . "</td>
                             <td>" . $row["fechaChist"]->format('Y-m-d') . "</td>
                             <td>" . $row["nomCliente"] . "</td>
+                            <td>" . $row["canSusch"] . "</td>
+                            <td>" . $row["obsCh"] . "</td>
+                           
                            
                     
-                            <td>" . $row["canSusch"] . "</td>
+                           
                          
                             
                          

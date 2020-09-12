@@ -125,10 +125,10 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                <label for="inputca"><span class="font-weight-bold">Autorizado?</span></label>
+                    <label for="inputca"><span class="font-weight-bold">Autorizado?</span></label>
                     <select name="autanul" id="inputcargo" class="form-control">
-                        
-                    <?php
+
+                        <?php
                         if (empty($_POST["autanul"])) {
 
                             echo "<option value=''> Seleccione--> ";
@@ -137,23 +137,21 @@
                             echo "<option value='" . $_POST["autanul"] . "'>" . $_POST["autanul"] . " ";
                         }
                         ?>
-                    <option value="si">si</option>
-                    <option value="no">no</option>
-                
-                </select>
-                
-                </div>
+                        <option value="si">si</option>
+                        <option value="no">no</option>
 
-
-                <div class="form-group col">
-                    <label for="inputtel"><span class="font-weight-bold">Observaciones</span></label>
-                    <textarea name="notaanul" type="text"  class="form-control" id="inputTel" placeholder="observaciones" ><?php echo $_POST["notaanul"]; ?></textarea>
-
-
-
-                  
+                    </select>
 
                 </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -164,12 +162,49 @@
 
             </div>
 
+            <div class="form-row text-center">
+                <label for="inputtel"><span class="font-weight-bold">Observaciones</span></label>
+                <textarea name="notaanul" type="text" class="form-control" id="inputTel" placeholder="observaciones"><?php echo $_POST["notaanul"]; ?></textarea>
+
+
+            </div>
+
+            <div class="form-row mb-2">
+                <div class="col">
+
+                    <label for="inputca"><span class="font-weight-bold">Error llegó al cliente?</span></label>
+                    <select name="errcli" id="iderrcli" class="form-control">
+
+                        <?php
+                        if (empty($_POST["errcli"])) {
+
+                            echo "<option value=''> Seleccione--> ";
+                            # code...
+                        } else {
+                            echo "<option value='" . $_POST["errcli"] . "'>" . $_POST["errcli"] . " ";
+                        }
+                        ?>
+                        <option value="si">si</option>
+                        <option value="no">no</option>
+
+                    </select>
+
+
+
+                    <label for="inputtel"><span class="font-weight-bold">Plan de acción</span></label>
+                    <textarea name="planacc" type="text" class="form-control" id="idplanacc" placeholder="Plan de accion"><?php echo $_POST["planacc"]; ?></textarea>
+
+                </div>
+
+
+            </div>
 
 
 
 
 
-            <div class="form-row">
+
+            <div class="form-row ">
 
 
                 <div class="col-6">
@@ -236,6 +271,8 @@
                     <th>Cliente</th>
                     <th>Cant fac anuladas</th>
                     <th>Motivo anulación</th>
+                    <th>Error llegó al cliente?</th>
+                    <th>Plan de accion:</th>
                     <th>Autorizada?</th>
                     <th>Observación</th>
 
@@ -274,7 +311,7 @@
 
 
                 $sql = "	
-               select idAnulacion,idusrAn,U.nombre,feAnul,idClienteA,C.nomCliente,cantFanul,M.idMotanul,M.descrAnul,anulAut,NotaAn from Anulacion A 
+               select idAnulacion,idusrAn,U.nombre,feAnul,idClienteA,C.nomCliente,cantFanul,M.idMotanul,M.descrAnul,anulAut,NotaAn,cliErr,planAcc from Anulacion A 
                inner join usuarios U on idusrAn=id
                inner join Cliente C on idClienteA=c.idCliente
                inner join Mot_anula M on A.idMotanul=M.idMotanul";
@@ -286,8 +323,8 @@
 
 
                 while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
-                    echo "<tr class='text-center texto ' >
-                   <td>  <a href='#' class='btn btn-danger' onclick='confirmDeleteAnul(" . $row["idAnulacion"] . ");'>Eliminar</button></td>
+                    echo "<tr class='text-center textop ' >
+                   <td>  <a href='#' class='btn btn-rojo btn-sm fenergy' onclick='confirmDeleteAnul(" . $row["idAnulacion"] . ");'>Eliminar</button></td>
                    <td>
                    <form action='' method='POST'>
 
@@ -303,7 +340,9 @@
                   <input type='hidden' name='descrmotanul' value='" . $row["descrAnul"] . "'>
                   <input type='hidden' name='autanul' value='" . $row["anulAut"] . "'>
                   <input type='hidden' name='notaanul' value='" . $row["NotaAn"] . "'>
-                  <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
+                  <input type='hidden' name='errcli' value='" . $row["cliErr"] . "'>
+                  <input type='hidden' name='planacc' value='" . $row["planAcc"] . "'>
+                  <input class='btn btn-verde btn-sm fenergy' type='submit'  value='Editar/act' name='accion'>
                   </form>
                
                   </td>
@@ -314,8 +353,8 @@
                        <td>" . $row["nomCliente"] . "</td>
                        <td>" . $row["cantFanul"] . "</td>
                        <td>" . $row["descrAnul"] . "</td>
-                      
-               
+                       <td>" . $row["cliErr"] . "</td>
+                       <td>" . $row["planAcc"] . "</td>
                        <td>" . $row["anulAut"] . "</td>
                        <td>" . $row["NotaAn"] . "</td>
                        

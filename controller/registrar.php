@@ -375,18 +375,20 @@
 		$fechachist =trim($_POST['fechachist']);
 		$idcliente =trim($_POST['idcliente']);
 		$cantsusch =trim($_POST['cantsusch']);
+		$notach =trim($_POST['notach']);
 	
 	
 	
 		
 	
 
-		$sql = "exec regchist ?,?,?,?";
+		$sql = "exec regchist ?,?,?,?,?";
 		$datos = array(
 			array($idperso, SQLSRV_PARAM_IN),
 			array($fechachist, SQLSRV_PARAM_IN),
 			array($idcliente, SQLSRV_PARAM_IN),
 			array($cantsusch, SQLSRV_PARAM_IN),
+			array($notach, SQLSRV_PARAM_IN),
 		
 		
 		);
@@ -429,19 +431,21 @@
 		$fechachist =trim($_POST['fechachist']);
 		$idcliente =trim($_POST['idcliente']);
 		$cantsusch =trim($_POST['cantsusch']);
+		$notach =trim($_POST['notach']);
 	
 	
 	
 		
 	
 
-		$sql = "exec upchist ?,?,?,?,?";
+		$sql = "exec upchist ?,?,?,?,?,?";
 		$datos = array(
 			array($idconsumo, SQLSRV_PARAM_IN),
 			array($idperso, SQLSRV_PARAM_IN),
 			array($fechachist, SQLSRV_PARAM_IN),
 			array($idcliente, SQLSRV_PARAM_IN),
 			array($cantsusch, SQLSRV_PARAM_IN),
+			array($notach, SQLSRV_PARAM_IN),
 		
 		
 		);
@@ -487,13 +491,15 @@
 		$idmotanul =trim($_POST['idmotanul']);
 		$autanul =trim($_POST['autanul']);
 		$notaanul =trim($_POST['notaanul']);
+		$errcli =trim($_POST['errcli']);
+		$planacc =trim($_POST['planacc']);
 	
 	
 	
 		
 	
 
-		$sql = "exec insAnul ?,?,?,?,?,?,?";
+		$sql = "exec insAnul ?,?,?,?,?,?,?,?,?";
 		$datos = array(
 			array($idpersanul, SQLSRV_PARAM_IN),
 			array($fechaanul, SQLSRV_PARAM_IN),
@@ -502,6 +508,8 @@
 			array($idmotanul, SQLSRV_PARAM_IN),
 			array($autanul, SQLSRV_PARAM_IN),
 			array($notaanul, SQLSRV_PARAM_IN),
+			array($errcli, SQLSRV_PARAM_IN),
+			array($planacc, SQLSRV_PARAM_IN),
 		
 		
 		);
@@ -549,12 +557,15 @@
 		$idmotanul =trim($_POST['idmotanul']);
 		$autanul =trim($_POST['autanul']);
 		$notaanul =trim($_POST['notaanul']);
+		$errcli =trim($_POST['errcli']);
+		$planacc =trim($_POST['planacc']);
+	
 	
 	
 		
 	
 
-		$sql = "exec upAnul ?,?,?,?,?,?,?,?";
+		$sql = "exec upAnul ?,?,?,?,?,?,?,?,?,?";
 		$datos = array(
 			array($idanulacion, SQLSRV_PARAM_IN),
 			array($idpersanul, SQLSRV_PARAM_IN),
@@ -564,6 +575,8 @@
 			array($idmotanul, SQLSRV_PARAM_IN),
 			array($autanul, SQLSRV_PARAM_IN),
 			array($notaanul, SQLSRV_PARAM_IN),
+			array($errcli, SQLSRV_PARAM_IN),
+			array($planacc, SQLSRV_PARAM_IN),
 		
 		
 		);

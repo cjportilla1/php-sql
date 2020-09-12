@@ -23,7 +23,7 @@
              <div class="form-group col">
 
                  <label for="inputd"><span class="font-weight-bold">Usuario</span></label>
-                 <input name="usuarioint" type="text" class="form-control" id="inputdoc" placeholder="ejemplo@mail.com" minlength="6" pattern="[@]" maxlength="30" value="<?php echo $_POST["usuario"]; ?>">
+                 <input name="usuarioint" type="text" class="form-control" id="inputdoc" placeholder="ejemplo@mail.com" minlength="6" pattern="[@]" maxlength="60" value="<?php echo $_POST["usuario"]; ?>">
 
 
 
@@ -40,7 +40,7 @@
              <div class="form-group col">
 
                  <label for="inputd"><span class="font-weight-bold">Contraseña</span></label>
-                 <input name="contrasena" type="password" class="form-control" id="inputpass" placeholder="contraseña"  minlength="8" maxlength="16" value="<?php echo $_POST["contrasena"]; ?>">
+                 <input name="contrasena" type="password" class="form-control" id="inputpass" placeholder="contraseña"  minlength="8" maxlength="30" value="<?php echo $_POST["contrasena"]; ?>">
 
 
 
@@ -190,7 +190,7 @@ if (empty($_POST["iduint"])) {
 
                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
                         echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-rojo btn-sm' onclick='confirmDeleteUint(" . $row["iduint"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-rojo btn-sm fenergy' onclick='confirmDeleteUint(" . $row["iduint"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
                         <input type='hidden' name='iduint' value='" . $row["iduint"] . "'>
@@ -201,7 +201,7 @@ if (empty($_POST["iduint"])) {
                        <input type='hidden' name='rol' value='" . $row["descrol"] . "'>
                    
 
-                       <input class='btn btn-verde btn-sm' type='submit'  value='Editar/act' name='accion'>
+                       <input class='btn btn-verde btn-sm fenergy' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>
