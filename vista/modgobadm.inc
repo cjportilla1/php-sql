@@ -93,7 +93,7 @@
                          </option>
 
                          <?php
-                            $sql = "select * from Regional order by nomReg asc";
+                            $sql = "select * from Tregional order by nomReg asc";
                             $res = sqlsrv_query($con, $sql);
 
                             while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
