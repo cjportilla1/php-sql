@@ -101,7 +101,10 @@
              </div>
 
 
-
+                            <div class="form-row-12">
+                            <label for="inputtel"><span class="font-weight-bold fenergy">Nota</span></label>
+                    <textarea name="notach" type="text"  class="form-control mb-2" id="inputTel" placeholder="observaciones" ><?php echo $_POST["notach"]; ?></textarea>
+                            </div>
 
 
 
@@ -219,7 +222,7 @@ inner join  Cliente c on ch.idCliente=c.idCliente";
 
                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
                         echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-danger' onclick='confirmDeleteCH(" . $row["idConsumo"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-rojo fenergy btn-sm' onclick='confirmDeleteCH(" . $row["idConsumo"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
 
@@ -232,7 +235,7 @@ inner join  Cliente c on ch.idCliente=c.idCliente";
                        <input type='hidden' name='cantsusch' value='" . $row["canSusch"] . "'>
                        <input type='hidden' name='notach' value='" . $row["obsCh"] . "'>
                       
-                       <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
+                       <input class='btn btn-verde fenergy btn-sm' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>

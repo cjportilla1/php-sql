@@ -1,7 +1,7 @@
 <?php
 $serverName="localhost";
 
-$connectionInfo = array("Database"=>"modulos","UID"=>"cris2","PWD"=>"asdf","CharacterSet"=>"UTF-8");
+$connectionInfo = array("Database"=>"modulos180920","UID"=>"cris2","PWD"=>"asdf","CharacterSet"=>"UTF-8");
 $con = sqlsrv_connect($serverName,$connectionInfo);
 
 // if($con){

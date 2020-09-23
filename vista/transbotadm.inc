@@ -33,7 +33,7 @@
                             }
                             ?>
                          <?php
-                            $sql = "SELECT * from usuarios";
+                            $sql = "select * from usuarios order by nombre asc";
                             $res = sqlsrv_query($con, $sql);
 
                             while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
@@ -143,7 +143,7 @@
              <div class="col-4"></div>
                  <div class="form-group col-4">
                      <label for="inputtel"><span class="font-weight-bold">Tiempo ahorrado</span></label>
-                     <input name="tiahorrado" type="number" value="<?php echo $_POST["tiahorrado"]; ?>" class="form-control" id="inputTel" placeholder="#tiempo ahorrado en horas" min="1" max="8">
+                     <input name="tiahorrado" type="number" value="<?php echo $_POST["tiahorrado"]; ?>" class="form-control" id="inputTel" placeholder="#tiempo ahorrado en horas" min="1" max="8" step="any">
 
 
 
@@ -274,7 +274,7 @@
 
                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
                         echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-danger' onclick='confirmDeleteTrBot(" . $row["idtransaccion"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-rojo fenergy btn-sm' onclick='confirmDeleteTrBot(" . $row["idtransaccion"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
 
@@ -289,7 +289,7 @@
                        <input type='hidden' name='transl' value='" . $row["botCantrl"] . "'>
                        <input type='hidden' name='transexi' value='" . $row["botCantrs"] . "'>
                        <input type='hidden' name='tiahorrado' value='" . $row["tiAhorrado"] . "'>
-                       <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
+                       <input class='btn btn-verde fenergy btn-sm' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>

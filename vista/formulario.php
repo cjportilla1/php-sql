@@ -100,6 +100,10 @@ if (empty($_SESSION["logged"])) {
                             <a href="anulaciones.php">Registros Anulaciones</a>
                             
                         </li>
+                        <li>
+                            <a href="modgob.php">Modelo de gobierno</a>
+                            
+                        </li>
                     
                     </ul>
                 </li>

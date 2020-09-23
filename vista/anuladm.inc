@@ -45,7 +45,7 @@
                         }
                         ?>
                         <?php
-                        $sql = "SELECT * from usuarios";
+                        $sql = "select * from usuarios order by nombre asc";
                         $res = sqlsrv_query($con, $sql);
 
                         while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
@@ -162,7 +162,7 @@
 
             </div>
 
-            <div class="form-row text-center">
+            <div class="form-row">
                 <label for="inputtel"><span class="font-weight-bold">Observaciones</span></label>
                 <textarea name="notaanul" type="text" class="form-control" id="inputTel" placeholder="observaciones"><?php echo $_POST["notaanul"]; ?></textarea>
 

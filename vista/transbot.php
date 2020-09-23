@@ -16,7 +16,7 @@ if (empty($_SESSION["logged"])) {
 
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<html>
+<html lang="es">
 
 
 <head>
@@ -94,6 +94,10 @@ if (empty($_SESSION["logged"])) {
                         </li>
                         <li>
                             <a href="anulaciones.php">Registros Anulaciones</a>
+                            
+                        </li>
+                        <li>
+                            <a href="modgob.php">Modelo de gobierno</a>
                             
                         </li>
                     

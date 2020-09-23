@@ -43,7 +43,7 @@
                                     </option>
                                     
                                     <?php
-                                    $sql = "SELECT * from Nom_Comerci";
+                                    $sql = "select * from Nom_Comerci order by nomComer asc";
                                     $res = sqlsrv_query($con, $sql);
 
                                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
@@ -190,7 +190,7 @@
 
  <div class="container mt-5 col-12 ">
      <div class="container formulario1 imgs p-4">
-         <table id="tusuarios" class="responsive  table-striped " width="100%" >
+         <table id="tusuarios" class="responsive table-striped " width="100%" >
              <thead class=" ">
                  <tr class=" text-center fverde fenergy  text-light">
                      <th>Eliminar</th>
@@ -268,9 +268,9 @@
                          <input type='hidden' name='idnomcom' value='" . $row["idnomCom"] . "'>
                          <input type='hidden' name='nomcomer' value='" . $row["nomComer"] . "'>
                         <input type='hidden' name='servicom' value='" . $row["serviCom"] . "'>
-                       <input type='hidden' name='cuentacom' value='" . $row["notaCom"] . "'>
+                       <input type='hidden' name='notacom' value='" . $row["notaCom"] . "'>
                     
-                       <input type='hidden' name='notacom' value='" . $row["cuentaCom"] . "'>
+                       <input type='hidden' name='cuentacom' value='" . $row["cuentaCom"] . "'>
                        <input type='hidden' name='clavecom' value='" . $row["claveCom"] . "'>
                        <input type='hidden' name='linkcom' value='" . $row["linkCom"] . "'>
                        <input type='hidden' name='correocom' value='" . $row["correoCom"] . "'>

@@ -721,3 +721,114 @@
 		}
 	}
 
+	if ($_POST['btnopcion']=='guardarmg') {
+
+		 
+
+		
+		$idclien =trim($_POST['idclien']);
+		$nommg =trim($_POST['nommg']);
+		$correomg =trim($_POST['correomg']);
+		$celularmg =trim($_POST['celularmg']);
+		$telfimg =trim($_POST['telfimg']);
+		$idreg =trim($_POST['idreg']);
+		$respmg =trim($_POST['respmg']);
+		$observmg =trim($_POST['observmg']);
+
+
+	
+
+		$sql = "exec ins_Modg ?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idclien, SQLSRV_PARAM_IN),
+			array($nommg, SQLSRV_PARAM_IN),
+			array($correomg, SQLSRV_PARAM_IN),
+			array($celularmg, SQLSRV_PARAM_IN),
+			array($telfimg, SQLSRV_PARAM_IN),
+			array($idreg, SQLSRV_PARAM_IN),
+			array($respmg, SQLSRV_PARAM_IN),
+			array($observmg, SQLSRV_PARAM_IN),
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
+			}
+		}
+	}
+
+
+	if ($_POST['btnopcion']=='actualizarmg') {
+
+		 
+
+		$idmogo =trim($_POST['idmogo']);
+		$idclien =trim($_POST['idclien']);
+		$nommg =trim($_POST['nommg']);
+		$correomg =trim($_POST['correomg']);
+		$celularmg =trim($_POST['celularmg']);
+		$telfimg =trim($_POST['telfimg']);
+		$idreg =trim($_POST['idreg']);
+		$respmg =trim($_POST['respmg']);
+		$observmg =trim($_POST['observmg']);
+
+
+	
+
+		$sql = "exec upd_Mgob ?,?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idmogo, SQLSRV_PARAM_IN),
+			array($idclien, SQLSRV_PARAM_IN),
+			array($nommg, SQLSRV_PARAM_IN),
+			array($correomg, SQLSRV_PARAM_IN),
+			array($celularmg, SQLSRV_PARAM_IN),
+			array($telfimg, SQLSRV_PARAM_IN),
+			array($idreg, SQLSRV_PARAM_IN),
+			array($respmg, SQLSRV_PARAM_IN),
+			array($observmg, SQLSRV_PARAM_IN),
+		
+		);
+
+ 	
+		
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql,$datos);
+
+// 		print_r($_POST);
+// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+		
+			
+			if ($row[0]!='error') {
+	
+					echo "transaccion guardada correctamente";
+
+				
+			 
+			} else {
+				echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
+			}
+		}
+	}
