@@ -131,7 +131,7 @@ function cruduser(btnSaveUser) {
 	var datoReg = datoForm + '&btnopcion=' + btnSaveUser;
 	// se puede usar un alert para imprimir en pantalla una ventana con los datos que se estan enviando
 	//  por post para comprobar que van la cantidad y llenos con los datos correspondientes
-	alert (datoReg);
+	// alert (datoReg);
 	console.log();
 	// Control asicronico:
 	$.ajax({
@@ -147,7 +147,7 @@ function cruduser(btnSaveUser) {
 
 			$("#alerta").html(res);
 			// se ejecuta la funcion recargar definida mas abajo para actualizar la pagina 
-			setTimeout(regarcar, 1000);
+			setTimeout(regarcar, 2500);
 		})
 }
 

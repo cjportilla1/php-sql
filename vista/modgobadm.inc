@@ -251,29 +251,54 @@
 
                         switch ($row["idClien"]) {
                             case '1':
-                                $cliente = "<IMG src='../assets/img/d1icon.ico' width='50%' height='30%'  >";
+                                $cliente = "<IMG src='../assets/img/d1icon.ico' width='70%' height='30%'  >";
                                 break;
 
                             case '2':
-                                $cliente = "<IMG src='../assets/img/bbogota.ico' width='50%' height='30%'   >";
+                                $cliente = "<IMG src='../assets/img/bbogota.ico' width='70%' height='30%'   >";
                                 break;
 
                             case '3':
-                                $cliente = "<IMG src='../assets/img/colanta.ico' width='50%' height='30%'    >";
+                                $cliente = "<IMG src='../assets/img/distracom.ico' width='70%' height='30%'     >";
                                 break;
 
                             case '4':
-                                $cliente = "<IMG src='../assets/img/velez.ico' width='50%' height='30%'    >";
+                                $cliente = "<IMG src='../assets/img/velez.ico' width='70%' height='30%'    >";
                                 break;
 
                             case '5':
-                                $cliente = "<IMG src='../assets/img/studiof.ico' width='50%' height='30%'    >";
+                                $cliente = "<IMG src='../assets/img/studiof.ico' width='70%' height='30%'    >";
                                 break;
 
+                                case '7':
+                                    $cliente = "<IMG src='../assets/img/colanta.ico' width='70%' height='30%'      >";
+                                    break;
 
+                                case '8':
+                                    $cliente = "<IMG src='../assets/img/larebaja.ico' width='70%' height='30%'      >";
+                                    break;
+
+                                    case '9':
+                                        $cliente = "GRUPO URIBE";
+                                        break;
+
+                                        case '10':
+                                            $cliente = "<IMG src='../assets/img/hermeco.ico' width='70%' height='30%'      >";
+                                            break;
+                                       
                             case '11':
-                                $cliente = "<IMG src='../assets/img/leonisa.ico' width='50%' height='30%'    >";
+                                $cliente = "<IMG src='../assets/img/leonisa.ico' width='70%' height='30%'      >";
                                 break;
+
+                                case '12':
+                                    $cliente = "<IMG src='../assets/img/tcc.ico' width='70%' height='30%'      >";
+                                    break;
+
+
+                                    case '13':
+                                        $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='30%'  >";
+                                        break;
+                             
                             default:
                                 # code...
                                 break;
@@ -304,7 +329,7 @@
                        
                 
                         
-                            <td>" . $cliente . "</td>
+                            <td>" . $cliente ."<p style='visibility:hidden'>".$row["nomCliente"]. "</p></td>
                             <td>" . $row["nomMg"] . "</td>
                             <td>" . $row["correoMg"] . "</td>
                             <td>" . $row["celularMg"] . "</td>

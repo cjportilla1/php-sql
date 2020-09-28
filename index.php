@@ -48,7 +48,7 @@ session_start();
 
 <div class="row justify-content-center ">
 
-  <div class="col-xl-10 col-lg-12 col-md-9">
+  <div class="col-xl-10 ">
 
     <div class="card o-hidden border-0 shadow-lg my-5 formulario1">
       <div class="card-body p-0 ">

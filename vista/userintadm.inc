@@ -40,7 +40,7 @@
              <div class="form-group col">
 
                  <label for="inputd"><span class="font-weight-bold">Contraseña</span></label>
-                 <input name="contrasena" type="password" class="form-control" id="inputpass" placeholder="contraseña"  minlength="8" maxlength="30" value="<?php echo $_POST["contrasena"]; ?>">
+                 <input name="contrasena" type="password" disabled="true" class="form-control" id="inputpass" placeholder="contraseña"  minlength="8" maxlength="30" value="<?php echo $_POST["contrasena"]; ?>">
 
 
 
@@ -76,7 +76,16 @@
 
 
          <div class="form-row mb-3">
-             <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Ver</button>
+             <div class="col-6">  <button class="btn btn-primary contra" type="button" onclick="mostrarContrasena()">Ver</button>
+             <br>
+             <input type="checkbox"  name="habContra" onclick="habilCont('inputpass')" />
+             habilitar contraseña
+            </div>
+
+             <div class="col-6">
+          
+             </div>
+           
          </div>
 
 

@@ -45,7 +45,21 @@ if (empty($_SESSION["logged"])) {
     <script type="text/javascript" src="../js/solid.js"></script>
     <script type="text/javascript" src="../js/fontawesome.js"></script>
 
-   
+    <script>
+function habilCont(campoCantidad)
+{
+	var estadoActual = document.getElementById(campoCantidad)
+
+	if(estadoActual.disabled == true)
+	{
+		estadoActual.disabled=false;
+	}
+	else
+	{
+		estadoActual.disabled=true;
+	}
+}
+</script>
 
 
 
@@ -109,7 +123,7 @@ if (empty($_SESSION["logged"])) {
                             <a href="historicos.php">Registro Consumos Históricos</a>
                         </li>
                         <li>
-                            <a href="anulaciones.php">Registros Anulaciones</a>
+                            <a href="anulaciones.php">Control de errores</a>
                             
                         </li>
                         <li>

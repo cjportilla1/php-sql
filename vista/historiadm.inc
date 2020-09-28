@@ -33,7 +33,7 @@
                             }
                             ?>
                          <?php
-                            $sql = "SELECT * from usuarios";
+                            $sql = "SELECT * from usuarios order by nombre";
                             $res = sqlsrv_query($con, $sql);
 
                             while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
@@ -75,7 +75,7 @@
                             ?>
 
                          <?php
-                            $sql = "SELECT * from Cliente";
+                            $sql = "select * from Cliente order by nomCliente asc";
                             $res = sqlsrv_query($con, $sql);
 
                             while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
@@ -221,13 +221,68 @@ inner join  Cliente c on ch.idCliente=c.idCliente";
 
 
                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
+
+
+                        switch ($row["idCliente"]) {
+                            case '1':
+                                $cliente = "<IMG src='../assets/img/d1icon.ico' width='70%' height='50%'   >";
+                                break;
+
+                            case '2':
+                                $cliente = "<IMG src='../assets/img/bbogota.ico' width='70%' height='50%'    >";
+                                break;
+
+                            case '3':
+                                $cliente = "<IMG src='../assets/img/distracom.ico' width='70%' height='50%'      >";
+                                break;
+
+                            case '4':
+                                $cliente = "<IMG src='../assets/img/velez.ico' width='70%' height='50%'   >";
+                                break;
+
+                            case '5':
+                                $cliente = "<IMG src='../assets/img/studiof.ico' width='70%' height='50%'     >";
+                                break;
+
+                                case '7':
+                                    $cliente = "<IMG src='../assets/img/colanta.ico' width='70%' height='50%'     >";
+                                    break;
+
+                                case '8':
+                                    $cliente = "<IMG src='../assets/img/larebaja.ico' width='70%' height='50%'      >";
+                                    break;
+
+                                    case '9':
+                                        $cliente = "GRUPO URIBE";
+                                        break;
+
+                                        case '10':
+                                            $cliente = "<IMG src='../assets/img/hermeco.ico' width='70%' height='50%'      >";
+                                            break;
+                                       
+                              case '11':
+                                $cliente = "<IMG src='../assets/img/leonisa.ico' width='70%' height='50%'      >";
+                                break;
+
+                                case '12':
+                                    $cliente = "<IMG src='../assets/img/tcc.ico' width='70%' height='50%'      >";
+                                    break;
+
+
+                                    case '13':
+                                        $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='50%'      >";
+                                        break;
+                             
+                          
+                        }
+
                         echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-rojo fenergy btn-sm' onclick='confirmDeleteCH(" . $row["idConsumo"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-rojo fenergy ' onclick='confirmDeleteCH(" . $row["idConsumo"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
 
-                    <input type='hidden' name='idconsumo' value='" . $row["idConsumo"] . "'>
-                    <input type='hidden' name='namech' value='" . $row["nombre"] . "'>
+                      <input type='hidden' name='idconsumo' value='" . $row["idConsumo"] . "'>
+                         <input type='hidden' name='namech' value='" . $row["nombre"] . "'>
                        <input type='hidden' name='idperso' value='" . $row["idPerso"] . "'>
                        <input type='hidden' name='fechachist' value='" . $row["fechaChist"]->format('Y-m-d')  . "'>
                        <input type='hidden' name='idcliente' value='" . $row["idCliente"] . "'>
@@ -235,7 +290,7 @@ inner join  Cliente c on ch.idCliente=c.idCliente";
                        <input type='hidden' name='cantsusch' value='" . $row["canSusch"] . "'>
                        <input type='hidden' name='notach' value='" . $row["obsCh"] . "'>
                       
-                       <input class='btn btn-verde fenergy btn-sm' type='submit'  value='Editar/act' name='accion'>
+                       <input class='btn btn-verde fenergy ' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>
@@ -244,9 +299,9 @@ inner join  Cliente c on ch.idCliente=c.idCliente";
                         
                             <td>" . $row["nombre"] . "</td>
                             <td>" . $row["fechaChist"]->format('Y-m-d') . "</td>
-                            <td>" . $row["nomCliente"] . "</td>
-                            <td>" . $row["canSusch"] . "</td>
-                            <td>" . $row["obsCh"] . "</td>
+                   <td>" . $cliente ."<p style='visibility:hidden'>".$row["nomCliente"]. "</p></td>
+                            <td>". $row["canSusch"]."</td>
+                            <td>".$row["obsCh"]."</td>
                            
                            
                     

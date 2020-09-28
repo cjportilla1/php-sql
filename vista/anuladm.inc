@@ -13,7 +13,7 @@
 <div class="container col-10 text-center imgs mt-2  formulario1">
 
 
-    <h1 class="verde titulos ">Registro Anulaciones</h1>
+    <h1 class="verde titulos ">Control de errores</h1>
 
 
 
@@ -73,7 +73,7 @@
                         ?>
 
                         <?php
-                        $sql = "SELECT * from Cliente";
+                        $sql = "select * from Cliente order by nomCliente asc";
                         $res = sqlsrv_query($con, $sql);
 
                         while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
@@ -323,8 +323,66 @@
 
 
                 while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
+
+                    switch ($row["idClienteA"]) {
+                        case '1':
+                            $cliente = "<IMG src='../assets/img/d1icon.ico' width='70%' height='30%'  >";
+                            break;
+
+                        case '2':
+                            $cliente = "<IMG src='../assets/img/bbogota.ico' width='70%' height='30%'   >";
+                            break;
+
+                        case '3':
+                            $cliente = "<IMG src='../assets/img/distracom.ico' width='70%' height='30%'     >";
+                            break;
+
+                        case '4':
+                            $cliente = "<IMG src='../assets/img/velez.ico' width='70%' height='30%'    >";
+                            break;
+
+                        case '5':
+                            $cliente = "<IMG src='../assets/img/studiof.ico' width='70%' height='30%'    >";
+                            break;
+
+                            case '7':
+                                $cliente = "<IMG src='../assets/img/colanta.ico' width='70%' height='30%'      >";
+                                break;
+
+                            case '8':
+                                $cliente = "<IMG src='../assets/img/larebaja.ico' width='70%' height='30%'      >";
+                                break;
+
+                                case '9':
+                                    $cliente = "GRUPO URIBE";
+                                    break;
+
+                                    case '10':
+                                        $cliente = "<IMG src='../assets/img/hermeco.ico' width='70%' height='30%'      >";
+                                        break;
+                                   
+                        case '11':
+                            $cliente = "<IMG src='../assets/img/leonisa.ico' width='70%' height='30%'      >";
+                            break;
+
+                            case '12':
+                                $cliente = "<IMG src='../assets/img/tcc.ico' width='70%' height='30%'      >";
+                                break;
+
+
+                                case '13':
+                                    $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='30%'  >";
+                                    break;
+                         
+                        default:
+                            # code...
+                            break;
+                    }
+
+
+
                     echo "<tr class='text-center textop ' >
-                   <td>  <a href='#' class='btn btn-rojo btn-sm fenergy' onclick='confirmDeleteAnul(" . $row["idAnulacion"] . ");'>Eliminar</button></td>
+                   <td>  <a href='#' class='btn btn-rojo  fenergy' onclick='confirmDeleteAnul(" . $row["idAnulacion"] . ");'>Eliminar</button></td>
                    <td>
                    <form action='' method='POST'>
 
@@ -342,7 +400,7 @@
                   <input type='hidden' name='notaanul' value='" . $row["NotaAn"] . "'>
                   <input type='hidden' name='errcli' value='" . $row["cliErr"] . "'>
                   <input type='hidden' name='planacc' value='" . $row["planAcc"] . "'>
-                  <input class='btn btn-verde btn-sm fenergy' type='submit'  value='Editar/act' name='accion'>
+                  <input class='btn btn-verde  fenergy' type='submit'  value='Editar/act' name='accion'>
                   </form>
                
                   </td>
@@ -350,7 +408,7 @@
                 
                        <td>" . $row["feAnul"]->format('Y-m-d') . "</td>
                        <td>" . $row["nombre"] . "</td>
-                       <td>" . $row["nomCliente"] . "</td>
+                         <td>" . $cliente ."<p style='visibility:hidden'>".$row["nomCliente"]. "</p></td>
                        <td>" . $row["cantFanul"] . "</td>
                        <td>" . $row["descrAnul"] . "</td>
                        <td>" . $row["cliErr"] . "</td>

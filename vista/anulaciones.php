@@ -24,7 +24,7 @@ if (empty($_SESSION["logged"])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible">
 
-    <title>Formulario Anulaciones</title>
+    <title>Control de errores</title>
     <link rel="stylesheet" href=" ../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/formulario.css">
     <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css">
@@ -94,7 +94,7 @@ if (empty($_SESSION["logged"])) {
                             <a href="historicos.php">Registro Consumos Históricos</a>
                         </li>
                         <li>
-                            <a href="anulaciones.php">Registros Anulaciones</a>
+                            <a href="anulaciones.php">Control de errores</a>
                             
                         </li>
                         <li>

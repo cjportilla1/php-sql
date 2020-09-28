@@ -68,43 +68,24 @@ if (empty($_SESSION["logged"])) {
   }
 </script>
 
-<!-- <script type="text/javascript">
+<!-- script para habilitar el campo de contraseña -->
+<script>
+function habilCont(campoCantidad)
+{
+	var estadoActual = document.getElementById(campoCantidad)
 
-$(document).ready (function () {
-	$('#tusuarios').Datatable({
-			languaje:{
-            //     "oPaginate":{
-            //         "sNext":"siguiente"
-            //     },
-               
-            },
-			responsive:"true",
-			dom:'Bfrtilp',
-			buttons:[
-			{
-					extend:'excelHtml5',
-					text:'< i class="fas fa-file-excel"></i>',
-					titleAttr:'Exportar a excel',
-					className:'btn btn-success'
-			},
-			{
-					extend:'pdfHtml5',
-					text:'< i class="fas fa-file-pdf"></i>',
-					titleAttr:'Exportar a pdf',
-					className:'btn btn-danger'
-			},
-			{
-					extend:'print',
-					text:'< i class="fas fa-print"></i>',
-					titleAttr:'Imprimir',
-					className:'btn btn-info'
-			},
-		]
-			
-	});
-});
+	if(estadoActual.disabled == true)
+	{
+		estadoActual.disabled=false;
+	}
+	else
+	{
+		estadoActual.disabled=true;
+	}
+}
+</script>
 
-</script> -->
+
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -154,7 +135,7 @@ $(document).ready (function () {
                             <a href="historicos.php">Registro Consumos Históricos</a>
                         </li>
                         <li>
-                            <a href="anulaciones.php">Registros Anulaciones</a>
+                            <a href="anulaciones.php">Control de errores</a>
                             
                         </li>
                         <li>

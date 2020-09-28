@@ -61,7 +61,7 @@
                             ?>
 
                          <?php
-                            $sql = "SELECT * from Cliente";
+                            $sql = "select * from Cliente order by nomCliente asc";
                             $res = sqlsrv_query($con, $sql);
 
                             while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
@@ -273,8 +273,65 @@
 
 
                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
+
+                        switch ($row["idClientetr"]) {
+                            case '1':
+                                $cliente = "<IMG src='../assets/img/d1icon.ico' width='70%' height='30%'  >";
+                                break;
+
+                            case '2':
+                                $cliente = "<IMG src='../assets/img/bbogota.ico' width='70%' height='30%'   >";
+                                break;
+
+                            case '3':
+                                $cliente = "<IMG src='../assets/img/distracom.ico' width='70%' height='30%'     >";
+                                break;
+
+                            case '4':
+                                $cliente = "<IMG src='../assets/img/velez.ico' width='70%' height='30%'    >";
+                                break;
+
+                            case '5':
+                                $cliente = "<IMG src='../assets/img/studiof.ico' width='70%' height='30%'    >";
+                                break;
+
+                                case '7':
+                                    $cliente = "<IMG src='../assets/img/colanta.ico' width='70%' height='30%'      >";
+                                    break;
+
+                                case '8':
+                                    $cliente = "<IMG src='../assets/img/larebaja.ico' width='70%' height='30%'      >";
+                                    break;
+
+                                    case '9':
+                                        $cliente = "GRUPO URIBE";
+                                        break;
+
+                                        case '10':
+                                            $cliente = "<IMG src='../assets/img/hermeco.ico' width='70%' height='30%'      >";
+                                            break;
+                                       
+                            case '11':
+                                $cliente = "<IMG src='../assets/img/leonisa.ico' width='70%' height='30%'      >";
+                                break;
+
+                                case '12':
+                                    $cliente = "<IMG src='../assets/img/tcc.ico' width='70%' height='30%'      >";
+                                    break;
+
+
+                                    case '13':
+                                        $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='30%'  >";
+                                        break;
+                             
+                            default:
+                                # code...
+                                break;
+                        }
+
+
                         echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-rojo fenergy btn-sm' onclick='confirmDeleteTrBot(" . $row["idtransaccion"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-rojo fenergy ' onclick='confirmDeleteTrBot(" . $row["idtransaccion"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
 
@@ -289,7 +346,7 @@
                        <input type='hidden' name='transl' value='" . $row["botCantrl"] . "'>
                        <input type='hidden' name='transexi' value='" . $row["botCantrs"] . "'>
                        <input type='hidden' name='tiahorrado' value='" . $row["tiAhorrado"] . "'>
-                       <input class='btn btn-verde fenergy btn-sm' type='submit'  value='Editar/act' name='accion'>
+                       <input class='btn btn-verde fenergy ' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>
@@ -297,7 +354,7 @@
                      
                             <td>" . $row["fechatr"]->format('Y-m-d') . "</td>
                             <td>" . $row["nombre"] . "</td>
-                            <td>" . $row["nomCliente"] . "</td>
+                          <td>" . $cliente ."<p style='visibility:hidden'>".$row["nomCliente"]. "</p></td>
                            
                             <td>" . $row["desCat"] . "</td>
                             <td>" . $row["botCantrl"] . "</td>

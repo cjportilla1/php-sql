@@ -98,7 +98,7 @@ if (empty($_SESSION["logged"])) {
                             
                         </li>
                         <li>
-                            <a href="modgob.php">Modelo de gobierno</a>
+                            <a href="modgob.php">Control de errores</a>
                             
                         </li>
                     
@@ -136,7 +136,7 @@ if (empty($_SESSION["logged"])) {
             }elseif ($_SESSION["perf"]=='visualizacion') {
                 include("anulvisual.inc");
             }elseif ($_SESSION["perf"]=='camilo') {
-                include("anuladm.inc");
+                include("modgobadm.inc");
             }
             
 
