@@ -409,7 +409,7 @@
                        <td>" . $row["feAnul"]->format('Y-m-d') . "</td>
                        <td>" . $row["nombre"] . "</td>
                          <td>" . $cliente ."<p style='visibility:hidden'>".$row["nomCliente"]. "</p></td>
-                       <td>" . $row["cantFanul"] . "</td>
+                       <td><h3 class=' text-danger'>" . $row["cantFanul"] . "</h3></td>
                        <td>" . $row["descrAnul"] . "</td>
                        <td>" . $row["cliErr"] . "</td>
                        <td>" . $row["planAcc"] . "</td>

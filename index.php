@@ -53,7 +53,7 @@ session_start();
     <div class="card o-hidden border-0 shadow-lg my-5 formulario1">
       <div class="card-body p-0 ">
         <!-- Nested Row within Card Body -->
-        <div class="row ">
+        <div class="row p-3 ">
           <div class="col-lg-6 d-none d-lg-block imgs  p-3"></div>
           <div class="col-lg-6">
             <div class="p-5">
