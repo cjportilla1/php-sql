@@ -53,7 +53,7 @@
                                     <option value="Chief operating officer">Chief operating officer</option>
                                     <option value="Sales manager colombia">Sales manager colombia</option>
                                     <option value="Auxiliar administrativo">Auxiliar administrativo</option>
-                                    <option value="Abogada">Abogada</option>
+                                    <option value="Abogada">Abogad@</option>
                                     <option value="Analista de centralización">Analista de centralización</option>
                                     <option value="Líder de gestión">Líder de gestión</option>
                                     <option value="Analista de auditoría">Analista de auditoría</option>
@@ -409,7 +409,7 @@
 
                             while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
                                 echo "<tr class='text-center texto ' >
-                        <td>  <a href='#' class='btn btn-danger' onclick='confirmDelete(" . $row["id"] . ");'>Eliminar</button></td>
+                        <td>  <a href='#' class='btn btn-rojo  fenergy' onclick='confirmDelete(" . $row["id"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
 
@@ -435,7 +435,7 @@
                        <input type='hidden' name='idemail' value='" . $row["idMail"] . "'>
                        <input type='hidden' name='mailenergy' value='" . $row["desEmail"] . "'>
 
-                       <input class='btn btn-success' type='submit'  value='Editar/act' name='accion'>
+                       <input class='btn btn-verde  fenergy' type='submit'  value='Editar/act' name='accion'>
                        </form>
                     
                        </td>

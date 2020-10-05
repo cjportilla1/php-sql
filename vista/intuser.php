@@ -27,32 +27,36 @@ if (empty($_SESSION["logged"])) {
     
     <link rel="stylesheet" href=" ../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/formulario.css">
-    <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css">
+    
     <link rel="stylesheet" href="../css/fuente.css">
     <link rel="shortcut icon" href="../assets/img/titleem.ico">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/DataTables-1.10.22/css/jquery.dataTables.css"/>
+<link rel="stylesheet" type="text/css" href="../assets/Buttons-1.6.4/css/buttons.dataTables.css"/>
+<link rel="stylesheet" type="text/css" href="../assets/Responsive-2.2.6/css/responsive.dataTables.css"/>
+ 
+<script type="text/javascript" src="../assets/JSZip-2.5.0/jszip.js"></script>
+<script type="text/javascript" src="../assets/pdfmake-0.1.36/pdfmake.js"></script>
+<script type="text/javascript" src="../assets/pdfmake-0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="../assets/DataTables-1.10.22/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="../assets/Buttons-1.6.4/js/dataTables.buttons.js"></script>
+<script type="text/javascript" src="../assets/Buttons-1.6.4/js/buttons.colVis.js"></script>
+<script type="text/javascript" src="../assets/Buttons-1.6.4/js/buttons.flash.js"></script>
+<script type="text/javascript" src="../assets/Buttons-1.6.4/js/buttons.html5.js"></script>
+<script type="text/javascript" src="../assets/Buttons-1.6.4/js/buttons.print.js"></script>
+<script type="text/javascript" src="../assets/Responsive-2.2.6/js/dataTables.responsive.js"></script>
 
 
 
 
-    <script type="text/javascript" src="../js/jquery.js"></script>
+    
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script type="text/javascript" src="../js/popper.js"></script>
 
-    <script type="text/javascript" src="../DataTables/datatables.min.js"></script>
-    <script type="text/javascript" src="../DataTables/datatables.js"></script>
+   
     <script type="text/javascript" src="../js/funciones.js"></script>
-    <script type="text/javascript" src="../js/solid.js"></script>
-    <script type="text/javascript" src="../js/fontawesome.js"></script>
- 
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.21/b-1.6.3/b-colvis-1.6.3/b-flash-1.6.3/b-html5-1.6.3/datatables.min.css"/> -->
-
-
+    
   
-    <!-- <script type="text/javascript" src="../DataTables/Buttons-1.6.3/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="../DataTables/Buttons-1.6.3/js/buttons.html5.min.js"></script>
-    <script type="text/javascript" src="../DataTables/JSZip-2.5.0/jszip.min.js"></script>
-    <script type="text/javascript" src="../DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
-    <script type="text/javascript" src="../DataTables/pdfmake-0.1.36/vfs_fonts.js"></script> -->
   
 
    
@@ -98,10 +102,60 @@ function habilCont(campoCantidad)
     </script>
 
 
-    <script>
+<script>
         $(document).ready(function() {
-            $('#tusuarios').DataTable();
-        });
+    $('#tusuarios').DataTable( {
+        dom: 'Bfrtip',
+
+        scrollY:        "700px",
+        scrollX:        true,
+        scrollCollapse: true,
+        paging:         true,
+      
+        lengthMenu: [
+            [ 10, 25, 50, -1 ],
+            [ '10 filas', '25 filas', '50 filas', 'mostrar todo' ]
+        ],
+       
+        buttons: [
+            'pageLength',
+            {
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: [ 0, ':visible' ]
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    
+                    
+                    columns: ':visible',
+                    orientation: 'landscape',
+                   pageSize: 'LEGAL',
+                  
+               
+                modifier: {
+                    page: 'current',
+                   
+                }
+                },
+              
+                
+            },'colvis'
+            
+        ]
+        
+
+        
+    } );
+} );
     </script>
 </head>
 
@@ -146,7 +200,7 @@ function habilCont(campoCantidad)
                     </ul>
                 </li>
                 <li>
-                    <a href="https://energymaster.app/index.php/index">Energyapp</a>
+                    <a href="https://energymaster.app/index.php/index " target="_blank" >Energyapp</a>
                 </li>
                
                 <li class="">

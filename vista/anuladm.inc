@@ -28,7 +28,7 @@
 
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="inpu"><span class="font-weight-bold">Fecha anulación</span></label>
+                    <label for="inpu"><span class="font-weight-bold">Fecha error</span></label>
                     <input type="date" value="<?php echo $_POST["fechaanul"]; ?>" class="form-control " id="inputfingreso" name="fechaanul" placeholder="fingreso" <?php echo 'max="' . date('Y-m-d') . '"' ?>>
                 </div>
 
@@ -93,7 +93,7 @@
             <div class="form-row">
 
                 <div class="form-group col-md-4">
-                    <label for="inputca"><span class="font-weight-bold">Motivo anulación</span></label>
+                    <label for="inputca"><span class="font-weight-bold">Motivo error</span></label>
                     <select name="idmotanul" id="inputcargo" class="form-control">
                         <?php
                         if (empty($_POST["idmotanul"])) {
@@ -120,8 +120,8 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="inputtel"><span class="font-weight-bold">Cant fac anuladas</span></label>
-                    <input name="cantfanul" type="number" value="<?php echo $_POST["cantfanul"]; ?>" class="form-control" id="inputTel" placeholder="#transacciones lanzadas" min="1" max="100">
+                    <label for="inputtel"><span class="font-weight-bold">Cant fac errores</span></label>
+                    <input name="cantfanul" type="number" value="<?php echo $_POST["cantfanul"]; ?>" class="form-control" id="inputTel" placeholder="Cantidad Fac errores" min="1" max="100">
                 </div>
 
                 <div class="form-group col-md-4">
@@ -137,8 +137,8 @@
                             echo "<option value='" . $_POST["autanul"] . "'>" . $_POST["autanul"] . " ";
                         }
                         ?>
-                        <option value="si">si</option>
-                        <option value="no">no</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
 
                     </select>
 
@@ -184,8 +184,8 @@
                             echo "<option value='" . $_POST["errcli"] . "'>" . $_POST["errcli"] . " ";
                         }
                         ?>
-                        <option value="si">si</option>
-                        <option value="no">no</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
 
                     </select>
 
@@ -379,6 +379,13 @@
                             break;
                     }
 
+                    if ($row["cliErr"]=='si') {
+                        $errcli="<h3 class='text-danger'>".$row["cliErr"]."</h3>";
+                        # code...
+                    }else {
+                        $errcli="<h3 class='text-dark'>".$row["cliErr"]."</h3>";
+                    }
+
 
 
                     echo "<tr class='text-center textop ' >
@@ -406,12 +413,12 @@
                   </td>
                   
                 
-                       <td>" . $row["feAnul"]->format('Y-m-d') . "</td>
+                       <td><h6>" . $row["feAnul"]->format('Y-m-d') . "</h6></td>
                        <td>" . $row["nombre"] . "</td>
                          <td>" . $cliente ."<p style='visibility:hidden'>".$row["nomCliente"]. "</p></td>
-                       <td><h3 class=' text-danger'>" . $row["cantFanul"] . "</h3></td>
+                       <td><h6 class='font-weight-bold '>" . $row["cantFanul"] . "</h6></td>
                        <td>" . $row["descrAnul"] . "</td>
-                       <td>" . $row["cliErr"] . "</td>
+                       <td>" . $errcli . "</td>
                        <td>" . $row["planAcc"] . "</td>
                        <td>" . $row["anulAut"] . "</td>
                        <td>" . $row["NotaAn"] . "</td>

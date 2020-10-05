@@ -13,15 +13,16 @@ if ($_POST['btnopcion'] == 'guardar') {
 
 
 
-
-	$nombre = trim($_POST['nombre']);
+	$nom = ucwords($_POST['nombre']);
+	$nombre = trim($nom);
 	$documento = trim($_POST['cedula']);
 	$fnacimiento  = $_POST['fnacimiento'];
 	$ciudadr = $_POST['cresidencia'];
 	$ciudadn = $_POST['cnacimiento'];
 	$rol = $_POST['cargo'];
 	$tel = $_POST['telefono'];
-	$contacto = trim($_POST['contacto']);
+	$nomcont = ucwords($_POST['contacto']);
+	$contacto = trim($nomcont);
 	$telconta = $_POST['telefonoc'];
 	$rh = $_POST['rhsanguineo'];
 	$idtipodoc = $_POST['idTipoDoc'];
@@ -82,15 +83,16 @@ if ($_POST['btnopcion'] == 'actualizar') {
 
 
 
-
-	$nombre = trim($_POST['nombre']);
+	$nom = ucwords($_POST['nombre']);
+	$nombre = trim($nom);
 	$documento = trim($_POST['cedula']);
 	$fnacimiento  = $_POST['fnacimiento'];
 	$ciudadr = $_POST['cresidencia'];
 	$ciudadn = $_POST['cnacimiento'];
 	$rol = $_POST['cargo'];
 	$tel = $_POST['telefono'];
-	$contacto = trim($_POST['contacto']);
+	$nomcont = ucwords($_POST['contacto']);
+	$contacto = trim($nomcont);
 	$telconta = $_POST['telefonoc'];
 	$rh = $_POST['rhsanguineo'];
 	$idtipodoc = $_POST['idTipoDoc'];
@@ -364,7 +366,8 @@ if ($_POST['btnopcion'] == 'guardarch') {
 	$fechachist = trim($_POST['fechachist']);
 	$idcliente = trim($_POST['idcliente']);
 	$cantsusch = trim($_POST['cantsusch']);
-	$notach = trim($_POST['notach']);
+	$notachi = ucfirst($_POST['notach']);
+	$notach = trim($notachi);
 
 
 
@@ -417,7 +420,8 @@ if ($_POST['btnopcion'] == 'actualizarch') {
 	$fechachist = trim($_POST['fechachist']);
 	$idcliente = trim($_POST['idcliente']);
 	$cantsusch = trim($_POST['cantsusch']);
-	$notach = trim($_POST['notach']);
+	$notachi = ucfirst($_POST['notach']);
+	$notach = trim($notachi);
 
 
 
@@ -466,55 +470,60 @@ if ($_POST['btnopcion'] == 'actualizarch') {
 if ($_POST['btnopcion'] == 'guardarAnul') {
 
 
-
-	$idpersanul = trim($_POST['idpersanul']);
-	$fechaanul = trim($_POST['fechaanul']);
-	$idclienteanul = trim($_POST['idclienteanul']);
-	$cantfanul = trim($_POST['cantfanul']);
-	$idmotanul = trim($_POST['idmotanul']);
-	$autanul = trim($_POST['autanul']);
-	$notaanul = trim($_POST['notaanul']);
-	$errcli = trim($_POST['errcli']);
-	$planacc = trim($_POST['planacc']);
+	if (empty($_POST["errcli"]) || empty($_POST["planacc"]) || empty($_POST["idmotanul"]) || empty($_POST["autanul"])) {
+		echo "hay campos obligatorios vacíos!";
+	} else {
 
 
-
-
-
-
-	$sql = "exec insAnul ?,?,?,?,?,?,?,?,?";
-	$datos = array(
-		array($idpersanul, SQLSRV_PARAM_IN),
-		array($fechaanul, SQLSRV_PARAM_IN),
-		array($idclienteanul, SQLSRV_PARAM_IN),
-		array($cantfanul, SQLSRV_PARAM_IN),
-		array($idmotanul, SQLSRV_PARAM_IN),
-		array($autanul, SQLSRV_PARAM_IN),
-		array($notaanul, SQLSRV_PARAM_IN),
-		array($errcli, SQLSRV_PARAM_IN),
-		array($planacc, SQLSRV_PARAM_IN),
-
-
-	);
+		$idpersanul = trim($_POST['idpersanul']);
+		$fechaanul = trim($_POST['fechaanul']);
+		$idclienteanul = trim($_POST['idclienteanul']);
+		$cantfanul = trim($_POST['cantfanul']);
+		$idmotanul = trim($_POST['idmotanul']);
+		$autanul = trim($_POST['autanul']);
+		$notaanul = trim($_POST['notaanul']);
+		$errcli = trim($_POST['errcli']);
+		$planacc = trim($_POST['planacc']);
 
 
 
 
-	// $exe = $con->query($sql);
-	$res = sqlsrv_query($con, $sql, $datos);
-
-	// 		print_r($_POST);
-	// print_r(sqlsrv_errors());
-
-	while ($row = sqlsrv_fetch_array($res)) {
 
 
+		$sql = "exec insAnul ?,?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idpersanul, SQLSRV_PARAM_IN),
+			array($fechaanul, SQLSRV_PARAM_IN),
+			array($idclienteanul, SQLSRV_PARAM_IN),
+			array($cantfanul, SQLSRV_PARAM_IN),
+			array($idmotanul, SQLSRV_PARAM_IN),
+			array($autanul, SQLSRV_PARAM_IN),
+			array($notaanul, SQLSRV_PARAM_IN),
+			array($errcli, SQLSRV_PARAM_IN),
+			array($planacc, SQLSRV_PARAM_IN),
 
-		if ($row[0] != 'error') {
 
-			echo "transaccion guardada correctamente";
-		} else {
-			echo "campos vacios, fuera de rango o registro repetido ";
+		);
+
+
+
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql, $datos);
+
+		// 		print_r($_POST);
+		// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+
+
+			if ($row[0] != 'error') {
+
+				echo "transaccion guardada correctamente";
+			} else {
+				echo "campos vacios, fuera de rango o registro repetido ";
+			}
 		}
 	}
 }
@@ -527,58 +536,61 @@ if ($_POST['btnopcion'] == 'guardarAnul') {
 
 if ($_POST['btnopcion'] == 'actualizarAnul') {
 
+	if (empty($_POST["errcli"]) || empty($_POST["planacc"]) || empty($_POST["idmotanul"]) || empty($_POST["autanul"])) {
+		echo "hay campos obligatorios vacíos!";
+	} else {
 
-
-	$idanulacion = trim($_POST['idanulacion']);
-	$idpersanul = trim($_POST['idpersanul']);
-	$fechaanul = trim($_POST['fechaanul']);
-	$idclienteanul = trim($_POST['idclienteanul']);
-	$cantfanul = trim($_POST['cantfanul']);
-	$idmotanul = trim($_POST['idmotanul']);
-	$autanul = trim($_POST['autanul']);
-	$notaanul = trim($_POST['notaanul']);
-	$errcli = trim($_POST['errcli']);
-	$planacc = trim($_POST['planacc']);
-
-
-
-
-
-
-	$sql = "exec upAnul ?,?,?,?,?,?,?,?,?,?";
-	$datos = array(
-		array($idanulacion, SQLSRV_PARAM_IN),
-		array($idpersanul, SQLSRV_PARAM_IN),
-		array($fechaanul, SQLSRV_PARAM_IN),
-		array($idclienteanul, SQLSRV_PARAM_IN),
-		array($cantfanul, SQLSRV_PARAM_IN),
-		array($idmotanul, SQLSRV_PARAM_IN),
-		array($autanul, SQLSRV_PARAM_IN),
-		array($notaanul, SQLSRV_PARAM_IN),
-		array($errcli, SQLSRV_PARAM_IN),
-		array($planacc, SQLSRV_PARAM_IN),
-
-
-	);
+		$idanulacion = trim($_POST['idanulacion']);
+		$idpersanul = trim($_POST['idpersanul']);
+		$fechaanul = trim($_POST['fechaanul']);
+		$idclienteanul = trim($_POST['idclienteanul']);
+		$cantfanul = trim($_POST['cantfanul']);
+		$idmotanul = trim($_POST['idmotanul']);
+		$autanul = trim($_POST['autanul']);
+		$notaanul = trim($_POST['notaanul']);
+		$errcli = trim($_POST['errcli']);
+		$planacc = trim($_POST['planacc']);
 
 
 
 
-	// $exe = $con->query($sql);
-	$res = sqlsrv_query($con, $sql, $datos);
-
-	// 		print_r($_POST);
-	// print_r(sqlsrv_errors());
-
-	while ($row = sqlsrv_fetch_array($res)) {
 
 
+		$sql = "exec upAnul ?,?,?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idanulacion, SQLSRV_PARAM_IN),
+			array($idpersanul, SQLSRV_PARAM_IN),
+			array($fechaanul, SQLSRV_PARAM_IN),
+			array($idclienteanul, SQLSRV_PARAM_IN),
+			array($cantfanul, SQLSRV_PARAM_IN),
+			array($idmotanul, SQLSRV_PARAM_IN),
+			array($autanul, SQLSRV_PARAM_IN),
+			array($notaanul, SQLSRV_PARAM_IN),
+			array($errcli, SQLSRV_PARAM_IN),
+			array($planacc, SQLSRV_PARAM_IN),
 
-		if ($row[0] != 'error') {
 
-			echo "transaccion guardada correctamente";
-		} else {
-			echo "campos vacios, fuera de rango o registro repetido ";
+		);
+
+
+
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql, $datos);
+
+		// 		print_r($_POST);
+		// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+
+
+			if ($row[0] != 'error') {
+
+				echo "transaccion guardada correctamente";
+			} else {
+				echo "campos vacios, fuera de rango o registro repetido ";
+			}
 		}
 	}
 }
@@ -593,7 +605,8 @@ if ($_POST['btnopcion'] == 'guardarcomer') {
 
 		$idnomcom = trim($_POST['idnomcom']);
 		$servicom = trim($_POST['servicom']);
-		$notacom = trim($_POST['notacom']);
+		$notcom = ucfirst($_POST['notacom']);
+		$notacom = trim($notcom);
 		$cuentacom = trim($_POST['cuentacom']);
 		$clavecom = trim($_POST['clavecom']);
 		$linkcom = trim($_POST['linkcom']);
@@ -650,7 +663,8 @@ if ($_POST['btnopcion'] == 'actualizarcomer') {
 		$idcomer = trim($_POST['idcomer']);
 		$idnomcom = trim($_POST['idnomcom']);
 		$servicom = trim($_POST['servicom']);
-		$notacom = trim($_POST['notacom']);
+		$notcom = ucfirst($_POST['notacom']);
+		$notacom = trim($notcom);
 		$cuentacom = trim($_POST['cuentacom']);
 		$clavecom = trim($_POST['clavecom']);
 		$linkcom = trim($_POST['linkcom']);
@@ -702,51 +716,64 @@ if ($_POST['btnopcion'] == 'actualizarcomer') {
 if ($_POST['btnopcion'] == 'guardarmg') {
 
 
+	if (empty($_POST['nommg'])) {
+		echo "hay campos obligatorios sin llenar";
+	} elseif (empty($_POST["correomg"]) and empty($_POST["celularmg"]) and empty($_POST["telfimg"])) {
+		echo "El registro debe tener por lo menos correo o algun telefono";
+	} else {
+		# code...
+
+		# code...
 
 
-	$idclien = trim($_POST['idclien']);
-	$nommg = trim($_POST['nommg']);
-	$correomg = trim($_POST['correomg']);
-	$celularmg = trim($_POST['celularmg']);
-	$telfimg = trim($_POST['telfimg']);
-	$idreg = trim($_POST['idreg']);
-	$respmg = trim($_POST['respmg']);
-	$observmg = trim($_POST['observmg']);
+		# code...
 
 
-
-
-	$sql = "exec ins_Modg ?,?,?,?,?,?,?,?";
-	$datos = array(
-		array($idclien, SQLSRV_PARAM_IN),
-		array($nommg, SQLSRV_PARAM_IN),
-		array($correomg, SQLSRV_PARAM_IN),
-		array($celularmg, SQLSRV_PARAM_IN),
-		array($telfimg, SQLSRV_PARAM_IN),
-		array($idreg, SQLSRV_PARAM_IN),
-		array($respmg, SQLSRV_PARAM_IN),
-		array($observmg, SQLSRV_PARAM_IN),
-
-	);
+		$idclien = trim($_POST['idclien']);
+		$nommg = trim($_POST['nommg']);
+		$correomg = trim($_POST['correomg']);
+		$celularmg = trim($_POST['celularmg']);
+		$telfimg = trim($_POST['telfimg']);
+		$idreg = trim($_POST['idreg']);
+		$respmg = trim($_POST['respmg']);
+		$obsmg = ucfirst($_POST['observmg']);
+		$observmg = trim($obsmg);
 
 
 
 
-	// $exe = $con->query($sql);
-	$res = sqlsrv_query($con, $sql, $datos);
+		$sql = "exec ins_Modg ?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idclien, SQLSRV_PARAM_IN),
+			array($nommg, SQLSRV_PARAM_IN),
+			array($correomg, SQLSRV_PARAM_IN),
+			array($celularmg, SQLSRV_PARAM_IN),
+			array($telfimg, SQLSRV_PARAM_IN),
+			array($idreg, SQLSRV_PARAM_IN),
+			array($respmg, SQLSRV_PARAM_IN),
+			array($observmg, SQLSRV_PARAM_IN),
 
-	// 		print_r($_POST);
-	// print_r(sqlsrv_errors());
-
-	while ($row = sqlsrv_fetch_array($res)) {
+		);
 
 
 
-		if ($row[0] != 'error') {
 
-			echo "transaccion guardada correctamente";
-		} else {
-			echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql, $datos);
+
+		// 		print_r($_POST);
+		// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+
+
+			if ($row[0] != 'error') {
+
+				echo "transaccion guardada correctamente";
+			} else {
+				echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
+			}
 		}
 	}
 }
@@ -755,52 +782,65 @@ if ($_POST['btnopcion'] == 'guardarmg') {
 if ($_POST['btnopcion'] == 'actualizarmg') {
 
 
-
-	$idmogo = trim($_POST['idmogo']);
-	$idclien = trim($_POST['idclien']);
-	$nommg = trim($_POST['nommg']);
-	$correomg = trim($_POST['correomg']);
-	$celularmg = trim($_POST['celularmg']);
-	$telfimg = trim($_POST['telfimg']);
-	$idreg = trim($_POST['idreg']);
-	$respmg = trim($_POST['respmg']);
-	$observmg = trim($_POST['observmg']);
+	if (empty($_POST['nommg'])) {
+		echo "hay campos obligatorios sin llenar";
+	} elseif (empty($_POST["correomg"]) and empty($_POST["celularmg"]) and empty($_POST["telfimg"])) {
+		echo "El registro debe tener por lo menos el correo o algun telefono";
+	} else {
 
 
-
-
-	$sql = "exec upd_Mgob ?,?,?,?,?,?,?,?,?";
-	$datos = array(
-		array($idmogo, SQLSRV_PARAM_IN),
-		array($idclien, SQLSRV_PARAM_IN),
-		array($nommg, SQLSRV_PARAM_IN),
-		array($correomg, SQLSRV_PARAM_IN),
-		array($celularmg, SQLSRV_PARAM_IN),
-		array($telfimg, SQLSRV_PARAM_IN),
-		array($idreg, SQLSRV_PARAM_IN),
-		array($respmg, SQLSRV_PARAM_IN),
-		array($observmg, SQLSRV_PARAM_IN),
-
-	);
+			# code...
+			$idmogo = trim($_POST['idmogo']);
+		$idclien = trim($_POST['idclien']);
+		$nommg = trim($_POST['nommg']);
+		$correomg = trim($_POST['correomg']);
+		$celularmg = trim($_POST['celularmg']);
+		$telfimg = trim($_POST['telfimg']);
+		$idreg = trim($_POST['idreg']);
+		$respmg = trim($_POST['respmg']);
+		$obsmg = ucfirst($_POST['observmg']);
+		$observmg = trim($obsmg);
 
 
 
 
-	// $exe = $con->query($sql);
-	$res = sqlsrv_query($con, $sql, $datos);
+		$sql = "exec upd_Mgob ?,?,?,?,?,?,?,?,?";
+		$datos = array(
+			array($idmogo, SQLSRV_PARAM_IN),
+			array($idclien, SQLSRV_PARAM_IN),
+			array($nommg, SQLSRV_PARAM_IN),
+			array($correomg, SQLSRV_PARAM_IN),
+			array($celularmg, SQLSRV_PARAM_IN),
+			array($telfimg, SQLSRV_PARAM_IN),
+			array($idreg, SQLSRV_PARAM_IN),
+			array($respmg, SQLSRV_PARAM_IN),
+			array($observmg, SQLSRV_PARAM_IN),
 
-	// 		print_r($_POST);
-	// print_r(sqlsrv_errors());
-
-	while ($row = sqlsrv_fetch_array($res)) {
+		);
 
 
 
-		if ($row[0] != 'error') {
 
-			echo "transaccion guardada correctamente";
-		} else {
-			echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql, $datos);
+
+		// 		print_r($_POST);
+		// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+
+
+			if ($row[0] != 'error') {
+
+				echo "transaccion guardada correctamente";
+			} else {
+				echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
+			}
 		}
+
+	
+
+		
 	}
 }

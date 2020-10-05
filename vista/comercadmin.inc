@@ -30,7 +30,7 @@
              <div class="form-row">
                  <div class="form-group col-md-3">
                  <label for="inputgender"><span class="font-weight-bold fenergy">Comercializador</span></label>
-                                <select name="idnomcom" id="inputServcomer" class="form-control">
+                                <select name="idnomcom" id="inputcomer" class="form-control">
                                     <?php
                                     if (empty($_POST["idnomcom"])) {
 
@@ -82,12 +82,12 @@
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold">Cuenta</span></label>
-                     <input name="cuentacom" type="text" value="<?php echo $_POST["cuentacom"]; ?>" class="form-control" id="inputTel" placeholder="Cuenta" >
+                     <input name="cuentacom" type="text" value="<?php echo $_POST["cuentacom"]; ?>" class="form-control" id="inputcuenta" placeholder="Cuenta" >
                  </div>
 
                  <div class="form-group col-md-3">
                  <label for="inputtel"><span class="font-weight-bold fenergy">Nota</span></label>
-                    <textarea name="notacom" type="text"  class="form-control" id="inputTel" placeholder="observaciones" ><?php echo $_POST["notacom"]; ?></textarea>
+                    <textarea name="notacom" type="text"  class="form-control" id="inputnota" placeholder="observaciones" ><?php echo $_POST["notacom"]; ?></textarea>
                  </div>
 
                
@@ -106,14 +106,14 @@
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold fenergy">Link pag web</span></label>
-                     <input name="linkcom" type="text" value="<?php echo $_POST["linkcom"]; ?>" class="form-control" id="inputTel" placeholder="https:// ejemplo.com" min="1000000" max="999999999999">
+                     <input name="linkcom" type="text" value="<?php echo $_POST["linkcom"]; ?>" class="form-control" id="inputlink" placeholder="https:// ejemplo.com" min="1000000" max="999999999999">
                  </div>
 
 
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold fenergy">Correo</span></label>
-                     <input name="correocom" type="email" value="<?php echo $_POST["correocom"]; ?>" class="form-control" id="inputTel" placeholder="ejemplo@mail.com">
+                     <input name="correocom" type="email" value="<?php echo $_POST["correocom"]; ?>" class="form-control" id="inputmail" placeholder="ejemplo@mail.com" pattern="(@)">
                  </div>
 
 
@@ -193,12 +193,13 @@
 
  <div class="container mt-5 col-12 ">
      <div class="container formulario1 imgs p-4">
-         <table id="tusuarios" class="responsive table-striped " width="100%" >
+         <table id="tusuarios" class="responsive table-striped tabla  " width="100%"  >
+
              <thead class=" ">
                  <tr class=" text-center fverde fenergy  text-light">
                      <th>Eliminar</th>
                     <th>Editar</th>
-                     <th>Comercializador</th>
+                     <th  >Comercializador</th>
                      <th>Servicio</th>
                      <th>Nota</th>
                      <th>Cuenta</th>
@@ -263,7 +264,7 @@
                             $enlace="Link página web";
                             $color="text-primary";
                         }
-                        echo "<tr class='text-center texto ' >
+                        echo "<tr class='text-center textop ' >
                         <td>  <a href='#' class='btn btn-rojo fenergy btn-sm' onclick='confirmDeleteComer(" . $row["idComerc"] . ");'>Eliminar</button></td>
                         <td>
                         <form action='' method='POST'>
@@ -286,12 +287,12 @@
                        
                 
                         
-                            <td>". $row["nomComer"] ."</td>
+                            <td >". $row["nomComer"] ."</td>
                             <td>" . $row["serviCom"] . "</td>
-                            <td>" . $row["notaCom"] . "</td>
+                            <td >" . $row["notaCom"] . "</td>
                             <td>" . $row["cuentaCom"] . "</td>
                        
-                            <td class='".$color."'><a href='". $link."'>" . $enlace. "</a></td>
+                            <td class='".$color."'><a href='". $link."' target='blank'>" . $enlace. "</a></td>
                             <td>" . $row["correoCom"] . "</td>
                             <td>" . $row["teleCom"] . "</td>
                          
@@ -303,7 +304,7 @@
 
                     ?>
 
-                    <!-- RECORDAR QUE EL CAMPO NOTACOM Y CUENTACOM DE LA TABLA COMERCIALIZADORES ESTÁN INVERTIDOS!!!! -->
+             
 
      </div>
 

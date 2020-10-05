@@ -54,7 +54,7 @@
                  </div>
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold">Nombre</span></label>
-                     <input name="nommg" type="text" value="<?php echo $_POST["nommg"]; ?>" class="form-control" id="inputTel" placeholder="Nombre">
+                     <input name="nommg" type="text" value="<?php echo $_POST["nommg"]; ?>" class="form-control" id="inputTel" placeholder="Nombre" title="Nombre de la persona a contactar">
                  </div>
 
 
@@ -65,7 +65,7 @@
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold fenergy">Celular</span></label>
-                     <input name="celularmg" type="number" value="<?php echo $_POST["celularmg"]; ?>" class="form-control" id="inputTel" placeholder="#Celular" min="1000000" max="999999999999">
+                     <input name="celularmg" type="text" value="<?php echo $_POST["celularmg"]; ?>" class="form-control" id="inputTel" placeholder="(+57)-555 5555555" title="Solo se aceptan los siguientes caracteres 0 - 9( ) +">
                  </div>
 
 
@@ -75,7 +75,7 @@
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold fenergy">Telefono</span></label>
-                     <input name="telfimg" type="number" value="<?php echo $_POST["telfimg"]; ?>" class="form-control" id="inputTel" placeholder="#Teléfono" min="1000000" max="999999999999">
+                     <input name="telfimg" type="text" value="<?php echo $_POST["telfimg"]; ?>" class="form-control" id="inputTel" placeholder="(+57)-5555555555" title="Solo se aceptan los siguientes caracteres 0 - 9( ) +" >
                  </div>
 
                  <div class="form-group col-md-3">
@@ -106,14 +106,14 @@
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold">Responsable</span></label>
-                     <input name="respmg" type="text" value="<?php echo $_POST["respmg"]; ?>" class="form-control" id="inputTel" placeholder="Área responsable">
+                     <input name="respmg" type="text" value="<?php echo $_POST["respmg"]; ?>" class="form-control" id="inputTel" placeholder="Área responsable" title="Cargo de la persona a contactar">
                  </div>
 
 
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold fenergy">Observación</span></label>
-                     <textarea name="observmg" type="text" class="form-control" id="inputTel" placeholder="observaciones"><?php echo $_POST["observmg"]; ?></textarea>
+                     <textarea name="observmg" type="text" class="form-control" id="inputTel" placeholder="observaciones" title="informacion extra"><?php echo $_POST["observmg"]; ?></textarea>
                  </div>
 
 
