@@ -469,10 +469,27 @@ if ($_POST['btnopcion'] == 'actualizarch') {
 
 if ($_POST['btnopcion'] == 'guardarAnul') {
 
-
-	if (empty($_POST["errcli"]) || empty($_POST["planacc"]) || empty($_POST["idmotanul"]) || empty($_POST["autanul"])) {
-		echo "hay campos obligatorios vacíos!";
-	} else {
+	if (empty($_POST['fechaanul'])) {
+		echo "Se necesita una fecha para el registro!";
+	}
+	elseif (empty($_POST['idpersanul'])) {
+		echo "Necesitamos saber quien hio el registro!";
+	} elseif (empty($_POST['idclienteanul'])) {
+		echo"Necesitamos saber de que cliente es el error";
+		# code...
+	}
+	elseif(empty($_POST["idmotanul"])) {
+		echo "se necesita un motivo de anulacion!";
+	} elseif (empty($_POST["autanul"])) {
+		echo "está autorizada la anulacion?";
+	}elseif (empty($_POST["notaanul"])) {
+		echo "se necesita una observacion!";
+	}elseif (empty($_POST["errcli"])) {
+		echo "se necesita saber si el error llegó al cliente?";
+	}elseif (empty($_POST["planacc"])) {
+		echo "se necesita un plan de accion";
+		# code...
+	}else{
 
 
 		$idpersanul = trim($_POST['idpersanul']);
@@ -526,6 +543,7 @@ if ($_POST['btnopcion'] == 'guardarAnul') {
 			}
 		}
 	}
+	
 }
 
 
@@ -536,9 +554,27 @@ if ($_POST['btnopcion'] == 'guardarAnul') {
 
 if ($_POST['btnopcion'] == 'actualizarAnul') {
 
-	if (empty($_POST["errcli"]) || empty($_POST["planacc"]) || empty($_POST["idmotanul"]) || empty($_POST["autanul"])) {
-		echo "hay campos obligatorios vacíos!";
-	} else {
+	if (empty($_POST['fechaanul'])) {
+		echo "Se necesita una fecha para el registro!";
+	}
+	elseif (empty($_POST['idpersanul'])) {
+		echo "Necesitamos saber quien hio el registro!";
+	} elseif (empty($_POST['idclienteanul'])) {
+		echo"Necesitamos saber de que cliente es el error";
+		# code...
+	}
+	elseif(empty($_POST["idmotanul"])) {
+		echo "se necesita un motivo de anulacion!";
+	} elseif (empty($_POST["autanul"])) {
+		echo "está autorizada la anulacion?";
+	}elseif (empty($_POST["notaanul"])) {
+		echo "se necesita una observacion!";
+	}elseif (empty($_POST["errcli"])) {
+		echo "se necesita saber si el error llegó al cliente?";
+	}elseif (empty($_POST["planacc"])) {
+		echo "se necesita un plan de accion";
+		# code...
+	}else{
 
 		$idanulacion = trim($_POST['idanulacion']);
 		$idpersanul = trim($_POST['idpersanul']);
@@ -587,7 +623,7 @@ if ($_POST['btnopcion'] == 'actualizarAnul') {
 
 			if ($row[0] != 'error') {
 
-				echo "transaccion guardada correctamente";
+				echo "1";
 			} else {
 				echo "campos vacios, fuera de rango o registro repetido ";
 			}
@@ -646,9 +682,9 @@ if ($_POST['btnopcion'] == 'guardarcomer') {
 
 			if ($row[0] != 'error') {
 
-				echo "transaccion guardada correctamente";
+				echo 1;
 			} else {
-				echo "campos vacios, fuera de rango o cuenta repetida ";
+				echo "Error dato repetido , verifique!";
 			}
 		}
 	}
@@ -783,7 +819,7 @@ if ($_POST['btnopcion'] == 'actualizarmg') {
 
 
 	if (empty($_POST['nommg'])) {
-		echo "hay campos obligatorios sin llenar";
+		echo "Necesitamos un nombre para el rgistro";
 	} elseif (empty($_POST["correomg"]) and empty($_POST["celularmg"]) and empty($_POST["telfimg"])) {
 		echo "El registro debe tener por lo menos el correo o algun telefono";
 	} else {
@@ -836,6 +872,58 @@ if ($_POST['btnopcion'] == 'actualizarmg') {
 				echo "transaccion guardada correctamente";
 			} else {
 				echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
+			}
+		}
+
+	
+
+		
+	}
+}
+
+
+
+if ($_POST['btnopcion'] == 'insNuComer') {
+
+
+	if (empty($_POST['nomnucom'])) {
+		echo "El campo para nuevo comercializador está vacio";
+	}else{
+
+
+			# code...
+		
+		$nuComcer = trim($_POST['nomnucom']);
+		
+
+
+
+
+		$sql = "exec insNomCom ?";
+		$datos = array(
+			array($nuComcer, SQLSRV_PARAM_IN),
+			
+
+		);
+
+
+
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql, $datos);
+
+		// 		print_r($_POST);
+		// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+
+
+			if ($row[0] != 'error') {
+
+				echo "transaccion guardada correctamente";
+			} else {
+				echo "Error al guardar comercializador";
 			}
 		}
 

@@ -212,7 +212,8 @@
                     $sql = "	
                     select ch.idConsumo,ch.idPerso,nombre,ch.fechaChist,ch.idCliente,c.nomCliente,ch.canSusch,ch.obsCh from Chistorico ch
 inner join usuarios  on ch.idPerso=id
-inner join  Cliente c on ch.idCliente=c.idCliente";
+inner join  Cliente c on ch.idCliente=c.idCliente
+order by idConsumo desc";
 
 
                     $res = sqlsrv_query($con, $sql);

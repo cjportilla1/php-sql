@@ -127,6 +127,16 @@ if (empty($_SESSION["logged"])) {
 } );
     </script>
 
+<script>
+    function resetform() {
+     $("form select").each(function() { this.selectedIndex = 0 });
+     $("form  input[type=text] , form textarea").each(function() { this.value = '' });
+     $("form input[type=number]").each(function() { this.value = '' });
+     $("form input[type=date]").each(function() { this.value = '' });
+     $_POST=array();
+}
+</script>
+
 <body>
 
 

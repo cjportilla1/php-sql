@@ -35,6 +35,7 @@
                 <div class="form-group col-md-4">
                     <label for="inputca"><span class="font-weight-bold">Gestionado por</span></label>
                     <select name="idpersanul" id="inputcargo" class="form-control">
+                        <option value="" disabled> </option>
                         <?php
                         if (empty($_POST["idpersanul"])) {
 
@@ -62,6 +63,7 @@
                 <div class="form-group col-md-4">
                     <label for="inputca"><span class="font-weight-bold">Cliente</span></label>
                     <select name="idclienteanul" id="inputcargo" class="form-control">
+                    <option value="" disabled> </option>
                         <?php
                         if (empty($_POST["idclienteanul"])) {
 
@@ -95,6 +97,7 @@
                 <div class="form-group col-md-4">
                     <label for="inputca"><span class="font-weight-bold">Motivo error</span></label>
                     <select name="idmotanul" id="inputcargo" class="form-control">
+                    <option value="" disabled> </option>
                         <?php
                         if (empty($_POST["idmotanul"])) {
 
@@ -128,6 +131,7 @@
                     <label for="inputca"><span class="font-weight-bold">Autorizado?</span></label>
                     <select name="autanul" id="inputcargo" class="form-control">
 
+                    <option value="" disabled> </option>
                         <?php
                         if (empty($_POST["autanul"])) {
 
@@ -137,8 +141,8 @@
                             echo "<option value='" . $_POST["autanul"] . "'>" . $_POST["autanul"] . " ";
                         }
                         ?>
-                        <option value="si">Si</option>
-                        <option value="no">No</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
 
                     </select>
 
@@ -174,7 +178,7 @@
 
                     <label for="inputca"><span class="font-weight-bold">Error llegó al cliente?</span></label>
                     <select name="errcli" id="iderrcli" class="form-control">
-
+                    <option value="" disabled> </option>
                         <?php
                         if (empty($_POST["errcli"])) {
 
@@ -184,8 +188,8 @@
                             echo "<option value='" . $_POST["errcli"] . "'>" . $_POST["errcli"] . " ";
                         }
                         ?>
-                        <option value="si">Si</option>
-                        <option value="no">No</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
 
                     </select>
 
@@ -207,7 +211,7 @@
             <div class="form-row ">
 
 
-                <div class="col-6">
+                <div class="col-4">
 
                     <button type="button" onclick="cruduser('guardarAnul')" class="btn btn-verde text-light titulos">
                         REGISTRAR </button> <br>
@@ -216,11 +220,18 @@
 
 
                 </div>
-                <div class="col-6">
 
-                    <button type="button" onclick="cruduser('actualizarAnul')" class="btn btn-verde text-light titulos">
+                <div class="col-4">
+                <button type="button" onclick="resetform()" class="btn btn-verde text-light titulos" id="btnform">
+                       Limpiar formulario </button> <br>
+
+                </div>
+ 
+                <div class="col-4">
+
+                    <button type="button" onclick="cruduser('actualizarAnul')" class="btn btn-verde text-light titulos" id="btnform">
                         ACTUALIZAR </button> <br>
-
+                    
                     <article id="alerta" class="alert-warning text-danger"></article>
 
                 </div>
@@ -314,7 +325,8 @@
                select idAnulacion,idusrAn,U.nombre,feAnul,idClienteA,C.nomCliente,cantFanul,M.idMotanul,M.descrAnul,anulAut,NotaAn,cliErr,planAcc from Anulacion A 
                inner join usuarios U on idusrAn=id
                inner join Cliente C on idClienteA=c.idCliente
-               inner join Mot_anula M on A.idMotanul=M.idMotanul";
+               inner join Mot_anula M on A.idMotanul=M.idMotanul
+               order by idAnulacion desc";
 
 
                 $res = sqlsrv_query($con, $sql);

@@ -118,20 +118,14 @@ function confirmDeleteMg(id) {
 
 
 
-
-
-
-
-// Función de guardar ó actualizar datos:
-
-function cruduser(btnSaveUser) {
+function crudcomer(btnSaveUser) {
 	// se guarda en una variable los datos que vienen del formulario con id señalizado en la vista del modulo de registro de usuarios
-	var datoForm = $("#formRegistroUser").serialize();
+	var datoForm = $("#formComer").serialize();
 	// se le suma una variable post btnopcion mas la accion definida en el boton en la vista del formulario ya sea registrar o actualizar
 	var datoReg = datoForm + '&btnopcion=' + btnSaveUser;
 	// se puede usar un alert para imprimir en pantalla una ventana con los datos que se estan enviando
 	//  por post para comprobar que van la cantidad y llenos con los datos correspondientes
-	alert (datoReg);
+	// alert (datoReg);
 	console.log();
 	// Control asicronico:
 	$.ajax({
@@ -148,6 +142,39 @@ function cruduser(btnSaveUser) {
 			$("#alerta").html(res);
 			// se ejecuta la funcion recargar definida mas abajo para actualizar la pagina 
 			setTimeout(regarcar, 2500);
+		})
+}
+
+
+
+
+
+// Función de guardar ó actualizar datos:
+
+function cruduser(btnSaveUser) {
+	// se guarda en una variable los datos que vienen del formulario con id señalizado en la vista del modulo de registro de usuarios
+	var datoForm = $("#formRegistroUser").serialize();
+	// se le suma una variable post btnopcion mas la accion definida en el boton en la vista del formulario ya sea registrar o actualizar
+	var datoReg = datoForm + '&btnopcion=' + btnSaveUser;
+	// se puede usar un alert para imprimir en pantalla una ventana con los datos que se estan enviando
+	//  por post para comprobar que van la cantidad y llenos con los datos correspondientes
+	// alert (datoReg);
+	console.log();
+	// Control asicronico:
+	$.ajax({
+		type: "POST",
+		url: "../controller/registrar.php",
+		data: datoReg
+	})
+
+		// si la funcion es exitosa y el archivo controlador devuelve una respuesta se registra con el id
+		//  del label alerta ubicado en la vista del formulario
+		.done(function (res) {
+			console.log(res);
+
+			$("#alerta").html(res);
+			// se ejecuta la funcion recargar definida mas abajo para actualizar la pagina 
+			// setTimeout(regarcar, 2500);
 		})
 }
 
