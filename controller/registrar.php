@@ -536,7 +536,7 @@ if ($_POST['btnopcion'] == 'guardarAnul') {
 
 
 			if ($row[0] != 'error') {
-
+				
 				echo "transaccion guardada correctamente";
 			} else {
 				echo "campos vacios, fuera de rango o registro repetido ";
@@ -924,6 +924,56 @@ if ($_POST['btnopcion'] == 'insNuComer') {
 				echo "transaccion guardada correctamente";
 			} else {
 				echo "Error al guardar comercializador";
+			}
+		}
+
+	
+
+		
+	}
+}
+
+if ($_POST['btnopcion'] == 'insNuClien') {
+
+
+	if (empty($_POST['nueclien'])) {
+		echo "El campo para nuevo cliente está vacio";
+	}else{
+
+
+			# code...
+		
+		$nuClient = trim($_POST['nueclien']);
+		
+
+
+
+
+		$sql = "exec insNewCli ?";
+		$datos = array(
+			array($nuClient, SQLSRV_PARAM_IN),
+			
+
+		);
+
+
+
+
+		// $exe = $con->query($sql);
+		$res = sqlsrv_query($con, $sql, $datos);
+
+		// 		print_r($_POST);
+		// print_r(sqlsrv_errors());
+
+		while ($row = sqlsrv_fetch_array($res)) {
+
+
+
+			if ($row[0] != 'error') {
+
+				echo "transaccion guardada correctamente";
+			} else {
+				echo "Error al guardar cliente,puede ser un registro repetido!";
 			}
 		}
 

@@ -1,3 +1,5 @@
+
+
  <div class="container col-10 text-center imgs mt-2  formulario1">
 
 
@@ -5,7 +7,7 @@
 
 
 
-     <section class="row justify-content-center p-4">
+     <section class="row justify-content-center p-2">
 
 
 
@@ -20,9 +22,10 @@
                      <input type="date" value="<?php echo $_POST["ftranbot"]; ?>" class="form-control " id="inputfingreso" name="ftranbot" placeholder="fingreso" <?php echo 'max="' . date('Y-m-d') . '"' ?>>
                  </div>
 
-                 <div class="form-group col-md-4">
+                 <div class="form-group col-md-3">
                      <label for="inputca"><span class="font-weight-bold">Gestionado por</span></label>
                      <select name="idperstr" id="inputcargo" class="form-control">
+                     <option value="" disabled> </option>
                          <?php
                             if (empty($_POST["idperstr"])) {
 
@@ -47,9 +50,10 @@
                  </div>
 
 
-                 <div class="form-group col-md-4">
+                 <div class="form-group col-md-3">
                      <label for="inputca"><span class="font-weight-bold">Cliente</span></label>
                      <select name="idcliente" id="inputcargo" class="form-control">
+                     <option value="" disabled> </option>
                          <?php
                             if (empty($_POST["idcliente"])) {
 
@@ -75,6 +79,13 @@
                      </select>
                  </div>
 
+                 <div class="form-group col-sm-2 my-auto">
+
+                    <button type="button" class="btn btn-verde text-light titulos " data-toggle="modal" data-target="#exampleModal">
+                        Nuevo cliente
+                    </button>
+                </div>
+
 
 
              </div>
@@ -83,6 +94,7 @@
                  <div class="form-group col-md-4">
                      <label for="inputca"><span class="font-weight-bold">Categoría transacción</span></label>
                      <select name="idcat" id="inputcargo" class="form-control">
+                     <option value="" disabled> </option>
                          <?php
                             if (empty($_POST["idcat"])) {
 
@@ -93,7 +105,7 @@
                             }
                             ?>
                          <?php
-                            $sql = "SELECT * from Cat_Transaccion";
+                            $sql = "SELECT * from Cat_Transaccion order by desCat";
                             $res = sqlsrv_query($con, $sql);
 
                             while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
@@ -137,10 +149,10 @@
 
              </div>
 
-          
+
              <div class="form-row">
 
-             <div class="col-4"></div>
+                 <div class="col-4"></div>
                  <div class="form-group col-4">
                      <label for="inputtel"><span class="font-weight-bold">Tiempo ahorrado</span></label>
                      <input name="tiahorrado" type="number" value="<?php echo $_POST["tiahorrado"]; ?>" class="form-control" id="inputTel" placeholder="#tiempo ahorrado en horas" min="1" max="8" step="any">
@@ -158,7 +170,7 @@
 
              <div class="form-row">
 
-             <div class="col-2"></div>
+                 <div class="col-2"></div>
                  <div class="col">
 
                      <button type="button" onclick="cruduser('guardartrbot')" class="btn btn-verde text-light titulos">
@@ -168,6 +180,11 @@
 
 
                  </div>
+                 <div class="col">
+                <button type="button" onclick="resetform()" class="btn btn-verde text-light titulos" id="btnform">
+                       Limpiar formulario </button> <br>
+
+                </div>
                  <div class="col">
 
                      <button type="button" onclick="cruduser('actualizartrbot')" class="btn btn-verde text-light titulos">
@@ -210,6 +227,47 @@
 
 
  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title verde titulos " id="exampleModalLabel">Registrar nuevo cliente</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <div class="row  ">
+                                <div class="form-group col-md-4 text-center">
+                                    <form action="" method="POST" id="formcliente">
+                                        <label for="inputsd"><span class="font-weight-bold fenergy">Nuevo cliente</span></label>
+                                </div>
+
+                                <div class="form-group col-md-8 text-center">
+
+                                    <input name="nueclien" type="text" class="form-control " id="newclient" placeholder="Nombre nuevo cliente" minlength="3" maxlength="60" value="">
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-gris btn-sm" data-dismiss="modal">Cerrar</button>
+                            <button type="button" onclick="createnuclien('insNuClien')" class="btn btn-verde btn-sm text-light titulos ">Registrar</button>
+                             
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- fin del modal  esta parte no es visible en el front end hasa que se presione el boton que lo activa -->
 
  <div class="container mt-5 col-12 ">
      <div class="container formulario1 imgs p-4">
@@ -264,7 +322,8 @@
                             select idtransaccion,fechatr,idPerstr,nombre,idClientetr,nomCliente,idCategoriatr,desCat,botCantrl,botCantrs,tiAhorrado from Transaccion_Robot 
                             inner join usuarios on idPerstr=id
                             inner join Cliente on idClientetr=idCliente
-                            inner join Cat_Transaccion on idCategoriatr=idcattr";
+                            inner join Cat_Transaccion on idCategoriatr=idcattr
+                            order by fechatr desc";
 
 
                     $res = sqlsrv_query($con, $sql);
@@ -295,35 +354,35 @@
                                 $cliente = "<IMG src='../assets/img/studiof.ico' width='70%' height='30%'    >";
                                 break;
 
-                                case '7':
-                                    $cliente = "<IMG src='../assets/img/colanta.ico' width='70%' height='30%'      >";
-                                    break;
+                            case '7':
+                                $cliente = "<IMG src='../assets/img/colanta.ico' width='70%' height='30%'      >";
+                                break;
 
-                                case '8':
-                                    $cliente = "<IMG src='../assets/img/larebaja.ico' width='70%' height='30%'      >";
-                                    break;
+                            case '8':
+                                $cliente = "<IMG src='../assets/img/larebaja.ico' width='70%' height='30%'      >";
+                                break;
 
-                                    case '9':
-                                        $cliente = "GRUPO URIBE";
-                                        break;
+                            case '9':
+                                $cliente = "GRUPO URIBE";
+                                break;
 
-                                        case '10':
-                                            $cliente = "<IMG src='../assets/img/hermeco.ico' width='70%' height='30%'      >";
-                                            break;
-                                       
+                            case '10':
+                                $cliente = "<IMG src='../assets/img/hermeco.ico' width='70%' height='30%'      >";
+                                break;
+
                             case '11':
                                 $cliente = "<IMG src='../assets/img/leonisa.ico' width='70%' height='30%'      >";
                                 break;
 
-                                case '12':
-                                    $cliente = "<IMG src='../assets/img/tcc.ico' width='70%' height='30%'      >";
-                                    break;
+                            case '12':
+                                $cliente = "<IMG src='../assets/img/tcc.ico' width='70%' height='30%'      >";
+                                break;
 
 
-                                    case '13':
-                                        $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='30%'  >";
-                                        break;
-                             
+                            case '13':
+                                $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='30%'  >";
+                                break;
+
                             default:
                                 # code...
                                 break;
@@ -354,7 +413,7 @@
                      
                             <td>" . $row["fechatr"]->format('Y-m-d') . "</td>
                             <td>" . $row["nombre"] . "</td>
-                          <td>" . $cliente ."<p style='visibility:hidden'>".$row["nomCliente"]. "</p></td>
+                          <td>" . $cliente . "<p style='visibility:hidden'>" . $row["nomCliente"] . "</p></td>
                            
                             <td>" . $row["desCat"] . "</td>
                             <td>" . $row["botCantrl"] . "</td>

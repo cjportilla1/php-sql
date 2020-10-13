@@ -30,6 +30,7 @@
                  <div class="form-group col-md-3">
                      <label for="inputgender"><span class="font-weight-bold fenergy">Cliente</span></label>
                      <select name="idclien" id="inputServcomer" class="form-control">
+                     <option value="" disabled> </option>
                          <?php
                             if (empty($_POST["idclien"])) {
 
@@ -81,6 +82,7 @@
                  <div class="form-group col-md-3">
                      <label for="inputgender"><span class="font-weight-bold fenergy">Regional</span></label>
                      <select name="idreg" id="inputServcomer" class="form-control">
+                     <option value="" disabled> </option>
                          <?php
                             if (empty($_POST["idreg"])) {
 
@@ -141,6 +143,12 @@
                      <br>
 
                  </div>
+
+                 <div class="col">
+                <button type="button" onclick="resetform()" class="btn btn-verde text-light titulos" id="btnform">
+                       Limpiar formulario </button> <br>
+
+                </div>
                  <div class="col">
 
                      <button type="button" onclick="cruduser('actualizarmg')" class="btn btn-verde text-light titulos">
