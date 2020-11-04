@@ -1,3 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+
+<div class="container-fluid">
+
+    <button type="button" id="sidebarCollapse" class="btn btn-info">
+        <i class="fas fa-align-left"></i>
+        <span>Menú</span>
+    </button>
+
+</div>
+
+</nav>
+
+
 <div class="container col-10 text-center imgs mt-2  formulario1">
 
 
@@ -215,7 +229,7 @@
 
 <div class="container mt-5 col-12 ">
     <div class="container formulario1 imgs p-4">
-        <table id="tusuarios" class="responsive  table-striped " width="100%" height="100%">
+        <table id="tusuarios" class="  table-striped " width="100%" height="100%">
             <thead class=" ">
                 <tr class=" text-center fverde   text-light">
                     <th>Eliminar</th>
@@ -286,7 +300,7 @@ order by idConsumo desc";
                             break;
 
                         case '3':
-                            $cliente = "<IMG src='../assets/img/distracom.ico' width='70%' height='30%'       >";
+                            $cliente = "<IMG src='../assets/img/distracom.ico' width='70%' height='30%'      >";
                             break;
 
                         case '4':
@@ -294,7 +308,7 @@ order by idConsumo desc";
                             break;
 
                         case '5':
-                            $cliente = "<IMG src='../assets/img/studiof.ico' width='70%' height='30%'     >";
+                            $cliente = "<IMG src='../assets/img/studiof.ico' width='70%' height='30%'      >";
                             break;
 
                         case '7':
@@ -302,7 +316,7 @@ order by idConsumo desc";
                             break;
 
                         case '8':
-                            $cliente = "<IMG src='../assets/img/larebaja.ico' width='70%' height='30%'       >";
+                            $cliente = "<IMG src='../assets/img/larebaja.ico' width='70%' height='30%'      >";
                             break;
 
                         case '9':
@@ -310,21 +324,45 @@ order by idConsumo desc";
                             break;
 
                         case '10':
-                            $cliente = "<IMG src='../assets/img/hermeco.ico' width='70%' height='30%'      >";
+                            $cliente = "<IMG src='../assets/img/hermeco.ico' width='70%' height='30%'     >";
                             break;
 
                         case '11':
-                            $cliente = "<IMG src='../assets/img/leonisa.ico' width='70%' height='30%'      >";
+                            $cliente = "<IMG src='../assets/img/leonisa.ico' width='70%' height='30%'     >";
                             break;
 
                         case '12':
-                            $cliente = "<IMG src='../assets/img/tcc.ico' width='70%' height='30%'      >";
+                            $cliente = "<IMG src='../assets/img/tcc.ico' width='70%' height='30%'     >";
                             break;
 
 
                         case '13':
                             $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='30%'      >";
                             break;
+
+                            case '14':
+                                $cliente="<IMG src='../assets/img/bbva.ico' width='70%' height='30%'    >";
+                            break;
+
+                            case '15':
+                                $cliente="<IMG src='../assets/img/av villas.ico' width='70%' height='30%'    >";
+                            break;
+
+                            case '16':
+                                $cliente="<IMG src='../assets/img/popular.ico' width='70%' height='30%'      >";
+                            break;
+
+                            case '17':
+                                $cliente="<IMG src='../assets/img/boccidente.ico' width='70%' height='30%'     >";
+                            break;
+                            
+                            case '18':
+                                $cliente="<IMG src='../assets/img/porvenir.ico' width='70%' height='30%'      >";
+                            break;
+                            case '19':
+                                        $cliente="<IMG src='../assets/img/pilatos.ico' width='70%' height='30%'      >";
+                                    break;
+
                     }
 
                     echo "<tr class='text-center texto ' >

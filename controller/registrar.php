@@ -753,9 +753,9 @@ if ($_POST['btnopcion'] == 'guardarmg') {
 
 
 	if (empty($_POST['nommg'])) {
-		echo "hay campos obligatorios sin llenar";
+		echo "El registro debe tener un nombre!";
 	} elseif (empty($_POST["correomg"]) and empty($_POST["celularmg"]) and empty($_POST["telfimg"])) {
-		echo "El registro debe tener por lo menos correo o algun telefono";
+		echo "El registro debe tener por lo menos correo o algun telefono!";
 	} else {
 		# code...
 

@@ -194,7 +194,7 @@
 
  <div class="container mt-5 col-12 ">
      <div class="container formulario1 imgs p-4">
-         <table id="tusuarios" class="responsive table-striped " width="100%">
+         <table id="tusuarios" class=" table-striped " width="100%">
              <thead class=" ">
                  <tr class=" text-center fverde fenergy  text-light">
                      <th>Eliminar</th>
@@ -306,10 +306,33 @@
                                     case '13':
                                         $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='30%'  >";
                                         break;
-                             
-                            default:
-                                # code...
-                                break;
+                         
+
+                                         case '14':
+                                $cliente="<IMG src='../assets/img/bbva.ico' width='70%' height='30%'      >";
+                            break;
+
+                            case '15':
+                                $cliente="<IMG src='../assets/img/av villas.ico' width='70%' height='30%'      >";
+                            break;
+
+                            case '16':
+                                $cliente="<IMG src='../assets/img/popular.ico' width='70%' height='30%'      >";
+                            break;
+
+                            case '17':
+                                $cliente="<IMG src='../assets/img/boccidente.ico' width='70%' height='30%'      >";
+                            break;
+                            
+                            case '18':
+                                $cliente="<IMG src='../assets/img/porvenir.ico' width='70%' height='30%'      >";
+                            break;
+                            case '19':
+                                        $cliente="<IMG src='../assets/img/pilatos.ico' width='70%' height='30%'      >";
+                                    break;
+
+
+
                         }
 
 

@@ -55,6 +55,7 @@
                  <div class="form-group col-md-3">
                      <label for="inputgender"><span class="font-weight-bold fenergy">Comercializador</span></label>
                      <select name="idnomcom" id="inputcomer" class="form-control">
+                     <option value="" disabled> </option>
                          <?php
                             if (empty($_POST["idnomcom"])) {
 
@@ -80,6 +81,7 @@
                  <div class="form-group col-md-3">
                      <label for="inputgender"><span class="font-weight-bold fenergy">Servicio</span></label>
                      <select name="servicom" id="inputServcomer" class="form-control">
+                     <option value="" disabled> </option>
                          <?php
                             if (empty($_POST["servicom"])) {
 
@@ -172,6 +174,12 @@
                      <br>
 
                  </div>
+
+                 <div class="col">
+                <button type="button" onclick="resetform()" class="btn btn-verde text-light titulos" id="btnform">
+                       Limpiar formulario </button> <br>
+
+                </div>
                  <div class="col">
 
                      <button type="button" onclick="cruduser('actualizarcomer')" class="btn btn-verde text-light titulos">
@@ -217,7 +225,7 @@
 
  <div class="container mt-5 col-12 ">
      <div class="container formulario1 imgs p-4">
-         <table id="tusuarios" class="responsive table-striped tabla  " width="100%">
+         <table id="tusuarios" class=" table-striped tabla  " width="100%">
 
              <thead class=" ">
                  <tr class=" text-center fverde fenergy  text-light">
@@ -269,7 +277,8 @@
 
                     $sql = "	
                     select idComerc,idnomCom,nomComer,serviCom,notaCom,cuentaCom,claveCom,linkCom,correoCom,teleCom  from Comercializador 
-                    inner join Nom_Comerci on idnomCom=idNomComer";
+                    inner join Nom_Comerci on idnomCom=idNomComer
+                    order by coModDate desc";
 
 
                     $res = sqlsrv_query($con, $sql);

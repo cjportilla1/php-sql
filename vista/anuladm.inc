@@ -32,7 +32,7 @@
                     <input type="date" value="<?php echo $_POST["fechaanul"]; ?>" class="form-control " id="inputfingreso" name="fechaanul" placeholder="fingreso" <?php echo 'max="' . date('Y-m-d') . '"' ?>>
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="inputca"><span class="font-weight-bold">Gestionado por</span></label>
                     <select name="idpersanul" id="inputcargo" class="form-control">
                         <option value="" disabled> </option>
@@ -60,7 +60,7 @@
                 </div>
 
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="inputca"><span class="font-weight-bold">Cliente</span></label>
                     <select name="idclienteanul" id="inputcargo" class="form-control">
                     <option value="" disabled> </option>
@@ -88,7 +88,12 @@
 
                     </select>
                 </div>
+                <div class="form-group col-sm-2 my-auto">
 
+<button type="button" class="btn btn-verde text-light titulos " data-toggle="modal" data-target="#exampleModal">
+    Nuevo cliente
+</button>
+</div>
 
 
             </div>
@@ -269,10 +274,49 @@
 
 
 </div>
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title verde titulos " id="exampleModalLabel">Registrar nuevo cliente</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
+
+                            <div class="row  ">
+                                <div class="form-group col-md-4 text-center">
+                                    <form action="" method="POST" id="formcliente">
+                                        <label for="inputsd"><span class="font-weight-bold fenergy">Nuevo cliente</span></label>
+                                </div>
+
+                                <div class="form-group col-md-8 text-center">
+
+                                    <input name="nueclien" type="text" class="form-control " id="newclient" placeholder="Nombre nuevo cliente" minlength="3" maxlength="60" value="">
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-gris btn-sm" data-dismiss="modal">Cerrar</button>
+                            <button type="button" onclick="createnuclien('insNuClien')" class="btn btn-verde btn-sm text-light titulos ">Registrar</button>
+                             
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- fin del modal  esta parte no es visible en el front end hasa que se presione el boton que lo activa -->
 <div class="container mt-5 col-12 ">
     <div class="container formulario1 imgs p-4">
-        <table id="tusuarios" class="responsive table-striped " width="100%" height="100%">
+        <table id="tusuarios" class=" table-striped " width="100%" height="100%">
             <thead class=" ">
                 <tr class=" text-center fverde   text-light">
                     <th>Eliminar</th>
@@ -386,12 +430,32 @@
                                     $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='30%'  >";
                                     break;
                          
-                        default:
-                            # code...
-                            break;
+                                    case '14':
+                                        $cliente="<IMG src='../assets/img/bbva.ico' width='70%' height='30%'      >";
+                                    break;
+        
+                                    case '15':
+                                        $cliente="<IMG src='../assets/img/av villas.ico' width='70%' height='30%'      >";
+                                    break;
+        
+                                    case '16':
+                                        $cliente="<IMG src='../assets/img/popular.ico' width='70%' height='30%'      >";
+                                    break;
+        
+                                    case '17':
+                                        $cliente="<IMG src='../assets/img/boccidente.ico' width='70%' height='30%'      >";
+                                    break;
+                                    
+                                    case '18':
+                                        $cliente="<IMG src='../assets/img/porvenir.ico' width='70%' height='30%'      >";
+                                    break;
+                                    case '19':
+                                        $cliente="<IMG src='../assets/img/pilatos.ico' width='70%' height='30%'      >";
+                                    break;
+
                     }
 
-                    if ($row["cliErr"]=='si') {
+                    if ($row["cliErr"]=='Si') {
                         $errcli="<h3 class='text-danger'>".$row["cliErr"]."</h3>";
                         # code...
                     }else {

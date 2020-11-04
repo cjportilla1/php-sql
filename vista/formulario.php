@@ -30,6 +30,7 @@ if (empty($_SESSION["logged"])) {
     
     <link rel="stylesheet" href="../css/fuente.css">
     <link rel="shortcut icon" href="../assets/img/titleem.ico">
+    <link rel="stylesheet" href="../assets/fontawesome-free-5.15.1-web/css/all.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link rel="stylesheet" type="text/css" href="../assets/DataTables-1.10.22/css/jquery.dataTables.css"/>
 <link rel="stylesheet" type="text/css" href="../assets/Buttons-1.6.4/css/buttons.dataTables.css"/>
@@ -55,8 +56,17 @@ if (empty($_SESSION["logged"])) {
 
     <script type="text/javascript" src="../js/funciones.js"></script>
   
+    <script>
+    function resetform() {
+     $("form select").each(function() { this.selectedIndex = 0 });
+     $("form  input[type=text] , form textarea").each(function() { this.value = '' });
+     $("form input[type=number]").each(function() { this.value = '' });
+     $("form input[type=date]").each(function() { this.value = '' });
+     $("form input[type=email]").each(function() { this.value = '' });
+     $("form input[type=password]").each(function() { this.value = '' });
 
-   
+}
+</script>
 
 
 
@@ -133,53 +143,7 @@ if (empty($_SESSION["logged"])) {
     <div class="wrapper">
         <!-- Sidebar -->
         <nav id="sidebar">
-            <div class="sidebar-header border border-success ">
-                <img src="../assets/img/Logo.png" alt="" class="w-100 h-100 ">
-            </div>
-
-            <ul class="list-unstyled components">
-                <p> Módulo interno</p>
-            
-
-                <li class="">
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Empresas</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="intuser.php">Usuarios internos EM</a>
-                        </li>
-                        <li>
-                            <a href="comerc.php">Comercializadores</a>
-                        </li>
-                        <li>
-                            <a href="transbot.php">Transacciones Bot</a>
-                        </li>
-                        <li>
-                            <a href="historicos.php">Registro Consumos Históricos</a>
-                        </li>
-                        <li>
-                            <a href="anulaciones.php">Control de errores</a>
-                            
-                        </li>
-                        <li>
-                            <a href="modgob.php">Modelo de gobierno</a>
-                            
-                        </li>
-                    
-                    </ul>
-                </li>
-                <li>
-                    <a href="https://energymaster.app/index.php/index " target="_blank" >Energyapp</a>
-                </li>
-               
-                <li class="">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Colaboradores</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href='formulario.php' disabled>Datos personales colaboradores</a>
-                           
-                        </li>
-                      
-                    </ul>
+        <?php include("menu.inc")  ?>
         </nav>
 
 

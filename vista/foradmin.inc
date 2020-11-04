@@ -339,7 +339,7 @@
 
             <div class="container mt-5 col-12 ">
                 <div class="container formulario1 imgs p-4">
-                    <table id="tusuarios" class="responsive  table-striped " width="100%" height="100%">
+                    <table id="tusuarios" class=" table-striped " width="100%" height="100%">
                         <thead class=" ">
                             <tr class=" text-center fverde   text-light">
                                 <th>Eliminar</th>

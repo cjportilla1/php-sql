@@ -72,8 +72,8 @@ input.dt-button {
   margin-right: 0.333em;
   margin-bottom: 0.333em;
   padding: 0.5em 1em;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 2px;
+  border: 1px solid rgb(99, 250, 73)  ;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 0.88em;
   line-height: 1.6em;
@@ -116,7 +116,7 @@ input.dt-button:active:not(.disabled),
 input.dt-button.active:not(.disabled) {
   background-color: rgba(0, 0, 0, 0.1);
   /* Fallback */
-  background: -webkit-linear-gradient(top, rgba(179, 179, 179, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -webkit-linear-gradient(top, rgba(31, 224, 13, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
   /* Chrome 10+, Saf5.1+, iOS 5+ */
   background: -moz-linear-gradient(top, rgba(179, 179, 179, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
   /* FF3.6 */
@@ -170,7 +170,7 @@ input.dt-button:hover:not(.disabled) {
   /* IE10 */
   background: -o-linear-gradient(top, rgba(153, 153, 153, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
   /* Opera 11.10+ */
-  background: linear-gradient(to bottom, rgba(153, 153, 153, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(to bottom, rgb(99, 250, 73)  0%, rgba(0, 0, 0, 0.1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='rgba(153, 153, 153, 0.1)', EndColorStr='rgba(0, 0, 0, 0.1)');
 }
 button.dt-button:focus:not(.disabled),
@@ -190,7 +190,7 @@ input.dt-button:focus:not(.disabled) {
   /* IE10 */
   background: -o-linear-gradient(top, #d1e2f7 0%, #79ace9 100%);
   /* Opera 11.10+ */
-  background: linear-gradient(to bottom, #d1e2f7 0%, #79ace9 100%);
+  background: linear-gradient(to bottom, rgb(99, 250, 73) 0%, #79ace9 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#d1e2f7', EndColorStr='#79ace9');
 }
 
@@ -222,7 +222,7 @@ div.dt-button-collection {
   padding: 8px 8px 4px 8px;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.4);
-  background-color: white;
+  background-color:rgb(255, 255, 255);
   overflow: hidden;
   z-index: 2002;
   border-radius: 5px;
@@ -256,7 +256,7 @@ div.dt-button-collection a.dt-button.active:not(.disabled) {
   /* IE10 */
   background: -o-linear-gradient(top, #f0f0f0 0%, #dadada 100%);
   /* Opera 11.10+ */
-  background: linear-gradient(to bottom, #f0f0f0 0%, #dadada 100%);
+  background: linear-gradient(to bottom,rgb(99, 250, 73) 0%, #dadada 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f0f0f0', EndColorStr='#dadada');
   box-shadow: inset 1px 1px 3px #666;
 }
@@ -265,7 +265,7 @@ div.dt-button-collection.fixed {
   top: 50%;
   left: 50%;
   margin-left: -75px;
-  border-radius: 0;
+  border-radius: 0px;
 }
 div.dt-button-collection.fixed.two-column {
   margin-left: -200px;
@@ -322,7 +322,7 @@ div.dt-button-collection.four-column > :last-child {
   column-count: 4;
 }
 div.dt-button-collection .dt-button {
-  border-radius: 0;
+  border-radius: 20px;
 }
 
 div.dt-button-background {

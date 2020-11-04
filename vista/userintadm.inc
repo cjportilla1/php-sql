@@ -52,6 +52,7 @@
              <div class="form-group col">
                  <label for="inputca"><span class="font-weight-bold">Rol</span></label>
                  <select name="idrole" id="inputcargo" class="form-control">
+                  <option value="" disabled> </option>
                      <?php
                         if (empty($_POST["idrol"])) {
 
@@ -102,6 +103,11 @@
 
 
              </div>
+              <div class="col">
+                <button type="button" onclick="resetform()" class="btn btn-verde text-light titulos" id="btnform">
+                       Limpiar formulario </button> <br>
+
+                </div>
              <div class="col">
 
                  <button type="button" onclick="cruduser('actualizaruint')" class="btn btn-verde text-light">
@@ -146,7 +152,8 @@ if (empty($_POST["iduint"])) {
 
  <div class="container mt-5  ">
      <div class="container formulario1 imgs p-5">
-         <table id="tusuarios" class="responsive  table-striped " width="100%" height="100%">
+         <table id="tusuarios" class="  table-striped " width="100%" height="100%">
+   
              <thead class=" ">
                  <tr class=" text-center fverde  fenergy text-light">
                      <th>Eliminar</th>
