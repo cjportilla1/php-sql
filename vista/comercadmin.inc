@@ -139,14 +139,14 @@
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold fenergy">Correo</span></label>
-                     <input name="correocom" type="email" value="<?php echo $_POST["correocom"]; ?>" class="form-control" id="inputmail" placeholder="ejemplo@mail.com" pattern="(@)">
+                     <input name="correocom" type="email" value="<?php echo $_POST["correocom"]; ?>" class="form-control" id="inputmail" placeholder="ejemplo@mail.com" pattern="(@)" >
                  </div>
 
 
 
                  <div class="form-group col-md-3">
                      <label for="inputtel"><span class="font-weight-bold fenergy">Telefono</span></label>
-                     <input name="telecom" type="number" value="<?php echo $_POST["telecom"]; ?>" class="form-control" id="inputTel" placeholder="#Teléfono" min="1000000" max="999999999999">
+                     <input name="telecom" type="text" value="<?php echo $_POST["telecom"]; ?>" class="form-control" id="inputTel" placeholder="#Teléfono" title="Solo se aceptan estos simbolos (-) y números">
                  </div>
 
 
@@ -156,7 +156,10 @@
 
              </div>
 
-             <div class="form-row mb-3">
+             <div class="form-row-12 mb-3">
+             <div class="alert alert-danger" role="alert">
+  Recuerda:si el registro solo tiene link  web, probarlo luego de registrarlo!
+</div>
 
              </div>
 
