@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit60d86410043b0ec6824f334f4683ade3
+class ComposerStaticInitabe816ff8dbf30b6e031852cdc647b79
 {
     public static $prefixLengthsPsr4 = array (
         'P' => 
@@ -20,11 +20,29 @@ class ComposerStaticInit60d86410043b0ec6824f334f4683ade3
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'U' => 
+        array (
+            'Ubidots' => 
+            array (
+                0 => __DIR__ . '/..' . '/ubidots/ubidots/src',
+            ),
+        ),
+        'R' => 
+        array (
+            'Requests' => 
+            array (
+                0 => __DIR__ . '/..' . '/rmccue/requests/library',
+            ),
+        ),
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit60d86410043b0ec6824f334f4683ade3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit60d86410043b0ec6824f334f4683ade3::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitabe816ff8dbf30b6e031852cdc647b79::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitabe816ff8dbf30b6e031852cdc647b79::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitabe816ff8dbf30b6e031852cdc647b79::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

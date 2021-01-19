@@ -18,12 +18,12 @@
 
              <div class="form-row">
                  <div class="form-group col-md-4">
-                     <label for="inpu"><span class="font-weight-bold">Fecha automatización</span></label>
+                     <label for="inpu"><span class="font-weight-bold">Fecha automatización *</span></label>
                      <input type="date" value="<?php echo $_POST["ftranbot"]; ?>" class="form-control " id="inputfingreso" name="ftranbot" placeholder="fingreso" <?php echo 'max="' . date('Y-m-d') . '"' ?>>
                  </div>
 
                  <div class="form-group col-md-3">
-                     <label for="inputca"><span class="font-weight-bold">Gestionado por</span></label>
+                     <label for="inputca"><span class="font-weight-bold">Gestionado por *</span></label>
                      <select name="idperstr" id="inputcargo" class="form-control">
                      <option value="" disabled> </option>
                          <?php
@@ -51,7 +51,7 @@
 
 
                  <div class="form-group col-md-3">
-                     <label for="inputca"><span class="font-weight-bold">Cliente</span></label>
+                     <label for="inputca"><span class="font-weight-bold">Cliente *</span></label>
                      <select name="idcliente" id="inputcargo" class="form-control">
                      <option value="" disabled> </option>
                          <?php
@@ -92,7 +92,7 @@
              <div class="form-row">
 
                  <div class="form-group col-md-4">
-                     <label for="inputca"><span class="font-weight-bold">Categoría transacción</span></label>
+                     <label for="inputca"><span class="font-weight-bold">Categoría transacción *</span></label>
                      <select name="idcat" id="inputcargo" class="form-control">
                      <option value="" disabled> </option>
                          <?php
@@ -120,7 +120,7 @@
                  </div>
 
                  <div class="form-group col-md-4">
-                     <label for="inputtel"><span class="font-weight-bold">Transacciones lanzadas</span></label>
+                     <label for="inputtel"><span class="font-weight-bold">Transacciones lanzadas *</span></label>
                      <input name="transl" type="number" value="<?php echo $_POST["transl"]; ?>" class="form-control" id="inputTel" placeholder="#transacciones lanzadas" min="1" max="100">
                  </div>
 
@@ -154,7 +154,7 @@
 
                  <div class="col-4"></div>
                  <div class="form-group col-4">
-                     <label for="inputtel"><span class="font-weight-bold">Tiempo ahorrado</span></label>
+                     <label for="inputtel"><span class="font-weight-bold">Tiempo ahorrado *</span></label>
                      <input name="tiahorrado" type="number" value="<?php echo $_POST["tiahorrado"]; ?>" class="form-control" id="inputTel" placeholder="#tiempo ahorrado en horas" min="1" max="8" step="any">
 
 
@@ -163,6 +163,12 @@
 
                  </div>
                  <div class="col-4"></div>
+             </div>
+             <div class="form-row-12 mb-3">
+             <div class="alert alert-danger" role="alert">
+  Recuerda: Los campos con  *  son obligatorios!
+</div>
+
              </div>
 
 
@@ -328,38 +334,38 @@
 
                     $res = sqlsrv_query($con, $sql);
 
-
-
-
                     while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_BOTH)) {
+
+                        $rutaimg="<IMG src='../assets/img/";
+                        $tamañoimg="width='70%' height='30%'";
 
                         switch ($row["idClientetr"]) {
                             case '1':
-                                $cliente = "<IMG src='../assets/img/d1icon.ico' width='70%' height='30%'  >";
+                                $cliente = $rutaimg."d1icon.ico".$tamañoimg;
                                 break;
 
                             case '2':
-                                $cliente = "<IMG src='../assets/img/bbogota.ico' width='70%' height='30%'   >";
+                                $cliente = $rutaimg."bbogota.ico".$tamañoimg;
                                 break;
 
                             case '3':
-                                $cliente = "<IMG src='../assets/img/distracom.ico' width='70%' height='30%'     >";
+                                $cliente = $rutaimg."distracom.ico".$tamañoimg ;
                                 break;
 
                             case '4':
-                                $cliente = "<IMG src='../assets/img/velez.ico' width='70%' height='30%'    >";
+                                $cliente = $rutaimg."velez.ico".$tamañoimg ;
                                 break;
 
                             case '5':
-                                $cliente = "<IMG src='../assets/img/studiof.ico' width='70%' height='30%'    >";
+                                $cliente = $rutaimg."studiof.ico".$tamañoimg ;
                                 break;
 
                             case '7':
-                                $cliente = "<IMG src='../assets/img/colanta.ico' width='70%' height='30%'      >";
+                                $cliente = $rutaimg."colanta.ico".$tamañoimg ;
                                 break;
 
                             case '8':
-                                $cliente = "<IMG src='../assets/img/larebaja.ico' width='70%' height='30%'      >";
+                                $cliente = $rutaimg."larebaja.ico".$tamañoimg ;
                                 break;
 
                             case '9':
@@ -367,45 +373,54 @@
                                 break;
 
                             case '10':
-                                $cliente = "<IMG src='../assets/img/hermeco.ico' width='70%' height='30%'      >";
+                                $cliente = $rutaimg."hermeco.ico".$tamañoimg ;
                                 break;
 
                             case '11':
-                                $cliente = "<IMG src='../assets/img/leonisa.ico' width='70%' height='30%'      >";
+                                $cliente = $rutaimg."leonisa.ico".$tamañoimg ;
                                 break;
 
                             case '12':
-                                $cliente = "<IMG src='../assets/img/tcc.ico' width='70%' height='30%'      >";
+                                $cliente = $rutaimg."tcc.ico".$tamañoimg;
                                 break;
 
 
                             case '13':
-                                $cliente = "<IMG src='../assets/img/diag.ico' width='70%' height='30%'  >";
+                                $cliente = $rutaimg."diag.ico".$tamañoimg;
                                 break;
 
 
                                 case '14':
-                                    $cliente="<IMG src='../assets/img/bbva.ico' width='70%' height='30%'      >";
+                                    $cliente=$rutaimg."bbva.ico".$tamañoimg ;
                                 break;
     
                                 case '15':
-                                    $cliente="<IMG src='../assets/img/av villas.ico' width='70%' height='30%'      >";
+                                    $cliente=$rutaimg."av villas.ico".$tamañoimg ;
                                 break;
     
                                 case '16':
-                                    $cliente="<IMG src='../assets/img/popular.ico' width='70%' height='30%'      >";
+                                    $cliente=$rutaimg."popular.ico".$tamañoimg ;
                                 break;
     
                                 case '17':
-                                    $cliente="<IMG src='../assets/img/boccidente.ico' width='70%' height='30%'      >";
+                                    $cliente=$rutaimg."boccidente.ico".$tamañoimg;
                                 break;
                                 
                                 case '18':
-                                    $cliente="<IMG src='../assets/img/porvenir.ico' width='70%' height='30%'      >";
+                                    $cliente=$rutaimg."porvenir.ico".$tamañoimg ;
                                 break;
                                 case '19':
-                                    $cliente="<IMG src='../assets/img/pilatos.ico' width='70%' height='30%'      >";
+                                    $cliente=$rutaimg."pilatos.ico".$tamañoimg;
                                 break;
+                                case '20':
+                                    $cliente=$rutaimg."nca.ico".$tamañoimg;
+                                break;
+                                case '21':
+                                    $cliente=$rutaimg."fds.ico".$tamañoimg;
+                                break;
+
+                             
+
 
                         }
 

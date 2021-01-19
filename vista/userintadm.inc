@@ -195,8 +195,8 @@ if (empty($_POST["iduint"])) {
 
 
                     $sql = "	
-                        select iduint,razons,usuarioint,passuint,roluint,descrol from Usersint ui 
-                            inner join Roluint on roluint=idroluint";
+                    select iduint,razons,usuarioint,passuint,roluint,descrol,UsrModDate from Usersint ui 
+                    inner join Roluint on roluint=idroluint order by UsrModDate desc";
 
 
                     $res = sqlsrv_query($con, $sql);

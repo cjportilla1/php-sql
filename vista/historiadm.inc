@@ -30,12 +30,12 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inpu"><span class="font-weight-bold">Fecha de entrega consumos historicos</span></label>
+                    <label for="inpu"><span class="font-weight-bold">Fecha de entrega consumos historicos *</span></label>
                     <input type="date" value="<?php echo $_POST["fechachist"]; ?>" class="form-control " id="inputfingreso" name="fechachist" placeholder="fingreso" <?php echo 'max="' . date('Y-m-d') . '"' ?>>
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="inputca"><span class="font-weight-bold">Historico gestionado por</span></label>
+                    <label for="inputca"><span class="font-weight-bold">Historico gestionado por *</span></label>
                     <select name="idperso" id="inputwho" class="form-control">
                     <option value="" disabled> </option>
                         <?php
@@ -70,14 +70,14 @@
 
 
                 <div class="form-group col-sm-5">
-                    <label for="inputtel"><span class="font-weight-bold">Cantidad suscripciones Cons Hist</span></label>
+                    <label for="inputtel"><span class="font-weight-bold">Cantidad suscripciones Cons Hist *</span></label>
                     <input name="cantsusch" type="number" value="<?php echo $_POST["cantsusch"]; ?>" class="form-control" id="inputTel" placeholder="#cantidad de suscripciones" min="1" max="100">
                 </div>
 
 
 
                 <div class="form-group col-sm-4">
-                    <label for="inputca"><span class="font-weight-bold">Cliente </span></label>
+                    <label for="inputca"><span class="font-weight-bold">Cliente *</span></label>
                     <select name="idcliente" id="inputclient" class="form-control">
                     <option value="" disabled> </option>
                         <?php
@@ -121,16 +121,24 @@
 
 
 <div class="form-row-12">
-    <label for="inputtel"><span class="font-weight-bold fenergy">Nota</span></label>
+    <label for="inputtel"><span class="font-weight-bold fenergy">Observacion *</span></label>
     <textarea name="notach" type="text" class="form-control mb-2" id="inputTel" placeholder="observaciones"><?php echo $_POST["notach"]; ?></textarea>
 </div>
 
+<div class="form-row-12 mb-3">
+             <div class="alert alert-danger" role="alert">
+  Recuerda: Los campos con  *  son obligatorios!
+</div>
 
+             </div>
 
 <div class="form-row">
 
+
+
     <div class="col-2"> </div>
     <div class="col">
+  
 
         <button type="button" onclick="cruduser('guardarch')" class="btn btn-verde text-light titulos">
             REGISTRAR </button> <br>
@@ -238,7 +246,7 @@
                     <th>Fecha ingreso consumos his</th>
                     <th>Cliente</th>
                     <th>Cantidad suscripciones Cons Hist</th>
-                    <th>Nota</th>
+                    <th>Observacion</th>
 
 
 

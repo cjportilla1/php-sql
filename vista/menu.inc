@@ -30,11 +30,19 @@
                             <a href="modgob.php"><i class="fas fa-user"></i> <i class="fas fa-sitemap"></i> Modelo de gobierno </a>
                             
                         </li>
+                         <li>
+                            <a href="testftp.php"><i class="fas fa-user"></i> <i class="fas fa-sitemap"></i> pruebas </a>
+                            
+                        </li>
+
                     
                     </ul>
                 </li>
                 <li>
                     <a href="https://energymaster.app/index.php/index " target="_blank" >Energyapp</a>
+                </li>
+                <li>
+                    <a href="https://energyhome.azurewebsites.net/index.php/index " target="_blank" >EnergyHome</a>
                 </li>
                
                 <li class="">
@@ -45,3 +53,5 @@
                         </li>
                       
                     </ul>
+
+                    <a href="cerrarsesion.php" class="text-danger  btn btn-warning">Cerrar sesion</a> 

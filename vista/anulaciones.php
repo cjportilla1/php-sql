@@ -1,15 +1,55 @@
 <?php
-error_reporting(0);
+// error_reporting(0);
 
 session_start();
 include("conexion.php");
 
 
-if (empty($_SESSION["logged"])) {
-    header("location:cerrarsesion.php");
-}
+// if (empty($_SESSION["logged"])) {
+//     header("location:cerrarsesion.php");
+// }
 
 
+// require '../vendor\autoload.php';
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
+// require '../vendor/phpmailer/phpmailer/src/Exception.php';
+
+// /* The main PHPMailer class. */
+// require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+
+// /* SMTP class, needed if you want to use SMTP. */
+// require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+
+// $mail = new PHPMailer(TRUE);
+// try {
+//     $mail->SMTPDebug=2;
+//     $mail->isSMTP();
+//     $mail->Host='SMTP.Office365.com';
+//     $mail->SMTPAuth=true;
+//     $mail->Username = 'robotfalcon@energymaster.co';
+//     $mail->Password = 'Mun1c1p10.C4ld4s';
+//     $mail->SMTPSecure = 'tls';
+//     $mail->Port=587;
+ 
+//     $mail->setFrom('robotfalcon@energymaster.co');
+//     $mail->addAddress('robotfalcon@energymaster.co');
+//     $mail->Subject='Esto es un test de php mailer';
+//     $mail->Body='Hola mundo desde  <b>php mailer</b>';
+  
+ 
+//     $mail->send();
+//      /* Finally send the mail. */
+ 
+//   } catch (Exception $e) {
+ 
+//      echo $e->errorMessage();
+//       //throw $th;
+//   }catch(\Exception $e){
+ 
+//      echo $e->getMessage();   
+//   }
+                         
 
 ?>
 

@@ -25,15 +25,20 @@
 
         <form class="" action="" method="POST" id="formRegistroUser" ectype="multipart/form-data">
 
+        <div class="form-row-12 mb-3">
+             <div class="alert alert-danger" role="alert">
+  Recuerda: Los campos con  *  son obligatorios!
+</div>
 
+             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="inpu"><span class="font-weight-bold">Fecha error</span></label>
+                    <label for="inpu"><span class="font-weight-bold">Fecha error *</span></label>
                     <input type="date" value="<?php echo $_POST["fechaanul"]; ?>" class="form-control " id="inputfingreso" name="fechaanul" placeholder="fingreso" <?php echo 'max="' . date('Y-m-d') . '"' ?>>
                 </div>
 
                 <div class="form-group col-md-3">
-                    <label for="inputca"><span class="font-weight-bold">Gestionado por</span></label>
+                    <label for="inputca"><span class="font-weight-bold">Gestionado por *</span></label>
                     <select name="idpersanul" id="inputcargo" class="form-control">
                         <option value="" disabled> </option>
                         <?php
@@ -61,7 +66,7 @@
 
 
                 <div class="form-group col-md-3">
-                    <label for="inputca"><span class="font-weight-bold">Cliente</span></label>
+                    <label for="inputca"><span class="font-weight-bold">Cliente *</span></label>
                     <select name="idclienteanul" id="inputcargo" class="form-control">
                     <option value="" disabled> </option>
                         <?php
@@ -100,7 +105,7 @@
             <div class="form-row">
 
                 <div class="form-group col-md-4">
-                    <label for="inputca"><span class="font-weight-bold">Motivo error</span></label>
+                    <label for="inputca"><span class="font-weight-bold">Motivo error *</span></label>
                     <select name="idmotanul" id="inputcargo" class="form-control">
                     <option value="" disabled> </option>
                         <?php
@@ -128,12 +133,12 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="inputtel"><span class="font-weight-bold">Cant fac errores</span></label>
+                    <label for="inputtel"><span class="font-weight-bold">Cant fac errores *</span></label>
                     <input name="cantfanul" type="number" value="<?php echo $_POST["cantfanul"]; ?>" class="form-control" id="inputTel" placeholder="Cantidad Fac errores" min="1" max="100">
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="inputca"><span class="font-weight-bold">Autorizado?</span></label>
+                    <label for="inputca"><span class="font-weight-bold">Autorizado? *</span></label>
                     <select name="autanul" id="inputcargo" class="form-control">
 
                     <option value="" disabled> </option>
@@ -172,8 +177,8 @@
             </div>
 
             <div class="form-row">
-                <label for="inputtel"><span class="font-weight-bold">Observaciones</span></label>
-                <textarea name="notaanul" type="text" class="form-control" id="inputTel" placeholder="observaciones"><?php echo $_POST["notaanul"]; ?></textarea>
+                <label for="inputtel"><span class="font-weight-bold">Detalle error *</span></label>
+                <textarea name="notaanul" type="text" class="form-control" id="inputTel" placeholder="Descripcion del error"><?php echo $_POST["notaanul"]; ?></textarea>
 
 
             </div>
@@ -181,7 +186,7 @@
             <div class="form-row mb-2">
                 <div class="col">
 
-                    <label for="inputca"><span class="font-weight-bold">Error llegó al cliente?</span></label>
+                    <label for="inputca"><span class="font-weight-bold">Error llegó al cliente? *</span></label>
                     <select name="errcli" id="iderrcli" class="form-control">
                     <option value="" disabled> </option>
                         <?php
@@ -192,6 +197,10 @@
                         } else {
                             echo "<option value='" . $_POST["errcli"] . "'>" . $_POST["errcli"] . " ";
                         }
+                          
+
+
+ 
                         ?>
                         <option value="Si">Si</option>
                         <option value="No">No</option>
@@ -200,13 +209,14 @@
 
 
 
-                    <label for="inputtel"><span class="font-weight-bold">Plan de acción</span></label>
+                    <label for="inputtel"><span class="font-weight-bold">Plan de acción *</span></label>
                     <textarea name="planacc" type="text" class="form-control" id="idplanacc" placeholder="Plan de accion"><?php echo $_POST["planacc"]; ?></textarea>
 
                 </div>
 
 
             </div>
+         
 
 
 
@@ -329,7 +339,7 @@
                     <th>Error llegó al cliente?</th>
                     <th>Plan de accion:</th>
                     <th>Autorizada?</th>
-                    <th>Observación</th>
+                    <th>Detalle error</th>
 
 
 

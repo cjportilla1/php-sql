@@ -158,7 +158,7 @@
 
              <div class="form-row-12 mb-3">
              <div class="alert alert-danger" role="alert">
-  Recuerda:si el registro solo tiene link  web, probarlo luego de registrarlo!
+  Recuerda: Si el registro solo tiene link  web de contacto,debes probarlo luego de guardarlo!
 </div>
 
              </div>

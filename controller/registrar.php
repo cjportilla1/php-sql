@@ -250,10 +250,21 @@ if ($_POST['btnopcion'] == 'actualizaruint') {
 
 if ($_POST['btnopcion'] == 'guardartrbot') {
 
-
-
-
-	$ftranbot = trim($_POST['ftranbot']);
+	if (empty($_POST['ftranbot'])) {
+	echo "Necesitamos tener la fecha del registro! ";
+	}elseif (empty($_POST['idperstr'])) {
+		echo "Necesitamos saber quien hizo este registro!";
+	}elseif (empty($_POST['idcliente'])) {
+	echo "Necesitamos saber el cliente!";
+	}elseif (empty($_POST['idcat'])) {
+	echo "necesitamos saber la categoria de transaccion!";
+	}elseif (empty($_POST['transl'])) {
+		echo "Necesitamos saber por lo menos conocer las transacciones lanzadas!";
+	}elseif (empty($_POST['tiahorrado'])) {
+	echo "Necesitamos saber cuanto tiempo nos ahorraste!";
+	}else {
+	
+		$ftranbot = trim($_POST['ftranbot']);
 	$idperstr = trim($_POST['idperstr']);
 	$idcliente = trim($_POST['idcliente']);
 	$idcat = trim($_POST['idcat']);
@@ -297,13 +308,29 @@ if ($_POST['btnopcion'] == 'guardartrbot') {
 			echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
 		}
 	}
+  }
+
+
+	
 }
 
 
 
 if ($_POST['btnopcion'] == 'actualizartrbot') {
 
-
+	if (empty($_POST['ftranbot'])) {
+		echo "Necesitamos tener la fecha del registro! ";
+		}elseif (empty($_POST['idperstr'])) {
+			echo "Necesitamos saber quien hizo este registro!";
+		}elseif (empty($_POST['idcliente'])) {
+		echo "Necesitamos saber el cliente!";
+		}elseif (empty($_POST['idcat'])) {
+		echo "necesitamos saber la categoria de transaccion!";
+		}elseif (empty($_POST['transl'])) {
+			echo "Necesitamos saber por lo menos conocer las transacciones lanzadas!";
+		}elseif (empty($_POST['tiahorrado'])) {
+		echo "Necesitamos saber cuanto tiempo nos ahorraste!";
+		}else {
 
 	$idtranbot = trim($_POST["idtranbot"]);
 	$ftranbot = trim($_POST['ftranbot']);
@@ -351,6 +378,7 @@ if ($_POST['btnopcion'] == 'actualizartrbot') {
 			echo "no se permiten campos vacios o registros repetidos entre cliente y categoria";
 		}
 	}
+  }
 }
 
 
@@ -360,9 +388,19 @@ if ($_POST['btnopcion'] == 'actualizartrbot') {
 if ($_POST['btnopcion'] == 'guardarch') {
 
 
-
-
-	$idperso = trim($_POST['idperso']);
+	if (empty($_POST['idperso'])) {
+		echo "necesitamos saber quien hizo el registro!";
+	}elseif (empty($_POST['fechachist'])) {
+	echo "necesitamos saber la fecha del reg consu histo";
+	}elseif (empty($_POST['idcliente'])) {
+		echo "necesitamos saber a que cliente pertenece!";
+	}elseif (empty($_POST['cantsusch'])) {
+		echo "necesitamos saber la cantidad que registraste !";
+	}elseif (empty($_POST['notach'])) {
+	 echo "necesitamos que coloques una observacion";
+	}else {
+		
+		$idperso = trim($_POST['idperso']);
 	$fechachist = trim($_POST['fechachist']);
 	$idcliente = trim($_POST['idcliente']);
 	$cantsusch = trim($_POST['cantsusch']);
@@ -405,6 +443,9 @@ if ($_POST['btnopcion'] == 'guardarch') {
 			echo "campos vacios ó registro repetido ";
 		}
 	}
+  }
+
+	
 }
 
 
@@ -413,7 +454,17 @@ if ($_POST['btnopcion'] == 'guardarch') {
 
 if ($_POST['btnopcion'] == 'actualizarch') {
 
-
+	if (empty($_POST['idperso'])) {
+		echo "necesitamos saber quien hizo el registro!";
+	}elseif (empty($_POST['fechachist'])) {
+	echo "necesitamos saber la fecha del reg consu histo";
+	}elseif (empty($_POST['idcliente'])) {
+		echo "necesitamos saber a que cliente pertenece!";
+	}elseif (empty($_POST['cantsusch'])) {
+		echo "necesitamos saber la cantidad que registraste !";
+	}elseif (empty($_POST['notach'])) {
+	 echo "necesitamos que coloques una observacion";
+	}else {
 
 	$idconsumo = trim($_POST['idconsumo']);
 	$idperso = trim($_POST['idperso']);
@@ -460,6 +511,7 @@ if ($_POST['btnopcion'] == 'actualizarch') {
 			echo "campos vacios, fuera de rango o registro repetido ";
 		}
 	}
+  }
 }
 
 
@@ -477,6 +529,9 @@ if ($_POST['btnopcion'] == 'guardarAnul') {
 	} elseif (empty($_POST['idclienteanul'])) {
 		echo"Necesitamos saber de que cliente es el error";
 		# code...
+	}
+	elseif (empty($_POST["cantfanul"])) {
+		echo "se necesita una cantidad para facturas anuladas";
 	}
 	elseif(empty($_POST["idmotanul"])) {
 		echo "se necesita un motivo de anulacion!";
